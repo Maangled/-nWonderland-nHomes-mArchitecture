@@ -1,0 +1,278 @@
+@keyframes jello-horizontal {
+    0%,
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+    30% {
+      transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+      transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+      transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+      transform: scale3d(0.95, 1.05, 1);
+    }
+    75% {
+      transform: scale3d(1.05, 0.95, 1);
+    }
+  }
+  @keyframes shadow-drop-bottom {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+    to {
+      box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+    }
+  }
+  @keyframes zoom-in {
+    0% {
+
+    }
+    100% {
+      transform: scale3d(1.1,1.1,1.1);
+    }
+  }
+  .tabOpen{
+    opacity: 50%;
+  }
+  .tabClosed {
+    opacity: 100%;
+  }
+  .matterModelColDivFullscreen{
+    width : 100vw;
+    height : 100vh;
+  }
+  .matterModelColDiv{
+    width : 100%;
+    height : 100%;
+  }
+  .matterModelColDiv,
+  .matterModelColDivFullscreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+  }
+  .guestWalletIcon {
+    position: absolute;
+    top: 84px;
+    left: 38px;
+    border-radius: 5px;
+    width: 64px;
+    height: 108px;
+    overflow: hidden;
+  }
+  .categoryTitleDiv {
+    position: absolute;
+    top: 19px;
+    left: 98px;
+    font-weight: 800;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .questIcon {
+    position: absolute;
+    top: 12px;
+    left: 35px;
+    border-radius: 5px;
+    width: 57px;
+    height: 51px;
+    overflow: hidden;
+  }
+  .questHeadlineDiv {
+    position: absolute;
+    top: 64px;
+    left: 42px;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+    width: 463px;
+    height: 40px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .rectangleIcon {
+    position: absolute;
+    top: 0;
+    left: -4px;
+    border-radius: 5px;
+    width: 32px;
+    height: 28px;
+  }
+  .settingButton {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    top: 19px;
+    left: 542px;
+    width: 24px;
+    height: 20px;
+  }
+  .settingButton:hover {
+    display: flex;
+    animation: 2s ease 0s 1 normal none jello-horizontal;
+    opacity: 1;
+  }
+  .matterHolderModel {
+    display: flex;
+    position: relative;
+    border-radius: 30px;
+    background-color: rgba(61, 109, 119, 0.5);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: 3px solid #fff;
+    box-sizing: border-box;
+    width: 584px;
+    height: 204px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .contentPlayerDiv:active,
+  .matterHolderModel:active {
+    transform: rotate(0deg);
+    animation: 1s ease 0s infinite normal none shadow-drop-bottom;
+    opacity: 1;
+  }
+  .questBrowserDiv {
+    align-self: stretch;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 150px 0 0px;
+    box-sizing: border-box;
+    align-items: left;
+    justify-content: flex-start;
+  }
+.currentViewIcon,
+.currentViewIcon_isSelected,
+.currentViewIcon1,
+.currentViewIcon1_isSelected,
+.currentViewIcon2,
+.currentViewIcon2_isSelected{
+  position: relative;
+  width: 33px;
+  height: 31px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #fff;
+  backdrop-filter: blur(15px);
+}
+.currentViewIcon_isSelected,
+.currentViewIcon1_isSelected,
+.currentViewIcon2_isSelected{
+  border-color: rgba(255, 0, 0, 0.76);
+}
+.currentViewIcon,
+.currentViewIcon_isSelected {
+  border-radius: 5px;
+}
+.currentViewIcon1,
+.currentViewIcon1_isSelected {
+  border-radius: 10px;
+}
+
+.currentViewIcon1,
+.currentViewIcon1_isSelected {
+  width: 57px;
+  height: 54px;
+}
+.currentViewIcon2,
+.currentViewIcon2_isSelected {
+  border-radius: 15px;
+  width: 83px;
+  height: 79px;
+}
+.bountyPageCarouselLocked{
+  pointer-events: none;
+  opacity: 0.5;
+}
+.bountyPageCarousel,
+.bountyPageCarouselLocked,
+.questBrowserDiv {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+.bountyPageCarousel,
+.bountyPageCarouselLocked {
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: 5px 10px;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border-radius: 25px;
+  border:3px solid #fff;
+}
+  .contentPlayerDiv,
+  .matterContentBrowser {
+    flex: 1;
+    align-self: stretch;
+    position: relative;
+    border-radius: 30px;
+    border: 3px solid #fff;
+    box-sizing: border-box;
+  }
+  .matterContentBrowser {
+    display: flex;
+    flex-direction: column;
+    padding: 17px 30px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+  }
+  .contentPlayerDiv {
+    background-color: rgba(61, 109, 119, 0.5);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+  .matterContentDisplay,
+
+  .matterModelDiv,
+  .matterModelColDiv,
+  .matterModelColDivFullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .matterContentDisplay {
+    flex: 1;
+    align-self: stretch;
+    flex-direction: column;
+  }
+
+  .matterModelDiv {
+    position: relative;
+    flex-direction: row;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    width: auto;
+    height: 1080px;
+    padding: 50px;
+    box-sizing: border-box;
+    gap: 50px;
+    overflow: auto;
+    text-align: left;
+    font-size: 24px;
+    color: #fff;
+    font-family: Inter;
+    border-radius: 50px; 
+    border-width: 5px;
+    border-style: solid;
+  }
+  .matterModelDiv:hover{
+    animation: 1s ease 0s 1 normal forwards zoom-in;
+    opacity: 1;
+  }

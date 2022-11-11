@@ -1,0 +1,51 @@
+@keyframes shadow-drop-bottom {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+  }
+}
+@keyframes show-up {
+  0% {
+    opacity: 25%;
+  }
+  to {
+    opacity: 90%;
+  }
+}
+.portalPopupOverlay {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    pointer-events: fill;
+    z-index: 1000;
+  }
+.draggable {
+  position: flex;
+  display: flex;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: 30px;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: none;
+  text-align: left;
+  font-size: 24px;
+  align-items: center;
+  color: #fff;
+  font-family: Inter;
+  border-radius: 50px; 
+  border : 5px ridge #fff;
+  pointer-events: fill;
+  }
+

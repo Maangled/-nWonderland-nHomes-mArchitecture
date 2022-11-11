@@ -1,0 +1,108 @@
+.rightStreamIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50px;
+  width: 960px;
+  height: 540px;
+  object-fit: cover;
+}
+.rightStreamDiv {
+  top: 531px;
+  left: 960px;
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.rightStreamDiv,
+.rightStreamDiv1,
+.rightStreamIcon1 {
+  position: absolute;
+  border-radius: 50px;
+  width: 960px;
+  height: 540px;
+}
+.rightStreamIcon1 {
+  top: 4px;
+  left: 0;
+  object-fit: cover;
+}
+.rightStreamDiv1 {
+  top: -4px;
+  left: 960px;
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.leftStreamIcon,
+.leftStreamIcon1 {
+  position: absolute;
+  top: 536px;
+  left: 0;
+  border-radius: 50px;
+  width: 964px;
+  height: 544px;
+  object-fit: cover;
+}
+.leftStreamIcon1 {
+  top: 4px;
+  width: 960px;
+}
+.bTPopUpWindow,
+.leftStreamDiv {
+  position: absolute;
+  left: 0;
+  border-radius: 50px;
+  height: 1080px;
+}
+.leftStreamDiv {
+  top: -4px;
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 960px;
+  overflow: hidden;
+}
+.bTPopUpWindow {
+  top: 0;
+  width: 1920px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.authenticateB {
+  position: absolute;
+  top: 11px;
+  left: 29px;
+  font-size: 24px;
+  display: inline-block;
+  font-family: Inter;
+  color: #fff;
+  text-align: left;
+}
+.guestWalletButton,
+.hostWalletButton {
+  cursor: pointer;
+  border: 4px solid #fff;
+  padding: 0;
+  background-color: rgba(48, 89, 91, 0.2);
+  position: absolute;
+  top: 26px;
+  left: 38px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  box-sizing: border-box;
+  width: 212px;
+  height: 51px;
+  overflow: hidden;
+}
+.hostWalletButton {
+  left: 1675px;
+  width: 204px;
+}
+.quadViewDiv {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 1080px;
+  overflow: hidden;
+}

@@ -1,0 +1,984 @@
+.avatarImg1,
+.avatarImg22 {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  border-radius: 40px;
+  width: 844px;
+  height: 822px;
+  object-fit: cover;
+}
+.avatarImg1 {
+  top: 62px;
+  left: 43px;
+  border-radius: 30px;
+  width: 196px;
+  height: 213px;
+}
+.formingTheSuperheroAcadamy,
+.heroProtagonistDiv {
+  position: absolute;
+  display: inline-block;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.heroProtagonistDiv {
+  top: 7px;
+  left: 32px;
+  font-weight: 900;
+  width: 458px;
+  height: 91px;
+}
+.formingTheSuperheroAcadamy {
+  top: 69px;
+  left: 49px;
+  font-size: 24px;
+  font-weight: 800;
+}
+.hostInformationDiv {
+  position: absolute;
+  top: 66px;
+  left: 257px;
+  width: 542px;
+  height: 201px;
+  overflow: hidden;
+}
+.declineOfferDiv {
+  position: absolute;
+  top: 5px;
+  left: 37px;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: Inter;
+  color: #de0606;
+  text-align: left;
+  display: inline-block;
+  width: 167px;
+  height: 33px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.acceptButton {
+  cursor: pointer;
+  border: 3px solid #fff;
+  padding: 0;
+  background-color: rgba(71, 141, 146, 0.5);
+  position: absolute;
+  top: 436px;
+  left: 19px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 222px;
+  height: 38px;
+  overflow: hidden;
+}
+.contractsI {
+  position: absolute;
+  top: 15px;
+  left: 115px;
+  font-size: 24px;
+  display: inline-block;
+  font-weight: 700;
+}
+.rectangleIcon {
+  position: absolute;
+  top: 53px;
+  left: 24px;
+  width: 293px;
+  height: 164px;
+}
+.addToTrade {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  display: inline-block;
+  width: 108px;
+}
+.guestWalletDiv {
+  top: 187px;
+  left: 112px;
+  width: 108px;
+  height: 26px;
+  text-align: center;
+}
+.guestWalletDiv,
+.guestWalletDiv1,
+.guestWalletDiv2,
+.guestWalletDiv3 {
+  position: absolute;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.guestWalletDiv1 {
+  top: 109px;
+  left: 112px;
+  width: 108px;
+  height: 26px;
+  text-align: center;
+}
+.guestWalletDiv2,
+.guestWalletDiv3 {
+  top: 64px;
+  left: 29px;
+  width: 75px;
+  height: 71px;
+}
+.guestWalletDiv3 {
+  top: 142px;
+}
+.readMoreB {
+  top: 192px;
+  left: 228px;
+  text-align: center;
+}
+.puffTheMagicDragon,
+.readMoreB,
+.readMoreB1 {
+  position: absolute;
+  display: inline-block;
+}
+.readMoreB1 {
+  top: 114px;
+  left: 227px;
+  text-align: center;
+}
+.puffTheMagicDragon {
+  top: 69px;
+  left: 115px;
+  width: 182px;
+  height: 36px;
+}
+.allRaritiesAreStillAvailab,
+.livesByTheSea,
+.randomHeroAcadamyNFT {
+  position: absolute;
+  top: 144px;
+  left: 115px;
+  display: inline-block;
+  width: 182px;
+  height: 16px;
+}
+.allRaritiesAreStillAvailab,
+.livesByTheSea {
+  top: 85px;
+  color: #000;
+  width: 192px;
+  height: 24px;
+}
+.allRaritiesAreStillAvailab {
+  top: 160px;
+}
+.contractWidgetDiv {
+  position: absolute;
+  top: 0;
+  left: 468px;
+  border-radius: 30px;
+  background-color: rgba(71, 141, 146, 0.5);
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  width: 340px;
+  height: 237px;
+  overflow: hidden;
+}
+.termsConditions {
+  position: absolute;
+  top: 14px;
+  left: 62px;
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+}
+.rectangleIcon1 {
+  position: absolute;
+  top: 53px;
+  left: 22px;
+  width: 293px;
+  height: 164px;
+}
+.guestWalletDiv4,
+.guestWalletDiv5,
+.guestWalletDiv6 {
+  position: absolute;
+  top: 184px;
+  left: 197px;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  width: 108px;
+  height: 26px;
+  overflow: hidden;
+  text-align: center;
+}
+.guestWalletDiv5,
+.guestWalletDiv6 {
+  top: 148px;
+}
+.guestWalletDiv6 {
+  top: 112px;
+}
+.nameDiv,
+.profileImageDiv {
+  position: absolute;
+  top: 93px;
+  left: 57px;
+  display: inline-block;
+  width: 52px;
+  height: 18px;
+}
+.profileImageDiv {
+  top: 116px;
+  width: 78px;
+}
+.destinationAddressDiv,
+.medicalHistoryDiv,
+.optionalDiv,
+.realWorldLocation {
+  position: absolute;
+  top: 139px;
+  left: 57px;
+  display: inline-block;
+  width: 122px;
+  height: 18px;
+}
+.medicalHistoryDiv,
+.optionalDiv,
+.realWorldLocation {
+  top: 162px;
+  width: 118px;
+}
+.medicalHistoryDiv,
+.optionalDiv {
+  top: 185px;
+  width: 103px;
+}
+.optionalDiv {
+  top: 201px;
+}
+.rectangleDiv,
+.rectangleDiv1,
+.rectangleDiv2,
+.rectangleDiv3,
+.rectangleDiv4 {
+  position: absolute;
+  top: 99px;
+  left: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  width: 7px;
+  height: 6px;
+}
+.rectangleDiv1,
+.rectangleDiv2,
+.rectangleDiv3,
+.rectangleDiv4 {
+  top: 122px;
+}
+.rectangleDiv2,
+.rectangleDiv3,
+.rectangleDiv4 {
+  top: 145px;
+}
+.rectangleDiv3,
+.rectangleDiv4 {
+  top: 168px;
+}
+.rectangleDiv4 {
+  top: 191px;
+}
+.lineIcon {
+  position: absolute;
+  top: 96.36px;
+  left: 38.23px;
+  width: 13.77px;
+  height: 14.64px;
+}
+.lineIcon1,
+.lineIcon2,
+.lineIcon3,
+.lineIcon4,
+.lineIcon5,
+.lineIcon6 {
+  position: absolute;
+  top: 119.36px;
+  left: 38.23px;
+  width: 13.77px;
+  height: 14.64px;
+}
+.lineIcon2,
+.lineIcon3,
+.lineIcon4,
+.lineIcon5,
+.lineIcon6 {
+  top: 142.36px;
+}
+.lineIcon3,
+.lineIcon4,
+.lineIcon5,
+.lineIcon6 {
+  top: 165.36px;
+}
+.lineIcon4,
+.lineIcon5,
+.lineIcon6 {
+  top: 188.36px;
+}
+.lineIcon5,
+.lineIcon6 {
+  top: 205.36px;
+}
+.lineIcon6 {
+  top: 100.17px;
+  left: 36px;
+  width: 11.55px;
+  height: 10.83px;
+}
+.lineIcon10,
+.lineIcon11,
+.lineIcon7,
+.lineIcon8,
+.lineIcon9 {
+  position: absolute;
+  top: 123.17px;
+  left: 36px;
+  width: 11.55px;
+  height: 10.83px;
+}
+.lineIcon10,
+.lineIcon11,
+.lineIcon8,
+.lineIcon9 {
+  top: 146.17px;
+}
+.lineIcon10,
+.lineIcon11,
+.lineIcon9 {
+  top: 169.17px;
+}
+.lineIcon10,
+.lineIcon11 {
+  top: 192.17px;
+}
+.lineIcon11 {
+  top: 209.17px;
+}
+.dataProvidedDiv {
+  position: absolute;
+  top: 69px;
+  left: 33px;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-block;
+}
+.termsAndConditionsWidget {
+  position: absolute;
+  top: 265px;
+  left: 470px;
+  border-radius: 30px;
+  background-color: rgba(71, 141, 146, 0.5);
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  width: 338px;
+  height: 232px;
+  overflow: hidden;
+}
+.tradeHistoryDiv {
+  position: absolute;
+  top: 3px;
+  left: 9px;
+  font-weight: 500;
+  display: inline-block;
+}
+.guestWalletDiv7 {
+  position: absolute;
+  top: 441px;
+  left: 252px;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  width: 125px;
+  height: 26px;
+  overflow: hidden;
+  font-size: 16px;
+}
+.tradeContentDiv1 {
+  position: absolute;
+  top: 12px;
+  left: 123px;
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+}
+.b,
+.currentTotalDiv {
+  position: absolute;
+  top: 5px;
+  left: 120px;
+  display: inline-block;
+}
+.currentTotalDiv {
+  top: 3px;
+  left: 9px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.guestWalletDiv8 {
+  position: absolute;
+  top: 293px;
+  left: 198px;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  width: 181px;
+  height: 26px;
+  overflow: hidden;
+}
+.guestWalletDiv9,
+.rectangleIcon2 {
+  position: absolute;
+  top: 49px;
+  left: 21px;
+  width: 362px;
+  height: 220px;
+}
+.guestWalletDiv9 {
+  top: 68px;
+  left: 36px;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  width: 75px;
+  height: 71px;
+  overflow: hidden;
+}
+.orangeCreamSodaPowerUp {
+  position: absolute;
+  top: 77px;
+  left: 134px;
+  display: inline-block;
+  width: 182px;
+  height: 16px;
+}
+.purachaseAmount256991 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.purachaseAmount25699 {
+  position: absolute;
+  top: 93px;
+  left: 134px;
+  color: #000;
+  display: inline-block;
+  width: 192px;
+  height: 15px;
+}
+.tradeContentWidget {
+  top: 2px;
+  left: 34px;
+  border-radius: 30px;
+  background-color: rgba(71, 141, 146, 0.5);
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  width: 405px;
+  height: 398px;
+}
+.hostTradeDiv,
+.tradeContentDiv,
+.tradeContentWidget {
+  position: relative;
+  overflow: hidden;
+}
+.tradeContentDiv {
+  top: 267px;
+  left: -25px;
+  width: 827px;
+  height: 558px;
+  font-size: 12px;
+}
+.hostTradeDiv {
+  top: -1px;
+  left: 841px;
+  border-radius: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 842px;
+  height: 821px;
+}
+.avatarImg211,
+.securityBackgroundIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 40px;
+  width: 841px;
+  height: 822px;
+  object-fit: cover;
+}
+.avatarImg211 {
+  top: 46px;
+  left: 34px;
+  border-radius: 30px;
+  width: 196px;
+  height: 213px;
+}
+.guestInformationDiv {
+  position: absolute;
+  top: 65px;
+  left: 240px;
+  width: 542px;
+  height: 201px;
+  overflow: hidden;
+}
+.acceptOfferDiv {
+  position: absolute;
+  top: 2px;
+  left: 31px;
+  font-weight: 800;
+  display: inline-block;
+  width: 175px;
+  height: 33px;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.acceptButtonDiv {
+  position: absolute;
+  top: 435px;
+  left: 591px;
+  border-radius: 5px;
+  background-color: #478d92;
+  border: 3px solid #fff;
+  box-sizing: border-box;
+  width: 222px;
+  height: 38px;
+  overflow: hidden;
+  color: #03b003;
+}
+.rectangleIcon3 {
+  position: absolute;
+  top: 50px;
+  left: 18px;
+  width: 293px;
+  height: 164px;
+}
+.clickOrDragThisAreaToUpl,
+.contractsDiv {
+  position: absolute;
+  top: 15px;
+  left: 115px;
+  font-weight: 800;
+  display: inline-block;
+}
+.clickOrDragThisAreaToUpl {
+  top: 142px;
+  left: 42px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.supportsJSONContractDataGe {
+  position: absolute;
+  top: 161px;
+  left: 27px;
+  font-size: 12px;
+  color: #000;
+  text-align: center;
+  display: inline-block;
+  width: 274px;
+  height: 46px;
+}
+.lineDiv {
+  position: absolute;
+  top: 71.5px;
+  left: 136.5px;
+  border-top: 3px solid #fff;
+  box-sizing: border-box;
+  width: 54px;
+  height: 3px;
+}
+.lineIcon12,
+.lineIcon13 {
+  position: absolute;
+  top: 71.4px;
+  left: 120.46px;
+  width: 19.54px;
+  height: 28.6px;
+}
+.lineIcon13 {
+  top: 70px;
+  left: 186.46px;
+}
+.lineDiv1,
+.lineDiv2 {
+  position: absolute;
+  top: 95.5px;
+  left: 204.5px;
+  border-right: 3px solid #fff;
+  box-sizing: border-box;
+  width: 3px;
+  height: 38px;
+}
+.lineDiv2 {
+  left: 121.5px;
+}
+.lineDiv3,
+.lineDiv4,
+.lineDiv5 {
+  position: absolute;
+  top: 130.5px;
+  left: 120.5px;
+  border-top: 3px solid #fff;
+  box-sizing: border-box;
+  width: 87px;
+  height: 3px;
+}
+.lineDiv4,
+.lineDiv5 {
+  top: 95.5px;
+  left: 175.5px;
+  width: 33px;
+}
+.lineDiv5 {
+  left: 121.5px;
+}
+.lineIcon14,
+.lineIcon15 {
+  position: absolute;
+  top: 97.2px;
+  left: 151px;
+  width: 8.4px;
+  height: 9.8px;
+}
+.lineIcon15 {
+  top: 97px;
+  left: 170px;
+  width: 9.26px;
+  height: 9.98px;
+}
+.contractWidgetDiv1,
+.lineDiv6 {
+  position: absolute;
+  box-sizing: border-box;
+}
+.lineDiv6 {
+  top: 105.5px;
+  left: 154.5px;
+  border-top: 3px solid #fff;
+  width: 18px;
+  height: 3px;
+}
+.contractWidgetDiv1 {
+  top: 0;
+  left: 0;
+  border-radius: 30px;
+  background-color: rgba(71, 141, 146, 0.5);
+  border: 4px solid #fff;
+  width: 340px;
+  height: 237px;
+  overflow: hidden;
+}
+.termsConditions1 {
+  position: absolute;
+  top: 14px;
+  left: 58px;
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+}
+.nameDiv1,
+.rectangleIcon4 {
+  position: absolute;
+  top: 51px;
+  left: 18px;
+  width: 293px;
+  height: 164px;
+}
+.nameDiv1 {
+  top: 92px;
+  left: 71px;
+  display: inline-block;
+  width: 52px;
+  height: 18px;
+}
+.destinationAddressDiv1,
+.profileImageDiv1,
+.realWorldLocation1 {
+  position: absolute;
+  top: 115px;
+  left: 71px;
+  display: inline-block;
+  width: 78px;
+  height: 18px;
+}
+.destinationAddressDiv1,
+.realWorldLocation1 {
+  top: 138px;
+  width: 122px;
+}
+.realWorldLocation1 {
+  top: 161px;
+  width: 118px;
+}
+.medicalHistoryDiv1 {
+  top: 184px;
+  left: 71px;
+  width: 103px;
+  height: 18px;
+}
+.dataProvidedDiv1,
+.medicalHistoryDiv1,
+.readMoreB3 {
+  position: absolute;
+  display: inline-block;
+}
+.dataProvidedDiv1 {
+  top: 68px;
+  left: 42px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.readMoreB3 {
+  top: 5px;
+  left: 15px;
+}
+.guestWalletDiv10 {
+  position: absolute;
+  top: 184px;
+  left: 193px;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  width: 108px;
+  height: 26px;
+  overflow: hidden;
+}
+.rectangleDiv5,
+.rectangleDiv6,
+.rectangleDiv7,
+.rectangleDiv8,
+.rectangleDiv9 {
+  position: absolute;
+  top: 98px;
+  left: 54px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  width: 7px;
+  height: 6px;
+}
+.rectangleDiv6,
+.rectangleDiv7,
+.rectangleDiv8,
+.rectangleDiv9 {
+  top: 121px;
+}
+.rectangleDiv7,
+.rectangleDiv8,
+.rectangleDiv9 {
+  top: 144px;
+}
+.rectangleDiv8,
+.rectangleDiv9 {
+  top: 167px;
+}
+.rectangleDiv9 {
+  top: 190px;
+}
+.lineIcon16,
+.lineIcon17,
+.lineIcon18 {
+  position: absolute;
+  top: 95.36px;
+  left: 52.23px;
+  width: 13.77px;
+  height: 14.64px;
+}
+.lineIcon17,
+.lineIcon18 {
+  top: 118.36px;
+}
+.lineIcon18 {
+  top: 141.36px;
+}
+.lineIcon19,
+.lineIcon20,
+.lineIcon21 {
+  position: absolute;
+  top: 99.17px;
+  left: 50px;
+  width: 11.55px;
+  height: 10.83px;
+}
+.lineIcon20,
+.lineIcon21 {
+  top: 122.17px;
+}
+.lineIcon21 {
+  top: 145.17px;
+}
+.termsAndConditionsWidget1 {
+  position: absolute;
+  top: 265px;
+  left: 0;
+  border-radius: 30px;
+  background-color: rgba(71, 141, 146, 0.5);
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  width: 338px;
+  height: 232px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.guestWalletDiv11,
+.guestWalletDiv12 {
+  position: absolute;
+  top: 293px;
+  border-radius: 5px;
+  background-color: rgba(48, 89, 91, 0.2);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  height: 26px;
+  overflow: hidden;
+}
+.guestWalletDiv11 {
+  left: 198px;
+  width: 181px;
+  font-size: 12px;
+}
+.guestWalletDiv12 {
+  left: 21px;
+  width: 102px;
+}
+.rectangleIcon5,
+.rectangleIcon6 {
+  position: absolute;
+  top: 191px;
+  left: 21px;
+  width: 362px;
+  height: 77px;
+}
+.rectangleIcon6 {
+  top: 49px;
+  height: 136px;
+}
+.mastercard6097Div,
+.phillipJGuy1,
+.subtotalDiv {
+  position: absolute;
+  top: 222px;
+  left: 192px;
+  font-weight: 500;
+  display: inline-block;
+}
+.mastercard6097Div,
+.phillipJGuy1 {
+  top: 197px;
+  left: 36px;
+}
+.phillipJGuy1 {
+  top: 215px;
+}
+.phillipJGuy2 {
+  top: 98px;
+  left: 131px;
+  font-weight: 500;
+}
+.b2,
+.phillipJGuy2,
+.x912764539324574569456Div {
+  position: absolute;
+  display: inline-block;
+}
+.x912764539324574569456Div {
+  top: 130px;
+  left: 130px;
+  font-weight: 500;
+}
+.b2 {
+  top: 225px;
+  left: 275px;
+  font-size: 12px;
+}
+.avatarImg2111 {
+  position: absolute;
+  top: 88px;
+  left: 45px;
+  border-radius: 30px;
+  width: 61px;
+  height: 67px;
+  object-fit: cover;
+}
+.lineIcon22,
+.lineIcon23 {
+  position: absolute;
+  top: 196.26px;
+  left: 365px;
+  width: 12.68px;
+  height: 11.74px;
+}
+.lineIcon23 {
+  top: 196px;
+}
+.tradeContentWidget1 {
+  position: absolute;
+  top: 0;
+  left: 371px;
+  border-radius: 30px;
+  background-color: rgba(71, 141, 146, 0.5);
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  width: 405px;
+  height: 398px;
+  overflow: hidden;
+  font-size: 16px;
+}
+.tradeContentDiv2 {
+  position: absolute;
+  top: 266px;
+  left: 28px;
+  width: 813px;
+  height: 530px;
+  overflow: hidden;
+  font-size: 24px;
+}
+.guestTradeDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 40px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 842px;
+  height: 821px;
+  overflow: hidden;
+}
+.tradeModelDiv {
+  position: relative;
+  width: 1683px;
+  height: 820px;
+  text-align: left;
+  font-size: 48px;
+  color: #fff;
+  font-family: Inter;
+}

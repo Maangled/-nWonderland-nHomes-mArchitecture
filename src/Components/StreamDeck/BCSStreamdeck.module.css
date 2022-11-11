@@ -1,0 +1,119 @@
+.desktopViewIcon {
+  position: absolute;
+  top: -13px;
+  left: 0;
+  border-radius: 50px;
+  width: 776px;
+  height: 436px;
+  object-fit: cover;
+  cursor: pointer;
+}
+.webcamView {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 4px solid #fff;
+    overflow: hidden;
+  }
+
+.guestWalletIcon {
+  position: relative;
+  border-radius: 30px;
+  width: 65px;
+  height: 62px;
+  flex-shrink: 0;
+}
+.rightButtonsDiv {
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+.rightButtonsDiv > * + * {
+  margin-top: 38px;
+}
+.frameDiv2 {
+  position: absolute;
+  top: -13px;
+  left: 0;
+  width: 776px;
+  height: 436px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 25px 99px 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+}
+.frameDiv2 > * + * {
+  margin-left: 10px;
+}
+.frameDiv1 {
+  position: relative;
+  width: 795px;
+  height: 448px;
+  flex-shrink: 0;
+}
+.frameDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  
+}
+.guestWalletIcon6 {
+  position: relative;
+  border-radius: 30px;
+  width: 111px;
+  height: 100px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.rightButtonsDiv2 {
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: space-between;
+  align-items: flex-start;
+}
+.bCSStreamdeckDiv,
+.frameDiv3,
+.rightButtonsDiv2 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.frameDiv3 {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.bCSStreamdeckDiv {
+  position: relative;
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 4px solid #fff;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  gap: 20px;
+}

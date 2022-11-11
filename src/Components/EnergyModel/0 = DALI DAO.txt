@@ -1,0 +1,379 @@
+The Dalai Lama School of Hero Protagonists
+  -5 = encryption Tools
+  -4 = Item Tracker
+  -3 = Item Transfer
+  -2 = Vault
+  -1 = Profile
+  0 = Dalai Lama Dao
+  1 = Hero Protgaonist DAO
+  2 = CatBox
+  3 = CatFeed
+  4 = CatScratch
+  5 = Contract Builder 
+  6 = Content Modifiers (Live Studio)
+  7 = Dream Sequence
+
+'()'
+Model Library
+(0,1)
+(Node,Profile)
+a profile controlled by a DALI
+
+'[]'
+Black Box aka 'Box'
+(1,0)
+{Profile,Node}
+a node controlled by a profile. i.e. a private Node
+
+'CAT'
+Content Aggrication Template aka 'CAT'
+(2,3,4)
+(CatBox, CatFeed, CatScratch)
+Basically a list of keywords, doesnt exist on it's own
+
+'PIC'
+Profile Identity Contract aka 'PIC'
+(5,6,7)
+(ContractBuilder,LiveStudio,DreamStudio)
+past present future
+
+'(CAT)'
+Model Library of Content Aggrigation Templates aka 'CATML'
+(0,1,2,3,4)
+(Node, Profile, Vault, Transfer, Tracker)
+A browser that does not log data
+
+'(CATPIC)'
+Model Library of Content Aggrigation Templates with Profile Identity Contracts aka 'CATPICML'
+(0,1,2,3,4,5,6,7)
+(Node, Profile, Vault, Transfer, Tracker, Encryption, Second Encryption)
+A browser that tags and logs data using public methods 
+
+'@PIC'
+Aggrication Template with Profile Identity Contracts
+(3,4,5,6,7)
+(Tags, MetaData, AI, Content, Power)
+a tagged piece of data (portable)
+
+@PIC++
+Aggrigation Template with Profile Identity Contracts Contributing Aggrigation
+(3,4,5,6,7,2,3)
+(Tags, MetaData, AI, Content, Power, Random, Tags)
+
+'PIC[]'
+Profile Identity Contract with Black Box aka 'PICbox'
+(5,6,7,1,0,-1,-2,-3)
+(AI, Content, Power, Profile, Node, UI, Browser, Data)
+Builder that creates encrypted blocks -- we don't know if the PIC is tagging the content correctly so we cannot assume it's a cat
+
+[CAT,PIC]
+Black Box Custom Aggrication Template with Profile Identity Contracts
+(1,0,2,3,4,5,6,7)
+(profile, node, navigation, content, stats, comments, replys, AI Moderation)
+a profile website
+
+[CAT]
+Black Box Cat 
+(1,0,2,3,4)
+(profile, node, Bank, Skills, Quests)
+
+
+
+[CAT,(PIC)]
+Black Box Custom Aggrication Template with Model Libary of Profile Identity Contract 
+(1,0,2,3,4,0,1,5,6,7)
+(profile, node, bank, Skills, Quests, Node, Profile, Notes, Matter, Energy)
+A private website with public features (comments, replys etc)
+could be a metaverse controlled by a group that chooses your character for you
+example:
+    BOB DAO is a (CATPIC)
+        its a (CATPIC) instead of a [CAT,PIC] because it's open source
+    BOB DAO wants to hold a FischerRandom Chess Tournament and need a private place to hold the random Generator
+        BOB DAO creates [CAT,(PIC)] and claims it to be bob's next iteration on (CATPIC)
+        BOB DAO is required to post only (CATPIC)s as itterations because it is a DAO
+        (PIC) is a public library inside a black box because the information recieved is controlled from outside of the box
+            Contestants connect (with BOB's permission) to play chess through the (PIC)
+    BOB DAO is required to post only (CATPIC)s as itterations because it is a DAO
+        BOB DAO is now Both CATPICML and [CAT,(PIC)]
+            C[ATP](IC)
+            The content is BOBDAO's public node CATPICML
+            the [AggrigationTemplateProfile] is in a box so it's hidden
+            the Identity Contract Model Library 0167 contains possible combinations
+            CATPICML[](IC)
+        BOBDAO is claiming that their black box produces specific Identity Contracts
+            Those IDs are given away as @PIC, Profile Identity contracts that update rank (aggrication template) over the course of the tournament
+    After the tournament is over, an ATP[IC] (note not a [ATP] because only the contestants personal data is hidden in the black box) 
+        any Model Library can run (CATPIC)[@PIC](ATP[IC])
+            @PIC are possible winning combinations so although only the winner gets the combination, anyone can run through all possible combinations if they wanted to
+            ATP[IC] is a list of winners were [IC] is the link to their identity
+            CATPIC[@PIC]ATP[IC] tokens 
+
+ATP[]
+Aggrigation Template Profile Black Box
+(3,4,5,1,0)
+(Tags, MetaData, AI, UI, Data)
+offline proccessing node that doesnt require internet. like a portable installation of an application. 
+
+ATP[IC]
+Aggrigation Template Profile with hidden Identity Contracts
+(3,4,5,1,0,6,7)
+
+[ATP]
+(1,0,3,4,5)
+
+C[ATP](IC)
+Content that needs to be verified through identity contracts
+(2,1,0,3,4,5,0,1,6,7)
+
+
+
+TKSP@PIC
+TIGER KINGDOM SPACE CAMP Aggregated Template Idenentiy Contract
+TIGER
+1. Timer Integrating Generative Executable Requests 
+    Players generate NFTs by playing the game. The keywords are their data
+    Completing the game gives the player TIGER@PIC
+    A Tiger is a CAT that plays a game
+KINGDOM
+2. Keyword Identifiy New Gameplay Data Optimizations Marking 
+    A Kingdom is a token owned by a TIGER that identified edge cases that were patched within the timer
+    KINGDOM@PICs are transactions that fork the network
+        KINGDOM@PICs 
+SPACE
+3. Spontanious Playthroughs After Collaborative Efforts
+    (CATPIC)[@PIC](ATP[IC]) is an executable that marks all possible Playthroughs
+    verification is like mining and rewards SPACE[@PIC]
+    SPACE is a token awarded for hosting the game the @PIC is hidden because it can be run during the timer (or if there is no timer)
+CAMP
+4. Capitulated Aggressive Machine Protocal
+    Create (CATPIC)s that offer guided playthoughs for verified playthoughs
+    TIGER@PICs represent fractional ownership of CAMP@PICs
+    KINGDOM@PICs
+    SPACE[@PIC] 
+    CAMPs that were never played offer (CATPIC)[@PIC](ATP[IC])
+        ATP[IC] is a user playing the playthrough
+        (CATPIC) stores times of people who complete the playthoughs
+        (CATPIC)[@PIC] is awarded to fastest to complete it
+            
+            [@PIC] is their record proving they did it in that time.
+            CAMP@PIC is awarded if they did it in the fastest
+            (CATPIC)[@PIC] is not [] becuase 
+
+
+
+
+The Dalai Lama School of Hero Protgaonists PIC Model (Energy)
+    (0,1,2,3,4)
+    (6.1,7.1,2,3,4)
+CAT Model (Matter)
+    (3,4,5,6,7)
+    5-7 is like an auto playlist
+
+Maangled Hero Academy Private PIC (my data)
+    (id)(data)(Contract Notes)(webcam)(metaPortal)
+    (6.1,7.1,2,3,4)
+Maangled Hero Academy Private CAT (my feed)
+    ((webcam).(metaportal),(myCatBox),(myCatFeed),(myCatScratch))
+    6.1 myCatFeed
+    7.1 myCatScratch
+    (3,4,5,6,7)
+MHA Public PIC (mPIC)
+    (0,1,2,3,4)
+    ({DLCat},{HPProfile},Contract,Webcam,metaportal)
+    {{01567},{ID,DATA,Tags,Content,Log},{whiteList},{Render Recomendations/Restrictions},{executable}}
+MHA Public CAT (mCAT)
+    Viewing:
+    (3,4,5,6,7)
+    ({Render Recomendations/Restrictions},{executable},CatBox,CatFeed,CatScratch)
+    Replying:
+    (3,4,5=2,6=3,7=4)
+    ({Render Recomendations/Restrictions},{executable},{NewContent},{newData},{newExecutable})
+    new public pic
+    (0,1,2,3,4)
+    ({mCAT},{newData},{newExecutable},webcam,metaportal)
+    new public Cat
+    (3,4,5,6,7)
+    ({Render Recomendations/Restrictions},{executable},CatBox,CatFeed,CatScratch)
+    blocked block 
+    ({Render Recomendations/Restrictions(flags)},{smokeweedeveryday.exe},CatBox(agerestricted),{yourhardware},{newExecutable(newflags)})
+
+1.Desciptions
+Description of contract behaviour
+    the acronym
+2. Contracts
+DCB AYNM
+3. Socioeconomic trancentdental meaning
+    
+    names made to resent ideas
+idea are structures for the future
+
+Contract Structure:
+Encryption Tools - encrypts any smart contract
+    Item Tracker - tracks related smart contracts (an 'item') while masking connection
+        Item Transfer - transfers items
+            Vault - collects items
+                Profile - collects vaults
+                    Dalai Lama - a profile creates nodes around collections of profiles
+                        HeroProtagonist - a node that creates UI for profile interactions and customization
+                            CatBox - a node that aggregates content
+                                CatFeed - a node that is aggricated content
+                                    CatScratch - data
+                                        Contract Builder - Data Manipulator
+                                            Video Studio - Hardware syncronizer
+                                                Dream Studio - Content synthysizer 
+ET  IT  IF  V   P   DL  HP  CB  CF  CS  CB  VS  DS
+-5  -4  -3  -2  -1  0   1   2   3   4   5   6   7
+                                                and our right to live for free
+                                            authenticating our existince
+                                        building upon it
+                                    by securing our data
+                                by taking back control over the Algorithms that deliver us our content
+                            by accessing a public forum of education and news media
+                        by taking back the power information has in our society
+                    who want to achieve piece
+                by people
+            of like items
+        through categorization
+    Has been verified
+This anonymous data
+
+Access Structure - anyone can access data shared with the dalai lama using this contract structure
+Dali Lama - Download a node for yourself
+    HeroProtagonist - Choose your interface/interactions
+        CatBox - Explore Content
+            CatFeed - Go down RabbitHoles
+                CatScratch - expore specific connections
+DL  HP  CB  CF  CS
+0   1   2   3   4
+                Learn new things
+            take Journeys
+        Find intrests
+    Profile
+Node
+
+Expanded Access Structure
+Dalai Lama - Download a node for yourself
+    Profile - your vaults
+        Vault - your items
+            Item Transfer - your progress
+                Item Tracker - your accountablity 
+                    Encryption Tools - your security
+    HeroProtagonist - Choose your interface/interactions
+        Dali Llama - the Dali Lama is your Vault
+            Profile - your profile is your progress
+                Vault - your vaults are your proof
+                    Item Transfer - your items never leave your profile
+                        Item Tracker - your items are insured
+                            Encryption Tools - that insurance is trustless and anonymous
+            CatBox - the way to advance your profile
+                CatFeed - your interactions are trades
+                    CatScratch - your private data is here
+DL  HP  CB  CF  CS  CF  CL  CB
+0   1   2   3   4   5   6   7
+                            Contract Builder aka the sky's the limit aka mathmatics 
+                        CatLog aka carfax aka degree verification
+                    CatFact aka newsflash aka spacetimetiken
+                CatScratch aka those 30 videos and articles you save that you never would have gone through if it werent for
+            CatFeed aka kibble aka something about cats and ancient egypt
+        CatBox aka the superposition of getting no work done while whitelisting your thoughts for later
+    HPDAO aka the Main Character Syndrome Generator aka the Decentralized Autonomous Learning Institute Leveraging Learning Awards Marking Aptitude aka the Buddha Quests
+DLDAO aka the Downloadable dao aka Decentralized Autogenererated Leveling Apparatis Iterations Leveraging AI and ML Algorithms
+
+Produce Content - anyone can make content by taking content and remixing it
+Cat-o-log - make your own connections
+    CatFact - build templates
+        Hero Journals - Create Smart Notes
+            Hero Reports - Create IoT Connections
+                Hero Dreams - Seeds
+CS  CF  CB  HR  HD
+3   4   5   6   7
+                Zhu Li do the thing (AI fix the method)
+            Build the things
+        explain it like im 5
+    Discover possibilities
+Use your knowledge
+
+Produce Content Expanded Structure
+CatFact - a specific piece of content
+    CatLog - a node for that content (executable)
+        Hero Journals - a contract builder for Cats
+            AI Tools - a CatFact about AI
+                MetaData - Who, What Why Where and When
+                    Notes - user input
+                        Log Books - history
+                            Tags - Autogenererated
+            Hero Reports - user action
+                Hero Dreams - AI Output
+5   6   7   1   0   -1  -2  -3 : content released conditionally
+CF  CL  VS  HP  DL  P   V   IF
+DL  HP  CB  CF  CS  CF  CL  CB
+1   0   2   3   4   5   6   7 : public content path
+                            take action
+                        gather data (through p2p trading)
+                    share the results (if you want)
+                run AI to optimize your life
+            interact with content
+        Provide & recieve feedback
+    share the proof
+Log something
+
+Explore Realities
+Hero Academy - a dream made reality
+    Hero Boots - enter the metaPortal
+        Hero Bank? - your things
+            Hero Skills - your achievements
+                Hero Quests - your next adventure
+HP  DL  CB  CF  CS
+1   0   2   3   4
+                and following paths to success
+            a way giving yourself achievements and track your habits
+        and everything you own and interact with, but virtual too
+    a way for people to join you
+your seed, your metaverse, your node, your hardware
+
+Explore Realities expanded structure:
+Hero Academy - a series of catFacts turned into a game
+    Hero Reports - user data used to analyzed gameplay
+        Hero Journals - user reaction to games
+            CatLog - Node for article in game
+                CatFact - article in game
+                    CatScratch - data about an item
+                        CatFeed - items in the game
+                            CatBox - the game
+                                Hero Protagonists - the player base
+                                    Dalai Lama - the lesson
+    Hero Boots - your avatar
+        Hero Bank? - your things
+            Hero Skills - your achievements
+                Hero Quests - your next adventure
+HP  DL  CB  CF  CS  CF  CL  CB`  VS  DS
+1   0   2   3   4   0   1   5   6   7     
+                                    The Dream Sequence is your profile metaverse
+                                The VideoStudio is your hardware
+                            The Contract Builder is your reactive element
+                        The CatLog is your anonymous proof of how you did it, it compares it with public data items and keeps them organized.
+                    The CatFact is your reward for saving the world, it's CatScratch until it's manifested
+                The CatScratch is how you are planning to save the world - its a piece of data, its a list of logs. When used in game its called a CatFact
+            The CatFeed is your reward (PBDC2PBDC gaming) Peer Bank Digital Currencies. everthing is tokenized and logged an assembled into Cat-o-logs
+        The CatBox is your way to play and stream (IoT2IoT gaming)
+    The DL lets you control what data gets shared with the contract (p2dl gaming) private data is saved locally
+This is a game where the code is broken up into a Decentralized autonomous village like p2p gaming, irl communities not bound by distance
+
+Offline Content Creation
+Dream Sequence - AR/VR experience based on Round the clock tracking and integration of your physical enviornment
+    Video Studio - your ability to interact with the virtual enviornment
+        Contract Builder - automate things between the two
+            CatFeed - Share your Skills
+                CatScratch - keep your Data Secured
+CS  CF  CB  HP  DL
+3   4   5   1   0
+                The Catscratch is a Dalai Lama because it organizes your thoughts into more meaningful expressions of knowledge
+            the CatFeed is a HeroProtagonist because it's the hero in you!
+        The contract Builder is a catbox because it connects ideas based on your preferences
+    The video studio is a catfeed becuase the IoT devices are feeds of information
+The dream sequence is a catscratch because the data is offline and excrypted by default
+
+
+    
+
+

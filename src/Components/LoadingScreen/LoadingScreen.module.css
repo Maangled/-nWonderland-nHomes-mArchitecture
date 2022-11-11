@@ -1,0 +1,123 @@
+.mainDiv{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+    height : 100vh;
+    width : 100vw;
+    background-color : #000;
+    overflow: hidden;
+
+}
+.loadingBar{
+    width : 100%;
+    height : 10px;
+    background-color : #fff;
+    border-radius : 5px;
+    margin-top : 10px;
+    overflow : hidden;
+    position: absolute;
+    bottom: 0;
+    
+}
+.backgroundDiv,
+.backgroundDivFaded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    font-size: 74px;
+    font-weight: 900;
+}
+.paragraphButton{
+    font-family: 'Inter', sans-serif;
+    font-size: 74px;
+    font-weight: 900;
+    color: #fff;
+    background-color: #000;
+    border: 5px solid #fff;
+    border-radius: 30px;
+    max-width: 50%;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+.loadingScreenText1,
+.loadingScreenText2,
+.loadingScreenText3 {
+    position: relative;
+    z-index: 101;
+    justify-self: center;
+}
+.loadingScreenText {
+    position: absolute;
+}
+
+.loadingScreenText1 {
+    text-align: left;
+    line-height: 50px;
+}
+.loadingScreenText2 {
+    text-align: center;
+    position: relative;
+    display: flex;
+    
+}
+.loadingScreenText3 {
+    text-align: left;
+    line-height: 50px;
+}
+.loadingScreenText4{
+    color: #fff;
+    text-align: center;
+    position: relative;
+    display: flex;
+}
+.loadingScreenTextRows {
+    position: flex;
+    color: #ffffff;
+    font-family: "Inter";
+    z-index: 101;
+    justify-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.cyan {
+    color: #00ffff;
+}
+.underlineBold{
+    text-decoration: underline;
+    font-weight: bolder;
+    font-size: 100px;
+}
+.red{
+    color: #ff0000;
+}
+.loadingScreenText {
+    color: #ffffff;
+    font: 'Aura Regular';
+}
+.backgroundDivFaded{
+    opacity: 0.75;
+}
+.small{
+    font-size: 30px;
+}

@@ -1,0 +1,69 @@
+.desktopViewIcon {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    border-radius: 50px;
+    width: 1920px;
+    height: 1080px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+  .authenticateB {
+    position: absolute;
+    top: 11px;
+    left: 29px;
+    font-size: 24px;
+    display: inline-block;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
+  }
+  .guestWalletButton {
+    cursor: pointer;
+    border: 4px solid #fff;
+    padding: 0;
+    background-color: rgba(48, 89, 91, 0.2);
+    top: 26px;
+    left: 38px;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    width: 212px;
+    height: 51px;
+  }
+  .desktopViewDiv,
+  .guestWalletButton,
+  .hostWalletButton {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .hostWalletButton {
+    cursor: pointer;
+    border: 4px solid #fff;
+    padding: 0;
+    background-color: rgba(48, 89, 91, 0.2);
+    top: 26px;
+    left: 1675px;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    max-width: 204px;
+    height: 51px;
+  }
+  .desktopViewDiv {
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    border: 5px solid #fff;
+    width: 1920px;
+    height: 1080px;
+  }
+  .singleViewMain {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 1080px;
+    overflow: hidden;
+  }
+  

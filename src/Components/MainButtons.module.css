@@ -1,0 +1,656 @@
+@keyframes shadow-drop-bottom {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  to {
+    box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+  }
+}
+.avatarImg1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 30px;
+  width: 188px;
+  height: 205px;
+  object-fit: cover;
+}
+.formingTheSuperheroAcadamy,
+.heroProtagonistDiv {
+  position: absolute;
+  display: inline-block;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.heroProtagonistDiv {
+  top: 7px;
+  left: 32px;
+  font-weight: 900;
+  width: 458px;
+  height: 91px;
+}
+.formingTheSuperheroAcadamy {
+  top: 69px;
+  left: 49px;
+  font-size: 24px;
+  font-weight: 800;
+}
+.frameDiv {
+  position: absolute;
+  top: 0;
+  left: 188px;
+  width: 542px;
+  height: 201px;
+  overflow: hidden;
+}
+.headerDiv {
+  position: relative;
+  width: 730px;
+  height: 205px;
+  flex-shrink: 0;
+}
+.vaultDiv {
+  position: absolute;
+  top: 8px;
+  left: 141px;
+  font-weight: 800;
+  display: inline-block;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.rectangleIcon {
+  position: absolute;
+  top: -0.5px;
+  left: 0.5px;
+  width: 75px;
+  height: 71px;
+}
+.nFTImageButton {
+  cursor: pointer;
+  border: 2px solid #fff;
+  padding: 0;
+  background-color: rgba(48, 89, 91, 0.2);
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  box-sizing: border-box;
+  width: 75px;
+  height: 71px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.orangeCreamSodaPowerUp {
+  position: relative;
+  display: inline-block;
+  width: 182px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.purachaseAmount256991 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.purachaseAmount25699 {
+  position: relative;
+  color: #000;
+  display: inline-block;
+  width: 192px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.rectangleIcon1 {
+  position: absolute;
+  top: -1px;
+  left: 0.5px;
+  width: 21px;
+  height: 23px;
+}
+.nFTlinkButton {
+  cursor: pointer;
+  border: 2px solid #fff;
+  padding: 0;
+  background-color: rgba(48, 89, 91, 0.2);
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  box-sizing: border-box;
+  width: 21px;
+  height: 22px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.rectangleIcon3 {
+  position: absolute;
+  top: 0;
+  left: 0.5px;
+  width: 21px;
+  height: 22px;
+}
+.nFTLinksDiv {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.nFTInfoDiv,
+.nFTLinksDiv,
+.vaultBodyDiv {
+  display: flex;
+  align-items: flex-start;
+}
+.nFTInfoDiv {
+  height: 68px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.vaultBodyDiv {
+  position: absolute;
+  top: 37px;
+  left: 27.5px;
+  flex-direction: row;
+  padding: 16px 7px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  gap: 10px;
+  font-size: 12px;
+}
+.vaultWidgetDiv {
+  position: relative;
+  border-radius: 30px;
+  background-color: rgba(61, 109, 119, 0.5);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 3px solid #fff;
+  box-sizing: border-box;
+  width: 346px;
+  height: 242px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.vaultWidgetDiv:active {
+  transform: rotate(0deg);
+  animation: 1s ease 0s infinite normal none shadow-drop-bottom;
+  opacity: 1;
+}
+.skillsDiv {
+  position: absolute;
+  top: 8px;
+  left: 140px;
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.skillIcon {
+  position: absolute;
+  top: 37px;
+  left: 28px;
+  border-radius: 5px;
+  width: 41px;
+  height: 37px;
+  overflow: hidden;
+}
+.lVLEXP,
+.skillNameB {
+  position: absolute;
+  top: 44px;
+  left: 78px;
+  display: inline-block;
+  width: 62px;
+  height: 16px;
+}
+.lVLEXP {
+  top: 60px;
+  color: #000;
+  width: 96px;
+  height: 15px;
+}
+.bankContentDiv,
+.skillsWidgetDiv {
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.skillsWidgetDiv {
+  position: relative;
+  border-radius: 30px;
+  background-color: rgba(61, 109, 119, 0.5);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 3px solid #fff;
+  width: 346px;
+  height: 242px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.bankContentDiv {
+  width: 362px;
+  display: flex;
+  flex-direction: column;
+  padding: 17px 0;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 9px;
+}
+.bankContentDiv:active {
+  width: 362px;
+}
+.equipmentDiv {
+  position: absolute;
+  top: 18px;
+  left: 44px;
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.equipmentImageIcon {
+  position: absolute;
+  top: 63px;
+  left: 21px;
+  border-radius: 5px;
+  width: 41px;
+  height: 37px;
+  overflow: hidden;
+}
+.equipmentNameB,
+.lVL5EXP4330 {
+  position: absolute;
+  top: 69.5px;
+  left: 71px;
+  display: inline-block;
+  width: 122px;
+  height: 16px;
+}
+.lVL5EXP4330 {
+  top: 86px;
+  color: #000;
+  width: 96px;
+  height: 15px;
+}
+.equipmentWidgetDiv {
+  position: relative;
+  border-radius: 30px;
+  background-color: rgba(61, 109, 119, 0.5);
+  border: 3px solid #fff;
+  box-sizing: border-box;
+  width: 211px;
+  height: 482px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.loadoutDiv {
+  position: absolute;
+  top: 15px;
+  left: 49px;
+  font-size: 24px;
+  font-weight: 800;
+  display: inline-block;
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.guestWalletDiv {
+  position: absolute;
+  top: 122px;
+  left: 17px;
+  border-radius: 15px;
+  background-color: rgba(217, 217, 217, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  width: 159px;
+  height: 300px;
+  overflow: hidden;
+}
+.guestWalletIcon {
+  position: absolute;
+  top: 62.5px;
+  left: 24px;
+  border-radius: 5px;
+  width: 41px;
+  height: 38px;
+  overflow: hidden;
+}
+.combatLevel,
+.lVL65EXP23m {
+  position: absolute;
+  top: 70px;
+  left: 74px;
+  display: inline-block;
+  width: 85px;
+  height: 16px;
+}
+.lVL65EXP23m {
+  top: 86px;
+  color: #000;
+  width: 115px;
+  height: 15px;
+}
+.loadoutWidgetDiv {
+  position: relative;
+  border-radius: 40px;
+  background-color: rgba(61, 109, 119, 0.5);
+  border: 3px solid #fff;
+  box-sizing: border-box;
+  width: 195px;
+  height: 482px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.bankContentDiv1 {
+  width: 419px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 17px 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.bankModelDiv,
+.bodyDiv {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+}
+.bodyDiv {
+  width: 842px;
+  flex-direction: row;
+  padding: 26px 15px;
+  align-items: center;
+  font-size: 24px;
+}
+.bankModelDiv {
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+  border: 4px solid #fff;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+  flex-direction: column;
+  padding: 30px;
+  align-items: flex-start;
+  cursor: pointer;
+  max-width: 90%;
+  max-height: 90%;
+}
+.bankModelDiv:hover {
+  width: 849px;
+  height: 814px;
+}
+.matterButtonRectangle {
+  position: absolute;
+  top: 0;
+  left: -4px;
+  border-radius: 20px;
+  width: 139.5px;
+  height: 139px;
+}
+.b,
+.cB,
+.mBackground {
+  display: inline-block;
+  font-family: Inter;
+  text-align: center;
+}
+.mBackground {
+  position: absolute;
+  top: 3.49px;
+  left: 13.03px;
+  font-size: 96px;
+  color: rgba(0, 0, 0, 0.25);
+  width: 104.25px;
+  height: 101.31px;
+}
+.b,
+.cB {
+  color: #fff;
+}
+.cB {
+  position: absolute;
+  top: 66px;
+  left: 38.75px;
+  font-size: 54px;
+  width: 37.91px;
+  height: 56.77px;
+}
+.b {
+  top: 70px;
+  left: 70.75px;
+  font-size: 24px;
+  width: 18.95px;
+  height: 25.33px;
+}
+.b,
+.eB,
+.lineIcon {
+  position: absolute;
+}
+.eB {
+  top: 0.87px;
+  left: 45.02px;
+  font-size: 54px;
+  display: inline-block;
+  font-family: Inter;
+  color: #fff;
+  text-align: center;
+  width: 40.28px;
+  height: 56.77px;
+}
+.lineIcon {
+  top: 60px;
+  left: 18.95px;
+  width: 98.49px;
+  height: 10.87px;
+}
+.matterButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 131.5px;
+  height: 131px;
+  flex-shrink: 0;
+}
+.bountyButton:hover .ountiesLabel1,
+.matterButton:hover {
+  display: flex;
+}
+.bountyButtonRectangle {
+  flex: 1;
+  position: relative;
+  border-radius: 20px;
+  max-height: 100%;
+  width: 136px;
+  z-index: 0;
+}
+.b1,
+.ellipseIcon {
+  position: absolute;
+  top: 18px;
+}
+.b1 {
+  left: 33px;
+  font-size: 54px;
+  display: inline-block;
+  font-family: Inter;
+  color: #fff;
+  text-align: center;
+}
+.ellipseIcon {
+  left: 18px;
+  width: 64px;
+  height: 64px;
+}
+.lineDiv {
+  top: 52px;
+  left: -5px;
+  border-top: 10px solid #ff0303;
+  width: 31px;
+  height: 10px;
+}
+.lineDiv,
+.lineDiv1,
+.lineDiv2,
+.lineDiv3 {
+  position: absolute;
+  box-sizing: border-box;
+}
+.lineDiv1 {
+  top: 52px;
+  left: 75px;
+  border-top: 10px solid #ff0303;
+  width: 31px;
+  height: 10px;
+}
+.lineDiv2,
+.lineDiv3 {
+  top: -5px;
+  left: 40px;
+  border-right: 10px solid #ff0303;
+  width: 10px;
+  height: 31px;
+}
+.lineDiv3 {
+  top: 74px;
+}
+.bountySymbolDiv,
+.ountiesLabel {
+  position: absolute;
+  margin: 0 !important;
+}
+.bountySymbolDiv {
+  top: 16px;
+  left: 18px;
+  width: 101px;
+  height: 100px;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.ountiesLabel {
+  cursor: pointer;
+  top: 41px;
+  left: 87px;
+  font-size: 54px;
+  font-weight: 700;
+  font-family: Inter;
+  color: #fff;
+  text-align: center;
+  display: none;
+  z-index: 2;
+}
+.bountyButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0 4px;
+  background-color: transparent;
+  width: 136px;
+  height: 129px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.bountyButton:hover {
+  width: 300px;
+  height: 129px;
+}
+.bountyButton:hover .bountyButtonRectangle {
+  display: flex;
+  width: 300px;
+  height: 129px;
+}
+.energyButtonRectangle {
+  position: absolute;
+  top: 0;
+  left: -4px;
+  border-radius: 20px;
+  width: 139px;
+  height: 138.01px;
+}
+.b2,
+.eB1,
+.mcB {
+  position: absolute;
+  display: inline-block;
+  font-family: Inter;
+  text-align: center;
+}
+.eB1 {
+  top: 7.88px;
+  left: 37.25px;
+  font-size: 96px;
+  color: rgba(0, 0, 0, 0.25);
+  width: 57px;
+  height: 123.12px;
+}
+.b2,
+.mcB {
+  top: 25.61px;
+  left: 16.25px;
+  font-size: 54px;
+  color: #fff;
+  width: 94px;
+  height: 72.89px;
+}
+.b2 {
+  top: 24.8px;
+  left: 100.98px;
+  font-size: 24px;
+  width: 15.53px;
+  height: 32.35px;
+}
+.energyButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  align-self: stretch;
+  position: relative;
+  width: 131px;
+  flex-shrink: 0;
+}
+.energyButton:hover {
+  display: flex;
+}
+.topButtonsDiv,
+.topButtonsDiv1 {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+.topButtonsDiv1 {
+  padding: 18px 45px 59px;
+  justify-content: center;
+  gap: 18px;
+}
+.topButtonsDiv {
+  flex: 1;
+  align-self: stretch;
+  padding: 20px 30px;
+  justify-content: space-between;
+}
+.mainButtonsDiv {
+  position: relative;
+  height: 482px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: left;
+  font-size: 48px;
+  color: #fff;
+  font-family: Inter;
+}

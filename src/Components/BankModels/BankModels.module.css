@@ -1,0 +1,855 @@
+@keyframes shadow-drop-bottom {
+    0% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+    to {
+      box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
+    }
+  }
+  @keyframes scale-down-center {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+    to {
+      -webkit-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+  }
+  .avatarImg1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 30px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  .formingTheSuperheroAcadamy,
+  .heroProtagonistDiv {
+    position: absolute;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .heroProtagonistDiv {
+    top: 7px;
+    left: 32px;
+    font-weight: 900;
+    width: 458px;
+    height: 91px;
+  }
+  .formingTheSuperheroAcadamy {
+    top: 69px;
+    left: 49px;
+    font-size: 24px;
+    font-weight: 800;
+  }
+  .frameDiv {
+    position: absolute;
+    top: 0;
+    left: 209.08px;
+    width: 601.92px;
+    height: 201px;
+    overflow: hidden;
+  }
+  .headerDiv {
+    align-self: stretch;
+    position: relative;
+    height: 201px;
+    flex-shrink: 0;
+  }
+  .vaultDiv {
+    position: absolute;
+    top: 8px;
+    left: 141px;
+    font-weight: 800;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .rectangleIcon {
+    position: absolute;
+    top: 0;
+    left: 0.5px;
+    width: 75px;
+    height: 71px;
+  }
+  .nFTImageButton {
+    cursor: pointer;
+    border: 2px solid #fff;
+    padding: 0;
+    background-color: rgba(48, 89, 91, 0.2);
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    box-sizing: border-box;
+    width: 75px;
+    height: 71px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .orangeCreamSodaPowerUp {
+    position: relative;
+    display: inline-block;
+    width: 182px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+  .purachaseAmount256991 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .purachaseAmount25699 {
+    position: relative;
+    color: #000;
+    display: inline-block;
+    width: 192px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+  .rectangleIcon1 {
+    position: absolute;
+    top: 0;
+    left: 0.5px;
+    width: 21px;
+    height: 23px;
+  }
+  .nFTlinkButton {
+    cursor: pointer;
+    border: 2px solid #fff;
+    padding: 0;
+    background-color: rgba(48, 89, 91, 0.2);
+    position: relative;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    box-sizing: border-box;
+    width: 21px;
+    height: 22px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .rectangleIcon3 {
+    position: absolute;
+    top: 0;
+    left: 0.5px;
+    width: 21px;
+    height: 22px;
+  }
+  .nFTLinksDiv {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .nFTInfoDiv,
+  .nFTLinksDiv,
+  .vaultBodyDiv {
+    display: flex;
+    align-items: flex-start;
+  }
+  .nFTInfoDiv {
+    height: 68px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+  }
+  .vaultBodyDiv {
+    position: absolute;
+    top: 37px;
+    left: 27.5px;
+    flex-direction: row;
+    padding: 16px 7px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .vaultWidgetDiv {
+    position: relative;
+    border-radius: 30px;
+    background-color: rgba(61, 109, 119, 0.5);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: 3px solid #fff;
+    box-sizing: border-box;
+    width: 346px;
+    height: 242px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .vaultWidgetDiv:active {
+    transform: rotate(0deg);
+    animation: 1s ease 0s infinite normal none shadow-drop-bottom;
+    opacity: 1;
+  }
+  .skillsDiv {
+    position: absolute;
+    top: 8px;
+    left: 140px;
+    font-size: 24px;
+    font-weight: 800;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .skillIcon {
+    position: absolute;
+    top: 37px;
+    left: 24px;
+    border-radius: 5px;
+    width: 49px;
+    height: 45px;
+    overflow: hidden;
+  }
+  .lVLEXP,
+  .skillNameB {
+    position: absolute;
+    top: 44px;
+    left: 78px;
+    display: inline-block;
+    width: 62px;
+    height: 16px;
+  }
+  .lVLEXP {
+    top: 60px;
+    color: #000;
+    width: 96px;
+    height: 15px;
+  }
+  .bankContentDiv,
+  .skillsWidgetDiv {
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .skillsWidgetDiv {
+    position: relative;
+    border-radius: 30px;
+    background-color: rgba(61, 109, 119, 0.5);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: 3px solid #fff;
+    width: 346px;
+    height: 242px;
+    overflow: hidden;
+    font-size: 12px;
+  }
+  .bankContentDiv {
+    width: 362px;
+    display: flex;
+    flex-direction: column;
+    padding: 17px 0;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 9px;
+  }
+  .bankContentDiv:active {
+    width: 362px;
+  }
+  .equipmentDiv {
+    position: absolute;
+    top: 18px;
+    left: 44px;
+    font-size: 24px;
+    font-weight: 800;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .equipmentImageIcon {
+    position: absolute;
+    top: 63px;
+    left: 17px;
+    border-radius: 5px;
+    width: 49px;
+    height: 45px;
+    overflow: hidden;
+  }
+  .equipmentNameB,
+  .lVL5EXP4330 {
+    position: absolute;
+    top: 69.5px;
+    left: 71px;
+    display: inline-block;
+    width: 122px;
+    height: 16px;
+  }
+  .lVL5EXP4330 {
+    top: 86px;
+    color: #000;
+    width: 96px;
+    height: 15px;
+  }
+  .equipmentWidgetDiv {
+    position: relative;
+    border-radius: 30px;
+    background-color: rgba(61, 109, 119, 0.5);
+    border: 3px solid #fff;
+    box-sizing: border-box;
+    width: 211px;
+    height: 482px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .loadoutDiv {
+    position: absolute;
+    top: 15px;
+    left: 49px;
+    font-size: 24px;
+    font-weight: 800;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .guestWalletDiv {
+    position: absolute;
+    top: 122px;
+    left: 17px;
+    border-radius: 15px;
+    background-color: rgba(217, 217, 217, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    border: 2px solid #fff;
+    box-sizing: border-box;
+    width: 159px;
+    height: 300px;
+    overflow: hidden;
+  }
+  .guestWalletIcon {
+    position: absolute;
+    top: 62.5px;
+    left: 20px;
+    border-radius: 5px;
+    width: 49px;
+    height: 46px;
+    overflow: hidden;
+  }
+  .combatLevel,
+  .lVL65EXP23m {
+    position: absolute;
+    top: 70px;
+    left: 74px;
+    display: inline-block;
+    width: 85px;
+    height: 16px;
+  }
+  .lVL65EXP23m {
+    top: 86px;
+    color: #000;
+    width: 115px;
+    height: 15px;
+  }
+  .loadoutWidgetDiv {
+    position: relative;
+    border-radius: 40px;
+    background-color: rgba(61, 109, 119, 0.5);
+    border: 3px solid #fff;
+    box-sizing: border-box;
+    width: 195px;
+    height: 482px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .bankContentDiv1 {
+    width: 419px;
+    flex-shrink: 0;
+    flex-direction: row;
+    padding: 17px 0;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .bankContentDiv1,
+  .bankModelDiv,
+  .bodyDiv {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+  .bodyDiv {
+    flex-direction: row;
+    padding: 0 15px;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .bankModelDiv {
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    border: 4px solid #fff;
+    position: relative;
+    flex-direction: column;
+    padding: 30px;
+    justify-content: flex-start;
+    overflow: auto;
+  }
+  .bankModelDiv2:hover,
+  .bankModelDiv:hover {
+    min-width: 25%;
+    max-width: 100%;
+  }
+  .bankModelDiv:hover {
+    display: flex;
+    animation: 1s ease 0s 1 normal none scale-down-center;
+    opacity: 1;
+  }
+  .avatarImg11 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 30px;
+    width: 181px;
+    height: 205px;
+    object-fit: cover;
+  }
+  .bankModelDiv1,
+  .headerDiv1 {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .headerDiv1 {
+    align-self: stretch;
+    height: 205px;
+  }
+  .bankModelDiv1 {
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    filter: blur(10px);
+    backdrop-filter: blur(45px);
+    border: 4px solid #fff;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    z-index: 0;
+  }
+  .bankModelDiv1:hover  {
+    width: auto;
+    height: auto;
+  }
+
+  .div:hover {
+    scale: 1;
+  }
+
+  .bankModelDiv1:hover ~ .div {
+    width: auto;
+    height: auto;
+  }
+
+
+
+  .bankModelDiv1:hover ~.walletModelDiv {
+      position: absolute;
+      top: calc(50% - 276.5px);
+      left: calc(50% - 213px);
+      border-radius: 30px;
+      display: flex;
+      width: 100%;
+
+  }
+
+  .walletModelDiv {
+    position: absolute;
+      top: calc(50% - 276.5px);
+      left: calc(50% - 213px);
+    display: flex;
+    width: 100%;
+    z-index: 1;
+  }
+  .authenticateDiv {
+    position: relative;
+    font-weight: 800;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .authenticateButtonDiv,
+  .div {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .authenticateButtonDiv {
+    margin: 0 !important;
+    position: absolute;
+    top: calc(50% - 92px);
+    left: calc(50% - 97.5px);
+    border-radius: 15px;
+    background-color: rgba(61, 109, 119, 0.5);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(45px);
+    border: 3px solid #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 17px 19px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    z-index: 1;
+  }
+  .div {
+    position: absolute;
+    scale: .25;
+    transform-origin: right top;
+    top: 0;
+    right: 0;
+  }
+  .rectangleIcon4,
+  .rectangleIcon5 {
+    position: absolute;
+    top: -0.5px;
+    left: 0.5px;
+    width: 75px;
+    height: 71px;
+  }
+  .rectangleIcon5 {
+    top: -1px;
+    width: 21px;
+    height: 23px;
+  }
+  .equipmentImageIcon1,
+  .guestWalletIcon1,
+  .skillIcon1 {
+    position: absolute;
+    top: 37px;
+    left: 28px;
+    border-radius: 5px;
+    width: 41px;
+    height: 37px;
+    overflow: hidden;
+  }
+  .equipmentImageIcon1,
+  .guestWalletIcon1 {
+    top: 63px;
+    left: 21px;
+  }
+  .guestWalletIcon1 {
+    top: 62.5px;
+    left: 24px;
+    height: 38px;
+  }
+  .bodyDiv1 {
+    display: none;
+    flex-direction: row;
+    padding: 0 15px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  .bankModelDiv2,
+  .image1Icon {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .bankModelDiv2 {
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    filter: blur(20px);
+    border: 4px solid #fff;
+    box-sizing: border-box;
+    width: 871px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    z-index: 0;
+  }
+  .image1Icon {
+    width: 64px;
+    height: 59px;
+    object-fit: cover;
+  }
+  .metaMaskDiv {
+    position: relative;
+    font-size: 18px;
+    font-family: Inter;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .metaMaskLoginButton {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .image3Icon,
+  .image5Icon {
+    position: relative;
+    width: 52px;
+    height: 59px;
+    flex-shrink: 0;
+    object-fit: cover;
+  }
+  .image5Icon {
+    width: 59px;
+  }
+  .leftColumnDiv,
+  .tokenPocketLoginButton {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+  }
+  .tokenPocketLoginButton {
+    cursor: pointer;
+    border: 0;
+    padding: 10px 0 0;
+    background-color: transparent;
+    justify-content: center;
+    gap: 10px;
+  }
+  .leftColumnDiv {
+    align-self: stretch;
+    width: 212.5px;
+    flex-shrink: 0;
+    padding: 34px 0;
+    justify-content: space-between;
+  }
+  .frameDiv2,
+  .image2Icon {
+    position: relative;
+    flex-shrink: 0;
+  }
+  .frameDiv2 {
+    background-color: rgba(255, 255, 255, 0.25);
+    filter: blur(45px);
+    width: 374px;
+    height: 591px;
+    overflow: hidden;
+    display: none;
+  }
+  .image2Icon {
+    width: 88px;
+    height: 59px;
+    object-fit: cover;
+  }
+  .image4Icon,
+  .rightColumnDiv {
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+  .image4Icon {
+    position: relative;
+    max-width: 100%;
+    height: 102px;
+    object-fit: cover;
+  }
+  .rightColumnDiv {
+    width: 212.5px;
+    display: flex;
+    flex-direction: column;
+    padding: 104px 0;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .unauthBankDiv {
+    border-radius: 40px;
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+  }
+  .unauthBankDiv:hover .bodyDiv3,
+  .unauthBankDiv:hover .walletModelDiv1 {
+    display: flex;
+  }
+  .energyButtonRectangle {
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    left: -4px;
+    border-radius: 20px;
+    width: 139px;
+    height: 139px;
+    flex-shrink: 0;
+    z-index: 0;
+    stroke-width: 5px;
+    stroke: #fff;
+    background-color: #478D92;
+    backdrop-filter: blur(50px);
+    border: 5px solid #d9d9d9;
+  }
+  .mBackground,
+  .staticEffectDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mBackground {
+    position: relative;
+    font-size: 96px;
+    font-family: Inter;
+    color: rgba(255, 255, 255, 0.25);
+    text-align: center;
+    width: 59px;
+    height: 131px;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .staticEffectDiv {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 131px;
+    flex-direction: row;
+  }
+  .energyButton {
+    position: absolute;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    width: 131px;
+    height: 131px;
+    flex-shrink: 0;
+  }
+  .energyButton1 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    width: 131px;
+    height: 131px;
+    flex-shrink: 0;
+  }
+  .energyButton:hover ~ .hoverEffectButton,
+  .energyButton1:hover ~ .hoverEffectButton1 {
+    display: flex;
+  }
+  .hoverEffectButton:hover .energyButton,
+  .hoverEffectButton1:hover .energyButton1 {
+    display: none;
+    }
+    .hoverEffectButton:hover, 
+    .hoverEffectButton1:hover {
+    display: flex;
+    }
+
+  .energyButtonRectangle1 {
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    left: -4px;
+    border-radius: 20px;
+    width: 358px;
+    height: 139px;
+    flex-shrink: 0;
+    z-index: 0;
+  }
+  .mBackground1 {
+    position: relative;
+    font-size: 96px;
+    display: inline-block;
+    font-family: Inter;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    z-index: 1;
+  }
+  .hoverEffectButton,
+  .hoverEffectButton1 {
+    position: relative;
+    margin: 0 !important;
+    top: 0;
+    left: -4px;
+    border-radius: 20px;
+    width: auto;
+    height: 139px;
+    flex-shrink: 0;
+    z-index: 0;
+    stroke-width: 5px;
+    stroke: #fff;
+    background-color: #478D92;
+    backdrop-filter: blur(50px);
+    border: 5px solid #d9d9d9;
+    display: none;
+    flex-direction: row;
+  }
+  .topTabsDocker,
+  .mEButtonsDiv {
+    display: flex;
+    flex-direction: row;
+    pointer-events: auto;
+
+  }
+  .mEButtonsDiv {
+    padding: 18px 45px 59px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    opacity: 0.9;
+  }
+  .topTabsDocker {
+    position: absolute;
+    width: 100vw;
+    height: auto; 
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 48px;
+    color: #fff;
+    font-family: Inter;
+    pointer-events: auto;
+    z-index: 2;
+  }
+  .bankModelsDiv1,
+  .energyButton3,
+  .bankModelsDiv2 {
+    position: absolute;
+    gap: 18px;
+    opacity: 0.9;
+    overflow: hidden;
+    transform: scale(0.25);
+    text-align: left;
+  font-size: 24px;
+  align-items: center;
+  color: #fff;
+  font-family: Inter;
+  border-radius: 50px; 
+  border : 5px ridge #fff;
+  pointer-events: fill;
+  }
+  .bankModelsDiv1 {
+    transform-origin: left top;
+    top: 0;
+    left: 0;
+  }
+  .bankModelsDiv2 {
+    transform-origin: right top;
+    top: 0;
+    right: 0;
+  }
+  .energyButton3 {
+    transform-origin: center top;
+    top: 0;
+    align-self: center;
+  }
+  .bankModelsDiv1:hover,
+  .bankModelsDiv2:hover,
+  .energyButton3:hover {
+    width: auto;
+    height: auto;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+  

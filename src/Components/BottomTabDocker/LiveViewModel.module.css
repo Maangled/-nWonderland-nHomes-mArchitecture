@@ -1,0 +1,172 @@
+.rectangleDiv,
+.rectangleDiv1 {
+  position: absolute;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+}
+.rectangleDiv {
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  background-color: rgba(71, 141, 146, 0.6);
+  backdrop-filter: blur(50px);
+  width: 191px;
+  height: 95px;
+}
+.rectangleDiv1 {
+  top: 7px;
+  left: 23px;
+  border-radius: 5px;
+  background-color: #478d92;
+  width: 149px;
+  height: 82px;
+}
+.singleViewDiv {
+  position: absolute;
+  top: 95px;
+  left: 0;
+  font-size: 24px;
+  font-weight: 900;
+  font-family: Inter;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  width: 180px;
+  height: 40px;
+}
+.liveViewButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 556px;
+  left: 24px;
+  width: 191px;
+  height: 135px;
+}
+.liveViewButton:hover {
+  display: flex;
+}
+.rectangleDiv3,
+.rectangleDiv4 {
+  position: absolute;
+  top: 7px;
+  left: 23px;
+  border-radius: 5px;
+  background-color: #478d92;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 74px;
+  height: 82px;
+}
+.rectangleDiv4 {
+  left: 97px;
+  width: 75px;
+}
+.dualViewButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 421px;
+  left: 24px;
+  width: 191px;
+  height: 135px;
+}
+.rectangleDiv8 {
+  position: absolute;
+  top: 25px;
+  left: 59px;
+  border-radius: 5px;
+  background-color: #478d92;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 75px;
+  height: 47px;
+}
+.triViewButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 286px;
+  left: 24px;
+  width: 191px;
+  height: 135px;
+}
+.rectangleDiv10,
+.rectangleDiv11,
+.rectangleDiv12,
+.rectangleDiv13 {
+  position: absolute;
+  top: 7px;
+  left: 97px;
+  border-radius: 5px;
+  background-color: #478d92;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 75px;
+  height: 41px;
+}
+.rectangleDiv11,
+.rectangleDiv12,
+.rectangleDiv13 {
+  left: 22px;
+}
+.rectangleDiv12,
+.rectangleDiv13 {
+  top: 48px;
+  left: 97px;
+}
+.rectangleDiv13 {
+  left: 22px;
+}
+.quadViewButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 151px;
+  left: 24px;
+  width: 191px;
+  height: 135px;
+}
+.rectangleDiv19 {
+  position: absolute;
+  top: 28px;
+  left: 58px;
+  border-radius: 5px;
+  background-color: #478d92;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  width: 75px;
+  height: 41px;
+}
+.pentaViewButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  width: 191px;
+  height: 135px;
+}
+.liveViewModel {
+  position: relative;
+  width: 239px;
+  height: 707px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+}
