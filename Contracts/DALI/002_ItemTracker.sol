@@ -30,8 +30,7 @@ contract ItemTracker is Initializable, ERC1155Upgradeable, AccessControlUpgradea
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
     uint256 public itemID;
-
-
+    mapping (uint256 => Item) internal items;
     
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
@@ -57,45 +56,73 @@ contract ItemTracker is Initializable, ERC1155Upgradeable, AccessControlUpgradea
         (bool success, bytes memory result) = ETAddress.delegatecall(abi.encodeWithSignature("createItem(string[],string[])", _item, _hashKeys));
         return abi.decode(result, (bytes32[]));
         }
-
-    // creates an item using the ERC1155 standard
-    function createItem(string[] memory _item, string[] memory _hashKeys) public {
-        require(hasRole(MINTER_ROLE, msg.sender), "ItemTracker: must have minter role to mint");
-        bytes32[] memory encryptedItem = getEncryption(_item, _hashKeys);
-        _mint(msg.sender, itemID, 1, "");
-        itemID++;
+    // creates an NFT by randomly placing the item into a slot in an array of 10,000,000 items
+    // the item is encrypted by ET
+    // the item is stored in the items mapping
+    // the itemID is returned
+    function createItem(string[] memory _item, string[] memory _hashKeys) internal returns (uint256) {
+        // create a random number between 0 and 10,000,000
+        uint256 random = uint256(keccak256(abi.encodePacked(block.timestamp, block.difficulty, msg.sender))) % 10000000;
+        // create an item
+        Item memory newItem;
+        newItem.encryptedItem = getEncryption(_item, _hashKeys);
+        // store the item in the items mapping
+        items[random] = newItem;
+        // return the itemID
+        return random;
     }
-    // burns an item using the ERC1155 standard
-    function burnItem(uint256 _itemID) public {
-        require(hasRole(MINTER_ROLE, msg.sender), "ItemTracker: must have minter role to burn");
-        _burn(msg.sender, _itemID, 1);
+    // create an item and add it to the items mapping
+    function addIteration(string[] memory _item, string[] memory _hashKeys) internal returns (uint256) {
+        // create an item
+        Item memory newItem;
+        newItem.encryptedItem = getEncryption(_item, _hashKeys);
+        // store the item in the items mapping
+        items[itemID] = newItem;
+        // return the itemID
+        return itemID;
     }
+    // change the order of the items in the items mapping
+    function swapItems(uint256 _itemID1, uint256 _itemID2) internal {
+        Item memory item1 = items[_itemID1];
+        Item memory item2 = items[_itemID2];
+        items[_itemID1] = item2;
+        items[_itemID2] = item1;
+    }
+    // get an item from the items mapping
+    function getItem(uint256 _itemID) internal view returns (bytes32[] memory) {
+        return items[_itemID].encryptedItem;
+    }
+    // burn an item from the items mapping
+    function burnItem(uint256 _itemID) internal {
+        delete items[_itemID];
+    }
+    // sets the URI for the ERC1155 standard
     function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {
         _setURI(newuri);
     }
-
+    // pauses the contract using the ERC1155 standard
     function pause() public onlyRole(PAUSER_ROLE) {
         _pause();
     }
-
+    // unpauses the contract using the ERC1155 standard
     function unpause() public onlyRole(PAUSER_ROLE) {
         _unpause();
     }
-
+    // minting function for the ERC1155 standard
     function mint(address account, uint256 id, uint256 amount, bytes memory data)
         public
         onlyRole(MINTER_ROLE)
     {
         _mint(account, id, amount, data);
     }
-
+    // mintBatch function for the ERC1155 standard
     function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         public
         onlyRole(MINTER_ROLE)
     {
         _mintBatch(to, ids, amounts, data);
     }
-
+    // burn function for the ERC1155 standard
     function _beforeTokenTransfer(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         internal
         whenNotPaused
@@ -104,6 +131,7 @@ contract ItemTracker is Initializable, ERC1155Upgradeable, AccessControlUpgradea
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }
 
+    // allows the contract to be upgraded
     function _authorizeUpgrade(address newImplementation)
         internal
         onlyRole(UPGRADER_ROLE)

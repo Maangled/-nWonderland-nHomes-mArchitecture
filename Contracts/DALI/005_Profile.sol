@@ -29,12 +29,11 @@ contract Profile is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeabl
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
     uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     address public ITAddress;
-    address public owner;
     address public newOwner;
     address public IDAddress;
     event ItemTrackerSet(address _itemTracker);
-    mapping(uint256 => Item) public items;
     mapping(uint256 => address) public itemOwners;
     event ItemDisplacerSet(address _itemDisplacer);
     address public vaultAddress;
@@ -89,25 +88,24 @@ contract Profile is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeabl
         itemOwners[itemID] = msg.sender;
         _mint(msg.sender, itemID, 1, "");
         itemID++;
+        (bool success, bytes memory result) = vaultAddress.call(abi.encodeWithSignature("addItem(uint256)", itemID));
     }
 
-    // create a new vault
+    // create a new vault and add it to the profile
     function createVault() public {
         require(hasRole(MINTER_ROLE, msg.sender), "Profile: must have minter role to create vault");
-        Vault vault = VaultSet(vaultAddress);
-        vault.createVault();
-        vaults[itemID] = vaultAddress;
-        vaultIDs[itemID] = vault.vaultID();
-        vaultBalances[itemID] = vault.balanceOf(msg.sender);
-        _mint(msg.sender, itemID, 1, "");
-        itemID++;
+        (bool success, bytes memory result) = vaultAddress.call(abi.encodeWithSignature("createVault()"));
+        uint256 vaultID = abi.decode(result, (uint256));
+        vaults[vaultID] = msg.sender;
+        vaultIDs[vaultID] = vaultID;
+        vaultBalances[vaultID] = 1;
     }
 
     // transfer ownership of a vault
-    function transferVaultOwnership(uint256 _itemID, address _newOwner) public {
-        require(hasRole(MINTER_ROLE, msg.sender), "Profile: must have minter role to transfer vault ownership");
-        Vault vault = Vault(vaults[_itemID]);
-        vault.transferOwnership(_newOwner);
+    function transferVault(uint256 _vaultID, address _newOwner) public {
+        require(hasRole(MINTER_ROLE, msg.sender), "Profile: must have minter role to transfer vault");
+        require(vaults[_vaultID] == msg.sender, "Profile: must be owner of vault to transfer vault");
+        vaults[_vaultID] = _newOwner;
     }
 
     // The following functions are overrides required by Solidity.
@@ -141,7 +139,7 @@ contract Profile is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeabl
     function _beforeTokenTransfer(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
         internal
         whenNotPaused
-        override(ERC1155Upgradeable, ERC1155SupplyUpgradeable)
+        override(ERC1155PausableUpgradeable, ERC1155Upgradeable, ERC1155SupplyUpgradeable)
     {
         super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
     }

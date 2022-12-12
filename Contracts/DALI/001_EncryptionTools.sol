@@ -13,6 +13,7 @@ contract EncryptionTools {
     struct Item {
         bytes32[] encryptedItem;
     }
+    
     // creates an item using a basic encryption algorithm
     function createItem(string[] memory _item, string[] memory _hashKeys) public pure returns (bytes32[] memory) {
         bytes32[] memory encryptedItem = new bytes32[](_item.length);

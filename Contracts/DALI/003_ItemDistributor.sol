@@ -29,23 +29,32 @@ contract ItemDistributor is Initializable, ERC1155Upgradeable, AccessControlUpgr
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
     uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     address public ITAddress;
     address public owner;
     address public newOwner;
     event ItemTrackerSet(address _itemTracker);
-    mapping(uint256 => Item) public items;
     mapping(uint256 => address) public itemOwners;
 
     function initialize(address _ITAddress, address _owner, address _newOwner, bytes32[] memory _encryptedItem) public {
         ITAddress = _ITAddress;
         owner = _owner;
         newOwner = _newOwner;
-        Item[0] = _encryptedItem;
+        itemID = 0;
+        items[itemID].encryptedItem = _encryptedItem;
     }
 
+    // add a data to an item array
+    function addItemData(uint256 _itemID, bytes32[] memory _encryptedItem) public {
+        require(msg.sender == ITAddress, "Only the ItemTracker can add item data");
+        items[_itemID].encryptedItem = _encryptedItem;
+    }
+
+    
+    // make a delecate call to the itemTracker contract to burn the item and mint a new one
     function transferItem() public {
-        (bool success, bytes memory result) = ITAddress.delegatecall(abi.encodeWithSignature("burnItem(address,uint256,bytes32[])", owner, itemID, Item[0]));
-        (bool success1, bytes memory result1) = ITAddress.delegatecall(abi.encodeWithSignature("createItem(address,uint256,bytes32[])", newOwner, itemID, Item[0]));
+        (bool success, bytes memory result) = ITAddress.delegatecall(abi.encodeWithSignature("burnItem(address,uint256,bytes32[])", owner, itemID, items[0]));
+        (bool success1, bytes memory result1) = ITAddress.delegatecall(abi.encodeWithSignature("createItem(address,uint256,bytes32[])", newOwner, itemID, items[0]));
     }
 
         function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {

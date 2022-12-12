@@ -83,6 +83,7 @@ return (
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Bottom center"
           onOutsideClick={closeBottomTabsModel}
+          setMainViewer={closeBottomTabsModel}
         >
           <BottomTabsModel onClose={closeBottomTabsModel} />
         </PortalPopup>
@@ -92,6 +93,7 @@ return (
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeWalletModelPopup}
+          setMainViewer={closeWalletModelPopup}
         >
           <WalletModel onClose={closeWalletModelPopup} />
         </PortalPopup>
@@ -100,8 +102,8 @@ return (
         <PortalPopup
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
-          
           onOutsideClick={closeBankModelPopup}
+          setMainViewer={closeBankModelPopup}
         >
           <BankModel onClose={closeBankModelPopup} />
         </PortalPopup>
@@ -111,6 +113,7 @@ return (
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeHostBankModelPopup}
+          setMainViewer={closeHostBankModelPopup}
         >
           <HostBankModel onClose={closeHostBankModelPopup} />
         </PortalPopup>

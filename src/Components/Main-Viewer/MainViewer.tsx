@@ -1,6 +1,6 @@
 import { FunctionComponent, useState, useCallback, useEffect, useRef } from "react";
 import styles from "./MainViewer.module.css";
-import MainButtons from "../MainButtons";
+import { MainButtons } from "../MainButtons";
 //import { ScreenQueue } from "./ScreenQueue";
 import { PortalPopup } from "../PortalPopup";
 import { CatButton } from "../CatModel/CatButton/CatButton";
@@ -12,6 +12,11 @@ import { BankModels } from "../BankModels/BankModels";
 import { Cat } from "../CatModel/CatButton/Cat";
 import { useMainViewer } from "../../hooks/useMainViewer";
 import { EnergyModel } from "../EnergyModel/EnergyModel";
+import { HostBankModel } from "../BankModels/HostBankModel";
+import { WalletModel } from "../BankModels/WalletModel";
+import { useMoralis } from "react-moralis";
+import { ContractBuilder } from "../EnergyModel/ContractBuilder/ContractBuilder";
+import { stateAttributes, newHomeAttributes, setStateAttributes, setStateTitle, setStateContent } from "../EnergyModel/ContractBuilder/BuilderStateVariables";
 
 
 //TODO: add a background that that is acts as a canvas for applications within the app to draw on
@@ -20,17 +25,47 @@ import { EnergyModel } from "../EnergyModel/EnergyModel";
 //TODO: keep cat from rerendering when main buttons is shown/hidden
 //TODO: keep main buttons from rerendering whe mouse is still
 
+//TODO: we're going to remake every component using the contract builder. This will allow us to make the components themselves a token that can be retrieved from the blockchain.
+// Here's how it will work:
+// 1. The user will be able to create a new component using the contract builder
+// 2. The user will be able to save the component to the blockchain
+// 3. The user will be able to retrieve the component from the blockchain
+// 4. The user will be able to manipulate data using the component, and request data from other components saved locally or on the blockchain.
+
+
+
+//TODO: cleanUp: resize widgets on the screen to keep them in view, and make them fit the frame of the screen
+//TODO: cleanUp: make the cat a token that can be retrieved from the blockchain
+//TODO: use react draggable to make all the components draggable
+
+//TODO: Functionality host bank model will be the only model that is on the man viewer, all other models will be called from the host bank model 
+// (this will allow us to make the host bank model a contract that manages all the other contracts on this screen, determing configuration, and the order in which they are displayed)
+
+// TODO: add a background that that is acts as a canvas for applications within the app to draw on
+
+
+
+
 
 
 export const MainViewer: FunctionComponent = () => {
     // create the state for the main viewer
     const [isCatModelVisible, setIsCatModelVisible] = useState(false);
-    const [isBottomTabsModelVisible, setIsBottomTabsModelVisible] = useState(true);
+    const [isBottomTabsModelVisible, setIsBottomTabsModelVisible] = useState(false);
     const [isBankModelPopupOpen, setBankModelPopupOpen] = useState(false);
-    const [isBankModelsVisible, setIsBankModelsVisible] = useState(true);
-    const [isCatButtonVisible, setIsCatButtonVisible] = useState(true);
+    const [isBankModelsVisible, setIsBankModelsVisible] = useState(false);
+    const [isCatButtonVisible, setIsCatButtonVisible] = useState(false);
     const [isMainViewerViewVisible, setisMainViewerViewVisible] = useState(false);
     const [MainViewer, setMainViewer] = useState(<></>);
+    const [isHostBankModelPopupOpen, setHostBankModelPopupOpen] = useState(false);
+    const [isHostAuthenticating, setIsHostAuthenticating] = useState(true); // true by default to prevent the user from seeing the main viewer until they have selected a node
+    const [hostProfileAddress, setHostProfileAddress] = useState("0x000000");
+    const { Moralis, user } = useMoralis();
+    const { isAuthenticated } = useMoralis();
+    const [isContractBuilderVisible, setisContractBuilderVisible] = useState(false);
+    const [ contractBuilderState, setContractBuilderState ] = useState(stateAttributes.attributes);
+    const [ contractBuilderNewHomeState, setContractBuilderNewHomeState ] = useState(newHomeAttributes.attributes);
+
 
     useEffect(() => {
         if (MainViewer == <></>) {
@@ -66,32 +101,32 @@ export const MainViewer: FunctionComponent = () => {
         setIsCatButtonVisible(false);
     }, []);
     const openCatModel = useCallback(() => {
-      setIsCatModelVisible(true);
+        setIsCatModelVisible(true);
     }, []);
     const closeCatModel = useCallback(() => {
-      setIsCatModelVisible(false);
+        setIsCatModelVisible(false);
     }, []);
 
 
-        // use timeout to hide the main buttons after a certain amount of time
-        const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-        // create a function to hide the main buttons
-        const hideMainButtons = useCallback(() => {
-            timeoutRef.current = setTimeout(() => {
-                hideBottomTabsModel();
-                hideBankModels();
-            }, 500000);
-        }, []);
-        // create a function to show the main buttons and hide them after a certain amount of time
-        const showMainButtons = useCallback(() => {
-            showBottomTabsModel();
-            showBankModels();
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-            hideMainButtons();
-        }, []);
-    
+    // use timeout to hide the main buttons after a certain amount of time
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    // create a function to hide the main buttons
+    const hideMainButtons = useCallback(() => {
+        timeoutRef.current = setTimeout(() => {
+            hideBottomTabsModel();
+            hideBankModels();
+        }, 500000);
+    }, []);
+    // create a function to show the main buttons and hide them after a certain amount of time
+    const showMainButtons = useCallback(() => {
+        showBottomTabsModel();
+        showBankModels();
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        hideMainButtons();
+    }, []);
+
     // create the event listeners for the main viewer
     useEffect(() => {
         document.addEventListener("mousemove", showMainButtons);
@@ -100,7 +135,7 @@ export const MainViewer: FunctionComponent = () => {
         document.addEventListener("touchstart", showMainButtons);
         document.addEventListener("touchmove", showMainButtons);
         document.addEventListener("touchend", showMainButtons);
-        
+
         return () => {
             document.removeEventListener("mousemove", showMainButtons);
             document.removeEventListener("click", showMainButtons);
@@ -114,7 +149,7 @@ export const MainViewer: FunctionComponent = () => {
         if (isCatModelVisible) {
             hideCatButton();
         } else {
-            showCatButton(); 
+            showCatButton();
         }
     }, [isCatModelVisible]);
     useEffect(() => {
@@ -127,14 +162,11 @@ export const MainViewer: FunctionComponent = () => {
     const catButton = isCatButtonVisible ? (
         <CatButton
             onClick={openCatModel}
-            ></CatButton>
+        ></CatButton>
     ) : null;
 
-        // useeffect to render the cat button at all times
+    // useeffect to render the cat button at all times
 
-
-
-    
     // create the state for the cat model
     // const [catState, setCatState] = useState(DefaultCatState);
     // const [catModel, setCatModel] = useState<CatModel>(new CatModel(catState));
@@ -152,61 +184,142 @@ export const MainViewer: FunctionComponent = () => {
     // const [catModelIsVisible, setCatModelIsVisible] = useState(false);
 
     // create the state for the cat button
+    //TODO: get rid of portal popup from all models and use the same technique as the popup for the stream deck view so they dont have to be rendered all the time
 
+    function changeHost(_string: string) {
+        setHostProfileAddress(_string);
+        return hostProfileAddress;
+    }
 
+    // check if a host has been selected and if so, show the main viewer
+    useEffect(() => {
+        if (hostProfileAddress != "0x000000" && hostProfileAddress != "launchNewHome") {
+            setIsHostAuthenticating(false);
+        } else {
+            if (hostProfileAddress == "launchNewHome") {
+                setNewSaveGame(true);
+            }
+            setIsHostAuthenticating(true);
+        }
+    }, [hostProfileAddress]);
+    function confirmDisconnect() {
+        setHostProfileAddress("0x000000");
+        return false;
+    }
 
-return (
-    
-    <div className={styles.mainDiv}>
-        <button onClick={openCatModel}>{catButton}</button>
-        <div className={styles.MainDiv} >
-            <div className={styles.backgroundDiv}>
-            {isMainViewerViewVisible ? (
-                    <div className={styles.mainViewer} >
-                    {MainViewer}
-                    </div>
-                ) : null}
-                {isBottomTabsModelVisible ? (
-                    <BottomTabsModel setMainViewer={setMainViewer}/>
-                ): null}
-                {isBankModelsVisible ? (
-                        <BankModels setMainViewer={setMainViewer}/>
-                    ) : null}
+    // TODO: create a framework different components can use to make their own models so they can be rendered in the main viewer and dragged around/interacted with
 
-
+    const guestAuthenticatedModel = isAuthenticated ? ((
+        // if the user is authenticated, show the user bank model
+        <div className={styles.bankModelsDiv2} onClick={openBankModelPopup}>
+            <BankModel />
         </div>
-    </div>
+    )) : ((
+        // if the user is not authenticated, show a blank bank model with a login button
+        <div className={styles.div}>
+            <div className={styles.bankModelDiv1}>
+                <BankModel />
+            </div>
+            <div className={styles.walletModelDiv}>
+                <WalletModel />
+            </div>
+        </div>
+    ));
+    const [newSaveGame, setNewSaveGame] = useState(false);
+    const [profileList, setProfileList] = useState(undefined as any);
+    
 
-  {isCatModelVisible && (
-    <PortalPopup
-      overlayColor="rgba(113, 113, 113, 0.3)"
-      placement="Centered"
-      onOutsideClick={closeCatModel}
-      setMainViewer={setMainViewer}
-    >
-      <CatModel onClose={closeCatModel} setMainViewer={setMainViewer} />
-    </PortalPopup>
-  )}
-  {isBankModelPopupOpen && (
-    <PortalPopup
-      overlayColor="rgba(113, 113, 113, 0.3)"
-      placement="Top left"
-      onOutsideClick={closeBankModelPopup}
-      setMainViewer={setMainViewer}
-      >
-        <BankModel onClose={closeBankModelPopup} />
-      </PortalPopup>
-  )}
-  {isBankModelPopupOpen && (
-    <PortalPopup
-      overlayColor="rgba(113, 113, 113, 0.3)"
-      placement="Centered"
-      onOutsideClick={closeBankModelPopup}
-      setMainViewer={setMainViewer}
-    >
-      <BankModel onClose={closeBankModelPopup} />
-    </PortalPopup>
-  )}
-  </div>
-  );
+
+    useEffect(() => {
+        // make sure the profile list is not empty
+        if (profileList == undefined) {
+            setNewSaveGame(false);
+        }else if (profileList.length == 0) {
+            setNewSaveGame(true);
+        } else {
+            setNewSaveGame(false);
+        }
+        console.log("profile list changed", profileList)
+    }, [profileList]);
+
+// create a HostBankModel for each profile in the profile list
+// if the profile list is empty, show a blank HostBankModel that is linked to the Contract Builder's data
+// contract builder Memorize will save the data to the server and the server will update the profile list.
+// with one profile in the profile list, it will show that profile as a host bank model
+// a second profile will show a add profile button that will open the contract builder again.
+
+
+
+    return (
+        <div className={styles.mainDiv}>
+            {isHostAuthenticating ? (
+                <div className={styles.backgroundDiv}>
+                    <div className={styles.BankRows}>
+                        <div className={styles.profileDiv}>
+                            <HostBankModel setHostAddress={changeHost} hostAddress={hostProfileAddress} profileList={(e:any) => setProfileList(e)} />
+                        </div>
+                        {newSaveGame ? (
+                            <div className={styles.profileDiv}>
+                                <ContractBuilder attributes={contractBuilderNewHomeState} />
+                            </div>
+                        ) : ( null ) }
+                    </div>
+                </div>
+            ) : (
+                <>
+                    <button onClick={openCatModel}>{catButton}</button>
+                    <div className={styles.MainDiv}>
+                        <div className={styles.backgroundDiv}>
+                            <div className={styles.bankModelsDiv1}>
+                                <HostBankModel isSkip={true} setHostAddress={changeHost} hostAddress={hostProfileAddress} />
+                            </div>
+                            <div className={styles.energyButton3}>
+                                <EnergyModel setMainViewer={setMainViewer} />
+                            </div>
+                            {guestAuthenticatedModel}
+                            {isMainViewerViewVisible ? (
+                                <div className={styles.mainViewer}>
+                                    {MainViewer}
+                                </div>
+                            ) : null}
+                            {isBottomTabsModelVisible ? (
+                                <BottomTabsModel setMainViewer={setMainViewer} />
+                            ) : null}
+                        </div>
+                    </div>
+                    {isCatModelVisible && (
+                        <PortalPopup
+                            overlayColor="rgba(113, 113, 113, 0.3)"
+                            placement="Centered"
+                            onOutsideClick={closeCatModel}
+                            setMainViewer={setMainViewer}
+                        >
+                            <CatModel onClose={closeCatModel} setMainViewer={setMainViewer} />
+                        </PortalPopup>
+                    )}
+                    {isBankModelPopupOpen && (
+                        <PortalPopup
+                            overlayColor="rgba(113, 113, 113, 0.3)"
+                            placement="Top left"
+                            onOutsideClick={closeBankModelPopup}
+                            setMainViewer={setMainViewer}
+                        >
+                            <BankModel onClose={closeBankModelPopup} />
+                        </PortalPopup>
+                    )}
+                    {isBankModelPopupOpen && (
+                        <PortalPopup
+                            overlayColor="rgba(113, 113, 113, 0.3)"
+                            placement="Centered"
+                            onOutsideClick={closeBankModelPopup}
+                            setMainViewer={setMainViewer}
+                        >
+                            <BankModel onClose={closeBankModelPopup} />
+                        </PortalPopup>
+                    )}
+                </>
+            )}
+        </div>
+    );
 }
+

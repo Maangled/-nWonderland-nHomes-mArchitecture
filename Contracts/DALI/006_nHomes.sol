@@ -1,10 +1,19 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
+import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155PausableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol";
+
 // nHomes (nH) v1.0.0
 // this contract is a proxy to the profile contract
 // this contract is called by a conda enviornment running on a user's computer to create a household node as a profile.
-// this node can hold multiple profiles while keeping the profiles private, and the household node public
+// this node can hold multiple profiles while keeping the profiles private, and the household node public.
 // this node can also hold multiple homes as offices, and each home can hold multiple profiles to be used in professional settings
 // nodes are used to create profiles
 // profiles can be made in a number of ways
@@ -18,8 +27,10 @@ pragma solidity ^0.8.4;
 // it has a function to create a profile node
 // it has a function to create a profile node fragment
 
-contract nHomes {
-        struct Item {
+
+
+contract nHomes is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeable, ERC1155PausableUpgradeable, OwnableUpgradeable, UUPSUpgradeable, AccessControlUpgradeable, ERC1155SupplyUpgradeable {
+    struct Item {
         bytes32[] encryptedItem;
     }
     event EncryptionToolsSet(address _encryptionTools);
@@ -29,8 +40,8 @@ contract nHomes {
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
     uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     address public ITAddress;
-    address public owner;
     address public newOwner;
     address public IDAddress;
     event ItemTrackerSet(address _itemTracker);
@@ -48,9 +59,144 @@ contract nHomes {
     mapping(uint256 => uint256) public Homes;
     mapping(uint256 => uint256) public HomeIDs;
     mapping(uint256 => uint256) public HomeBalances;
-
+    event HomeSet(address _home);
+    address public officeAddress;
+    mapping(uint256 => uint256) public Offices;
+    mapping(uint256 => uint256) public OfficeIDs;
+    mapping(uint256 => uint256) public OfficeBalances;
+    event OfficeSet(address _office);
+    address public nodeAddress;
+    mapping(uint256 => uint256) public Nodes;
+    mapping(uint256 => uint256) public NodeIDs;
+    mapping(uint256 => uint256) public NodeBalances;
+    event NodeSet(address _node);
+    
     // initialize the contract
-    function initialize() public {
-        // nothing to initialize
+    // set the profile contract address
+    // use a random number generator to create a profile node
+    // set the profile node as the owner of the profile contract
+    // create a profile node fragment and set it as the owner of the profile node
+    // this fragment is a non-fungible token that is claimable by the person who created the profile node
+    // this fragment can be used to claim the profile node
+    // this fragment can be used to claim the profile contract
+    // the initializer returns a random number that is used to claim the profile node fragment
+function initialize(address _nodeAddress) public {
+        __ERC1155_init("https://ipfs.io/ipfs/");
+        __ERC1155Burnable_init();
+        __ERC1155Pausable_init();
+        __Ownable_init();
+        __UUPSUpgradeable_init();
+        __AccessControl_init();
+        __ERC1155Supply_init();
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setupRole(URI_SETTER_ROLE, msg.sender);
+        _setupRole(PAUSER_ROLE, msg.sender);
+        _setupRole(MINTER_ROLE, msg.sender);
+        _setupRole(UPGRADER_ROLE, msg.sender);
+        nodeAddress = _nodeAddress;
+        // creates an item and sets the owner of the item to this contract and then transfers the vault to the owner of the item
+        itemID = 0;
+        itemOwners[itemID] = address(this);
+        vaultAddress = address(this);
+        vaults[itemID] = vaultAddress;
+        vaultIDs[itemID] = itemID;
+        vaultBalances[itemID] = 1;
+        _mint(address(this), itemID, 1, "");
+        _safeTransferFrom(address(this), vaultAddress, itemID, 1, "");
+        // // creates a profile node and sets the owner of the profile node to this contract and then transfers the profile node to the owner of the item
+        // // this is transfered to a nWonderland contract that is deployed by the user who created the profile node by signing a message with their private key 
+        // // over to a wallet that is owned by the user
+        // itemID = 1;
+        // itemOwners[itemID] = address(this);
+        // nodeAddress = address(this);
+        // Nodes[itemID] = nodeAddress;
+        // NodeIDs[itemID] = itemID;
+        // NodeBalances[itemID] = 1;
+        // _mint(address(this), itemID, 1, "");
+        // _safeTransferFrom(address(this), nodeAddress, itemID, 1, "");
     }
+    // this function creates a delegate call to the profile contract to set the encryption tools, the item tracker, the Item Distributor, and then creates a vault and then 
+    // creates an item and sets the owner of the item to this contract and then transfers the vault to the owner of the item
+    function activateNode()public{
+        (bool success, bytes memory result) = nodeAddress.delegatecall(abi.encodeWithSignature("setEncryptionTools", ETAddress));
+        require(success, "Delegate call failed");
+        (bool success2, bytes memory result2) = nodeAddress.delegatecall(abi.encodeWithSignature("setItemTracker", ITAddress));
+        require(success2, "Delegate call failed");
+        (bool success3, bytes memory result3) = nodeAddress.delegatecall(abi.encodeWithSignature("setItemDistributor", IDAddress));
+        require(success3, "Delegate call failed");
+        (bool success4, bytes memory result4) = nodeAddress.delegatecall(abi.encodeWithSignature("createVault", vaultAddress));
+        require(success4, "Delegate call failed");
+        (bool success5, bytes memory result5) = nodeAddress.delegatecall(abi.encodeWithSignature("createItem", itemID, vaultAddress));
+        require(success5, "Delegate call failed");
+        (bool success6, bytes memory result6) = nodeAddress.delegatecall(abi.encodeWithSignature("setItemOwner", itemID, address(this)));
+        require(success6, "Delegate call failed");
+        (bool success7, bytes memory result7) = nodeAddress.delegatecall(abi.encodeWithSignature("transferVault", itemID, address(this)));
+        require(success7, "Delegate call failed");
+    }
+
+
+
+    // this function creates an item using ET, creates a set of blank NFTs using IT, creates a random list of numbers using ID, and encrypts all three of them within a vault.
+    // The vault is then sent returned to the user's computer and the key is set a time delayed digital signature key that is cleared after a set amount of time or 
+    // a certain number of transactions have been made giving the processor time to verify the data and upload it to the blockchain.
+        // Through an MVP reward oracle, the confidence of a user owning a profile will be increased over time as the IT fills out data about the item.
+        // in this case, the item is a profile, so the IT nfts will be filled with data about the profile.
+        // over time, there will be ten million pictures of the user in different settings, and the user will be able to use this data to prove ownership of the profile.
+        // at 60fps, this will take 1.9 days to fill out the data. These 10 million frames will be used to create 3d models of the user in different settings and in different poses 
+        // and eventually the entire profile will just be a high resolution 3d model of the user, all other data that is not needed can be saved in other vaults under the profile.
+
+    // lets create a profile node fragment first
+    
+            function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {
+        _setURI(newuri);
+    }
+
+    function pause() public onlyRole(PAUSER_ROLE) {
+        _pause();
+    }
+
+    function unpause() public onlyRole(PAUSER_ROLE) {
+        _unpause();
+    }
+
+    function mint(address account, uint256 id, uint256 amount, bytes memory data)
+        public
+        onlyRole(MINTER_ROLE)
+    {
+        _mint(account, id, amount, data);
+    }
+
+    function mintBatch(address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
+        public
+        onlyRole(MINTER_ROLE)
+    {
+        _mintBatch(to, ids, amounts, data);
+    }
+
+    function _beforeTokenTransfer(address operator, address from, address to, uint256[] memory ids, uint256[] memory amounts, bytes memory data)
+        internal
+        whenNotPaused
+        override(ERC1155PausableUpgradeable, ERC1155Upgradeable, ERC1155SupplyUpgradeable)
+    {
+        super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
+    }
+
+    function _authorizeUpgrade(address newImplementation)
+        internal
+        onlyRole(UPGRADER_ROLE)
+        override
+    {}
+
+    // The following functions are overrides required by Solidity.
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC1155Upgradeable, AccessControlUpgradeable)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
+
+
 }

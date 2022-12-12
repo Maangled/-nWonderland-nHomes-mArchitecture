@@ -7,7 +7,10 @@ import { MoralisProvider } from "react-moralis";
 
 ReactDOM.render(
   <BrowserRouter>
-    <MoralisProvider serverUrl="https://i3q8yrqro49k.usemoralis.com:2053/server" appId="t2HqusbgRKjspzGzd5MyPZcrzvdgrwzfVy0GWcIb">
+    <MoralisProvider 
+      serverUrl={process.env.REACT_APP_MORALIS_SERVER_URL ?? ''} 
+      appId={process.env.REACT_APP_MORALIS_APPLICATION_ID ?? ''}
+    >
       <App />
     </MoralisProvider>
   </BrowserRouter>,

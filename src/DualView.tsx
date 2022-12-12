@@ -75,6 +75,7 @@ export const DualView: FunctionComponent = () => {
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Bottom center"
           onOutsideClick={closeBottomTabsModel}
+          setMainViewer={closeBottomTabsModel}
         >
           <BottomTabsModel onClose={closeBottomTabsModel} />
         </PortalPopup>
@@ -84,6 +85,7 @@ export const DualView: FunctionComponent = () => {
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeWalletModelPopup}
+          setMainViewer={closeBottomTabsModel}
         >
           <WalletModel onClose={closeWalletModelPopup} />
         </PortalPopup>
@@ -93,6 +95,7 @@ export const DualView: FunctionComponent = () => {
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeHostWalletModel}
+          setMainViewer={closeBottomTabsModel}
         >
           <HostWalletModel onClose={closeHostWalletModel} />
         </PortalPopup>

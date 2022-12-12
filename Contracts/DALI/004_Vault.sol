@@ -28,12 +28,11 @@ contract Vault is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, P
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
     uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     address public ITAddress;
-    address public owner;
     address public newOwner;
     address public IDAddress;
     event ItemTrackerSet(address _itemTracker);
-    mapping(uint256 => Item) public items;
     mapping(uint256 => address) public itemOwners;
     event ItemDisplacerSet(address _itemDisplacer);
     address public vaultAddress;
@@ -67,65 +66,66 @@ contract Vault is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, P
         emit EncryptionToolsSet(_ETAddress);
     }
 
-    // create an item
-    function createItem(string[] memory _item, string[] memory _hashKeys) public {
+    // create an item using the encryption tools contract and store it in the items mapping with the itemID as the key
+    function createItem(bytes32[] memory _encryptedItem) public {
         require(hasRole(MINTER_ROLE, msg.sender), "Vault: must have minter role to create item");
-        Item[0] = EncryptionToolsSet(ETAddress).createItem(_item, _hashKeys);
-        items[itemID].encryptedItem = Item[0];
-        itemOwners[itemID] = msg.sender;
-        _mint(msg.sender, itemID, 1, "");
+        items[itemID].encryptedItem = _encryptedItem;
         itemID++;
     }
+
 
     // split an item
     function splitItem(uint256 _itemID, uint256 _amount) public {
         require(hasRole(MINTER_ROLE, msg.sender), "Vault: must have minter role to split item");
-        require(balanceOf(msg.sender, _itemID) >= _amount, "Vault: not enough items to split");
         require(_amount > 0, "Vault: amount must be greater than 0");
-        Item[0] = items[_itemID].encryptedItem;
-        for (uint256 i = 0; i < _amount; i++) {
-            items[itemID].encryptedItem = Item[0];
-            itemOwners[itemID] = msg.sender;
-            _mint(msg.sender, itemID, 1, "");
-            itemID++;
-        }
-        _burn(msg.sender, _itemID, _amount);
+        require(_amount <= vaultBalances[_itemID], "Vault: amount must be less than or equal to vault balance");
+        require(vaultBalances[_itemID] > 0, "Vault: vault balance must be greater than 0");
+        require(vaults[_itemID] == msg.sender, "Vault: must be vault owner to split item");
+        vaultBalances[_itemID] -= _amount;
+        uint256 newItemID = itemID;
+        itemID++;
+        vaults[newItemID] = msg.sender;
+        vaultIDs[newItemID] = _itemID;
+        vaultBalances[newItemID] = _amount;
+        emit TransferSingle(msg.sender, address(0), msg.sender, newItemID, _amount);
     }
 
     // combine items
     function combineItems(uint256[] memory _itemIDs) public {
         require(hasRole(MINTER_ROLE, msg.sender), "Vault: must have minter role to combine items");
         require(_itemIDs.length > 1, "Vault: must have more than 1 item to combine");
-        for (uint256 i = 0; i < _itemIDs.length; i++) {
-            require(balanceOf(msg.sender, _itemIDs[i]) >= 1, "Vault: not enough items to combine");
-            Item[0] = EncryptionToolsSet(ETAddress).combineItems(Item[0], items[_itemIDs[i]].encryptedItem);
-            _burn(msg.sender, _itemIDs[i], 1);
-        }
-        items[itemID].encryptedItem = Item[0];
-        itemOwners[itemID] = msg.sender;
-        _mint(msg.sender, itemID, 1, "");
+        uint256 newItemID = itemID;
         itemID++;
+        vaults[newItemID] = msg.sender;
+        for (uint256 i = 0; i < _itemIDs.length; i++) {
+            require(vaults[_itemIDs[i]] == msg.sender, "Vault: must be vault owner to combine items");
+            require(vaultBalances[_itemIDs[i]] > 0, "Vault: vault balance must be greater than 0");
+            vaultIDs[newItemID] = _itemIDs[i];
+            vaultBalances[newItemID] += vaultBalances[_itemIDs[i]];
+            vaultBalances[_itemIDs[i]] = 0;
+            emit TransferSingle(msg.sender, msg.sender, address(0), _itemIDs[i], vaultBalances[_itemIDs[i]]);
+        }
+        emit TransferSingle(msg.sender, address(0), msg.sender, newItemID, vaultBalances[newItemID]);
     }
 
     // transfer an item
     function transferItem(uint256 _itemID, address _to) public {
         require(hasRole(MINTER_ROLE, msg.sender), "Vault: must have minter role to transfer item");
-        require(balanceOf(msg.sender, _itemID) >= 1, "Vault: not enough items to transfer");
-        Item[0] = items[_itemID].encryptedItem;
-        ItemDisplacerSet(IDAddress).transferItem(Item[0], _to);
-        _burn(msg.sender, _itemID, 1);
+        require(vaults[_itemID] == msg.sender, "Vault: must be vault owner to transfer item");
+        require(vaultBalances[_itemID] > 0, "Vault: vault balance must be greater than 0");
+        vaults[_itemID] = _to;
+        emit TransferSingle(msg.sender, msg.sender, _to, _itemID, vaultBalances[_itemID]);
     }
 
     // transfer multiple items
     function transferItems(uint256[] memory _itemIDs, address _to) public {
         require(hasRole(MINTER_ROLE, msg.sender), "Vault: must have minter role to transfer items");
-        require(_itemIDs.length > 0, "Vault: must have more than 0 items to transfer");
         for (uint256 i = 0; i < _itemIDs.length; i++) {
-            require(balanceOf(msg.sender, _itemIDs[i]) >= 1, "Vault: not enough items to transfer");
-            Item[0] = EncryptionToolsSet(ETAddress).combineItems(Item[0], items[_itemIDs[i]].encryptedItem);
-            _burn(msg.sender, _itemIDs[i], 1);
+            require(vaults[_itemIDs[i]] == msg.sender, "Vault: must be vault owner to transfer items");
+            require(vaultBalances[_itemIDs[i]] > 0, "Vault: vault balance must be greater than 0");
+            vaults[_itemIDs[i]] = _to;
+            emit TransferSingle(msg.sender, msg.sender, _to, _itemIDs[i], vaultBalances[_itemIDs[i]]);
         }
-        ItemDisplacerSet(IDAddress).transferItem(Item[0], _to);
     }
 
     // get the item
@@ -158,14 +158,6 @@ contract Vault is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, P
 
         function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {
         _setURI(newuri);
-    }
-
-    function pause() public onlyRole(PAUSER_ROLE) {
-        _pause();
-    }
-
-    function unpause() public onlyRole(PAUSER_ROLE) {
-        _unpause();
     }
 
     function mint(address account, uint256 id, uint256 amount, bytes memory data)

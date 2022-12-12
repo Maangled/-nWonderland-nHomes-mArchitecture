@@ -1,86 +1,243 @@
-.MainDiv{
-        display : absolute;
-        flex-direction : column;
-        justify-content : center;
-        align-items : center;
-        height : 100vh;
-        width : 100vw;
-        background-color : #000;
-        overflow: hidden;
-    }
-    .mainDiv{
-        overflow: hidden;
-        height : 100vh;
-        width : 100vw;
-        pointer-events: auto;
-    }
-.mainViewer{
-    display: absolute;
-    width: 100vh;
-    height: 100vw;
-    overflow: hidden;
-    background-color: #000;
-    display : absolute;
-    flex-direction : column;
-    justify-content : center;
-    align-items : center;
-    height : 100vh;
-    width : 100vw;
-    background-color : #000;
-    overflow: hidden;
-    pointer-events: auto;
+.MainDiv {
+  display: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  overflow: hidden;
 }
 
-.CatWalkButton{
-        position : absolute;
-        top : 0;
-        left : 0;
-        width : 100px;
-        height : 100px;
-        border-radius : 50%;
-        border : 0;
-        cursor : pointer;
-        outline : none;
-        z-index : 100;
-    }
-.backgroundDiv{
-    background-color: #000000;
-    
+.mainDiv {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: all;
 }
-.backgroundDivClear{
-    opacity: 0;
+
+.mainViewer {
+  display: absolute;
+  width: 100vh;
+  height: 100vw;
+  overflow: hidden;
+  background-color: #000;
+  display: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #000;
+  overflow: hidden;
+  pointer-events: auto;
 }
+
+.CatWalkButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  z-index: 100;
+}
+
+.backgroundDivClear {
+  opacity: 0;
+}
+
 .backgroundDiv,
-.backgroundDivClear{
-        position : absolute;
-        top : 0;
-        left : 0;
-        height : 100vh;
-        width : 100vw;
-        overflow: hidden;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        font-family: 'Inter', sans-serif;
-        font-size: 74px;
-        font-weight: 900;
-        align-items: center;
-        pointer-events: auto;
+.backgroundDivClear,
+.backgroundDivCentered {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 74px;
+  font-weight: 900;
+  align-items: center;
+  pointer-events: all;
+  background-color: #000000;
 }
-.CatWalkDiv{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    overflow: hidden;
-    font-family: 'Inter', sans-serif;
-    font-size: 74px;
-    font-weight: 900;
-    pointer-events: none;
+
+.backgroundDivCentered {
+  justify-content: center;
+}
+
+.CatWalkDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  font-size: 74px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.bankModelsDiv1,
+.energyButton3,
+.bankModelsDiv2 {
+  position: absolute;
+  gap: 18px;
+  opacity: 0.9;
+  overflow: hidden;
+  transform: scale(0.25);
+  text-align: left;
+  font-size: 24px;
+  align-items: center;
+  color: #fff;
+  font-family: Inter;
+  border-radius: 50px;
+  border: 5px ridge #fff;
+  pointer-events: fill;
+}
+
+.bankModelsDiv1 {
+  transform-origin: left top;
+  top: 0;
+  left: 0;
+}
+
+.bankModelsDiv2 {
+  transform-origin: right top;
+  top: 0;
+  right: 0;
+}
+
+.energyButton3 {
+  transform-origin: center top;
+  top: 0;
+  align-self: center;
+}
+
+.bankModelsDiv1:hover,
+.bankModelsDiv2:hover,
+.energyButton3:hover {
+  width: auto;
+  height: auto;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.bankModelDiv1:hover~.walletModelDiv {
+  position: absolute;
+  top: calc(50% - 276.5px);
+  left: calc(50% - 213px);
+  border-radius: 30px;
+  display: flex;
+  width: 100%;
+
+}
+
+.walletModelDiv {
+  position: absolute;
+  top: calc(50% - 276.5px);
+  left: calc(50% - 213px);
+  display: flex;
+  width: 100%;
+  z-index: 1;
+
+}
+
+.unauthBankDiv:hover .bodyDiv3,
+.unauthBankDiv:hover .walletModelDiv1 {
+  display: flex;
+}
+
+.bankModelDiv1,
+.headerDiv1 {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.bankModelDiv1 {
+  border-radius: 40px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  filter: blur(10px);
+  backdrop-filter: blur(45px);
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  z-index: 0;
+}
+
+.bankModelDiv1:hover {
+  width: auto;
+  height: auto;
+}
+
+.bankModelDiv1:hover~.div {
+  width: auto;
+  height: auto;
+}
+
+.bankModelDiv1:hover~.walletModelDiv {
+  position: absolute;
+  top: calc(50% - 276.5px);
+  left: calc(50% - 213px);
+  border-radius: 30px;
+  display: flex;
+  width: 100%;
+}
+
+.div {
+  position: absolute;
+  scale: .25;
+  transform-origin: right top;
+  top: 0;
+  right: 0;
+}
+
+.div {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.div:hover {
+  scale: 1;
+}
+
+.bankModelDiv1:hover~.div {
+  width: auto;
+  height: auto;
+}
+
+.BankRows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }

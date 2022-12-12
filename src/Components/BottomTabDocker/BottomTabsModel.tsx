@@ -73,14 +73,6 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
   const closeBCSStreamdeckPopup = useCallback(() => {
     setBCSStreamdeckPopupOpen(false);
   }, []);
-
-  const openBCSStreamdeckPopup1 = useCallback(() => {
-    setBCSStreamdeckPopup1Open(true);
-  }, []);
-
-  const closeBCSStreamdeckPopup1 = useCallback(() => {
-    setBCSStreamdeckPopup1Open(false);
-  }, []);
   useEffect(() => {
     const scrollAnimElements = document.querySelectorAll(
       "[data-animate-on-scroll]"
@@ -177,24 +169,18 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
             Cesium
           </button>
         </button>
-      <button
+       {!isBCSStreamdeckPopupOpen && <button
           className={styles.streamDeckExpanderButton}
-          onClick={openBCSStreamdeckPopup1}
+          onClick={openBCSStreamdeckPopup}
         >
           <BCSStreamdeck/>
-          <button
-            className={styles.streamDeckButton}
-            onClick={openBCSStreamdeckPopup}
-          >
-            Stream Deck
-          </button>
-        </button>
+        </button>}
       {isCesiumPopupOpen && (
           <PortalPopup
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeCesiumPopup}
-          setMainViewer={setMainViewer}
+          setMainViewer={closeCesiumPopup}
           >
           <Cesium/>
           </PortalPopup>
@@ -204,6 +190,7 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeLiveViewModel}
+          setMainViewer={closeLiveViewModel}
         >
           <LiveViewModel onClose={closeLiveViewModel} />
         </PortalPopup>
@@ -213,10 +200,11 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeHostBankModelPopup}
+          setMainViewer={closeHostBankModelPopup}
         >
           <div className={styles.bothBankModelPopup}>
-          <HostBankModel onClose={closeHostBankModelPopup} />
-          <HostBankModel onClose={closeHostBankModelPopup} />
+          <HostBankModel onClose={closeHostBankModelPopup} isSkip={true} />
+          <HostBankModel onClose={closeHostBankModelPopup} isSkip={true}/>
           </div>
         </PortalPopup>
       )}
@@ -225,6 +213,7 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeTradeModelPopup}
+          setMainViewer={closeTradeModelPopup}
         >
           <TradeModel onClose={closeTradeModelPopup} />
         </PortalPopup>
@@ -234,17 +223,9 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeBCSStreamdeckPopup}
+          setMainViewer={closeBCSStreamdeckPopup}
         >
           <BCSStreamdeck onClose={closeBCSStreamdeckPopup} />
-        </PortalPopup>
-      )}
-      {isBCSStreamdeckPopup1Open && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closeBCSStreamdeckPopup1}
-        >
-          <BCSStreamdeck onClose={closeBCSStreamdeckPopup1} />
         </PortalPopup>
       )}
     </>

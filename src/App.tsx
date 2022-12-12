@@ -84,7 +84,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<LoadingScreen />} />
+      <Route path="/" element={<MainViewer />} />
 
       <Route path="/single-view" element={<SingleView />} />
 

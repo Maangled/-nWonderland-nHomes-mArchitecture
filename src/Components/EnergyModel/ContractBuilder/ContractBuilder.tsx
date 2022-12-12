@@ -7,10 +7,19 @@ import { QuestContentDisplay } from "./QuestContentDisplay/QuestContentDisplay";
 import { QuestLog } from "./QuestLog/QuestLog";
 import { MemorizeButton } from "./MemorizeButton";
 import { PublishButton } from "./PublishButton";
-import { stateAttributes, setStateAttributes, setStateTitle, setStateContent } from "./BuilderStateVariables";
+import { stateAttributes, setStateAttributes, setStateTitle, setStateContent, newHomeAttributes } from "./BuilderStateVariables";
 import { defaultCatModel } from "../../CatModel/CatButton/CatModelTypes";
 import { LargeContractDisplay, NoteContractDisplay, SmallContractDisplay } from "../ContractDisplays";
 
+//TODO make the photo upload work
+//TODO make the tags work
+//TODO add a skeleton checklist for the AI Tool Viewer
+//TODO add a code editor to the AI Tool Editor 
+//TODO add AI Tool marketplace to the AI Tool Explorer
+//TODO add first Quest to log, which is the quest to save the profile.
+//TODO add a way to imput default values for contract attributes.
+  // when the main viewer opens contract builder it will pass the attributes of the contract that is being edited
+  // if that case, the attributes will be to create a new node in the contract tree. specifically the first one.
 
 export const ContractBuilder: FunctionComponent<CatModelType> = ({ attributes }) => {
     // create the initial content popup that is displayed when the Energy Model is opened
@@ -68,12 +77,22 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
     }, []);
     const [contractBuilderState, setContractBuilderState] = useState(0);
     // create a function that will open the quest metadata popup
+    const handlePublish = () => {
+      setContractBuilderState(1);
+    };
+    const handleMemorize = () => {
+      setContractBuilderState(2);
+    };
     const openTab  = [
-      <QuestContentDisplay onClose={closeQuestContentPopup} questContent = {"Drag to upload or start typing to use the default code editor"} />,
+      <QuestContentDisplay onClose={closeQuestContentPopup} 
+        questContent = {"Drag to upload or start typing to use the default code editor"}
+        onPublish = {handlePublish}
+        onMemorize = {handleMemorize}  />,
       <QuestLog onClose={closeQuestLogPopup} questLog = {"QuestLog Initiated."} />,
       <AIToolMenu onClose={closeAIToolPopup} />,
       <MetaDataMenu onClose={closeQuestMetadataPopup}/>,
     ];
+
     function isTabOpen(index: number) {
       if (contractBuilderState === index) {
         return(styles.tabOpen
@@ -93,6 +112,29 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
       "../ai-tool-icon-selected.svg",
       "../meta-data-icon-selected.svg",
     ];
+    // a popup to select an image from the user's computer
+    const imageSelector = (index: number) => {
+      if (index === 0) {
+        return (
+          <div className={styles.imageSelector}>
+            <input type="file" accept="image/*" />
+          </div>
+        );
+      }
+    };
+
+    const imageUploadButton = (
+      <button className={styles.imageUploadButton} onClick={imageSelector}>
+      <div className={styles.imageUploadButton}>
+        <img src="../quest-icon3.svg" />
+        <p>Upload Image</p>
+      </div>
+      </button>
+    );
+    const stateTitle = newHomeAttributes.attributes[0].title;
+    const stateContent = stateAttributes.attributes[0].content;
+    const stateHeader = newHomeAttributes.attributes[0].description;
+
     return (
       <div className={styles.contractBuilderBox}>
       <div className={styles.contractBuilderBox}>
@@ -102,21 +144,17 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
                 className={styles.addTitleInput}
                 id = "title"
                 type="text"  
-                placeholder="Quest Title"
+                placeholder={stateTitle}
                 onChange = {(e) => handleTitleChange(e)}
               />
-              <img
-                className={styles.questIcon3}
-                alt=""
-                src="../quest-icon3.svg"
-              />
+              {imageUploadButton}
               <div className={styles.addTagButton1}>
                 <b className={styles.addTagB}>Add Tag...</b>
               </div>
               <input
                 className={styles.questHeadlineInput}
                 type="text"
-                placeholder={"Add Headline..."}
+                placeholder={stateHeader}
               />
             </div>
             <div className={styles.closedButtonModel}>
@@ -156,6 +194,7 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
             </div>
           </div>
       </div>
+      <div className={styles.modelTitle}>Contract Builder</div>
       </div>
       );
     };

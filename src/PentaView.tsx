@@ -94,6 +94,7 @@ export const PentaView: FunctionComponent = () => {
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Bottom center"
           onOutsideClick={closeBottomTabsModel}
+          setMainViewer={closeBottomTabsModel}
         >
           <BottomTabsModel onClose={closeBottomTabsModel} />
         </PortalPopup>
@@ -103,6 +104,7 @@ export const PentaView: FunctionComponent = () => {
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeWalletModelPopup}
+          setMainViewer={closeWalletModelPopup}
         >
           <WalletModel onClose={closeWalletModelPopup} />
         </PortalPopup>
@@ -112,6 +114,7 @@ export const PentaView: FunctionComponent = () => {
           overlayColor="rgba(113, 113, 113, 0.3)"
           placement="Centered"
           onOutsideClick={closeHostWalletModel}
+          setMainViewer={closeHostWalletModel}
         >
           <HostWalletModel onClose={closeHostWalletModel} />
         </PortalPopup>
