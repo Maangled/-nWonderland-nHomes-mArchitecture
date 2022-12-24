@@ -9,28 +9,30 @@ import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155Supp
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-// ItemTracker (IT) v1.0.0
-// IT is a contract that manages the creation and tracking of items\
-// IT creates a delegate call to EncryptionTools (ET) to encrypt items
+// ItemTracker (IT) v0.1.0
+// IT creates Names for items
+// IT creates a delegate call to EncryptionTools (ET) to create IDs for items
 // for version 1.0.0, IT uses the ERC1155 standard
 // IT: createItem, getItem, burnItem, pause, unpause are the main functions that will be used by the end user
 // IT: createItem (ERC1155), burnItem (ERC1155), pauseItem (ERC1155), unpauseItem (ERC1155), pause, unpause, hasRole, renounceRole, grantRole
 // IT: setURI, supportsInterface, balanceOf, balanceOfBatch, setApprovalForAll, isApprovedForAll, safeTransferFrom, safeBatchTransferFrom
 
 
-
 contract ItemTracker is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, PausableUpgradeable, ERC1155BurnableUpgradeable, ERC1155SupplyUpgradeable, UUPSUpgradeable {
     struct Item {
         bytes32[] encryptedItem;
     }
+    uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     event EncryptionToolsSet(address _encryptionTools);
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
-    uint256 public itemID;
-    mapping (uint256 => Item) internal items;
+    string public title = "";
+
+
     
     /// @custom:oz-upgrades-unsafe-allow constructor
     constructor() {
@@ -52,30 +54,13 @@ contract ItemTracker is Initializable, ERC1155Upgradeable, AccessControlUpgradea
         ETAddress = _ETAddress;
     }
     // creates a delegate call to ET to encrypt an item
-    function getEncryption(string[] memory _item, string[] memory _hashKeys) internal returns (bytes32[] memory) {
-        (bool success, bytes memory result) = ETAddress.delegatecall(abi.encodeWithSignature("createItem(string[],string[])", _item, _hashKeys));
-        return abi.decode(result, (bytes32[]));
-        }
-    // creates an NFT by randomly placing the item into a slot in an array of 10,000,000 items
-    // the item is encrypted by ET
-    // the item is stored in the items mapping
-    // the itemID is returned
-    function createItem(string[] memory _item, string[] memory _hashKeys) internal returns (uint256) {
-        // create a random number between 0 and 10,000,000
-        uint256 random = uint256(keccak256(abi.encodePacked(block.timestamp, block.difficulty, msg.sender))) % 10000000;
+
+    function addItteration(string[] memory _item, string[] memory _hashKeys) internal returns (uint256) {
         // create an item
         Item memory newItem;
-        newItem.encryptedItem = getEncryption(_item, _hashKeys);
-        // store the item in the items mapping
-        items[random] = newItem;
-        // return the itemID
-        return random;
-    }
-    // create an item and add it to the items mapping
-    function addIteration(string[] memory _item, string[] memory _hashKeys) internal returns (uint256) {
-        // create an item
-        Item memory newItem;
-        newItem.encryptedItem = getEncryption(_item, _hashKeys);
+        (bool success, bytes memory data) = ETAddress.delegatecall(abi.encodeWithSignature("getEncryption(string[],string[])", _item, _hashKeys));
+        require(success, "Delegate call failed");
+        newItem.encryptedItem = abi.decode(data, (bytes32[]));
         // store the item in the items mapping
         items[itemID] = newItem;
         // return the itemID

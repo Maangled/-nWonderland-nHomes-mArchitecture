@@ -4,17 +4,17 @@ import { CatModelType, defaultCatModel } from '../CatModel/CatButton/CatModelTyp
 
 
 export const NoteContractDisplay: FunctionComponent<CatModelType> = ({ attributes }) => {
-    const [noteTitle, setNoteTitle] = useState(attributes[0].title);
+    const [noteTitle, setNoteTitle] = useState(attributes[0].data.title);
     const [noteBody, setNoteBody] = useState('');
     //setNoteTitle(attributes[0].title);
-    console.log(attributes[0].title);
+    console.log(attributes[0].data.title);
     //setNoteBody(attributes[0].content);
     return(//TODO fix the title not updating when the input field is updated ()
         <div>
             <div className={styles.noteContractDisplay}>
                 <div className={styles.noteContractDisplayTitle}>
                     <div className={styles.noteContractDisplayTitleText}>
-                        {attributes[0].title}
+                        {attributes[0].data.title}
                     </div>
                     <div className={styles.noteContractDisplayContentLeftDescription}>
                         content

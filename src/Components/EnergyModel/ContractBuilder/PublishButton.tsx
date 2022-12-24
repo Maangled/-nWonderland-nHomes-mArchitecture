@@ -1,4 +1,7 @@
 // This button is used to publish the current quest in the quest browser to the blockchain
+// for now, we are going to use the first contract profile in the user's profile list upload it using the nHive contract
+
+
 import React, { FunctionComponent, useState, useEffect } from "react";
 import styles from "../EnergyModel.module.css";
 

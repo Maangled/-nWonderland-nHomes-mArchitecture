@@ -74,7 +74,7 @@ export const BankModels: FunctionComponent<BankModelsType> = ({ onClose, setMain
   return (
     <>
     <div className={styles.energyButton3} onClick={openEnergyModelPopup}>
-          <EnergyModel onClose={closeEnergyModelPopup} setMainViewer={setMainViewer} />
+          {/* <EnergyModel onClose={closeEnergyModelPopup} setMainViewer={setMainViewer} /> */}
         </div>
         {guestAuthenticatedModel}
       {isEnergyModelPopupOpen && (
@@ -84,7 +84,7 @@ export const BankModels: FunctionComponent<BankModelsType> = ({ onClose, setMain
           onOutsideClick={closeEnergyModelPopup}
           setMainViewer={setMainViewer}
         >
-          <EnergyModel onClose={closeEnergyModelPopup} setMainViewer={setMainViewer} />
+          {/* <EnergyModel onClose={closeEnergyModelPopup} setMainViewer={setMainViewer} /> */}
         </PortalPopup>
       )}
       {isBankModelPopupOpen && (

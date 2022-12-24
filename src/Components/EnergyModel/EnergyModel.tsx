@@ -2,17 +2,14 @@ import { FunctionComponent, useState, useCallback, useEffect, ChangeEvent } from
 import { NoteContractDisplay, SmallContractDisplay, LargeContractDisplay } from "./ContractDisplays";
 import styles from "./EnergyModel.module.css";
 import { ContractBuilder, ContractBuilderViewer } from "./ContractBuilder/ContractBuilder";
-import { stateAttributes } from "./ContractBuilder/BuilderStateVariables";
 import { CatalogModel, CatalogModelViewer } from "./CatalogModel/CatalogModel";
 import { VideoStudio, VideoStudioViewer } from "./Video Studio/VideoStudio";
 import { DreamSequence, DreamSequenceViewer } from "./DreamSequence/DreamSequence";
 import { MetaVerse, MetaVerseViewer } from "./MetaVerse/MetaVerse";
-import { useMainViewer } from "../../hooks/useMainViewer";
 
 type EnergyModelType = {
-  onClose?: (close:boolean) => void;
-  setMainViewer: (mainViewer: JSX.Element) => void;
-  isFullscreen?: boolean | undefined;
+  attributes?: any;
+  functions: any;
 };
 
 
@@ -24,20 +21,22 @@ type EnergyModelType = {
 //TODO: 
 
 
-export const EnergyModel: FunctionComponent<EnergyModelType> = ({ onClose, setMainViewer, isFullscreen }) => {
+export const EnergyModel: FunctionComponent<EnergyModelType> = ({ attributes, functions }) => {
   const [ size , setSize ] = useState(0);
-  const [ contractBuilderState, setContractBuilderState ] = useState(stateAttributes.attributes);
+  const [ contractBuilderState, setContractBuilderState ] = useState(attributes);
+  const [ contractBuilderFunctions, setContractBuilderFunctions ] = useState(functions);
   const [ energyModelState, setEnergyModelState ] = useState(0);
+  const [ misionStatus, setMisionStatus ] = useState(false);
   
   const energyModelTabs = [
-    <ContractBuilder attributes={contractBuilderState} />,
+    <ContractBuilder attributes={contractBuilderState} functions={functions} />,
     <MetaVerse  />,
     <CatalogModel  />,
     <VideoStudio  />,
     <DreamSequence />
   ];  
   const energyModelTabViewers = [
-    <ContractBuilderViewer />,
+    <ContractBuilderViewer attributes={contractBuilderState} />,
     <MetaVerseViewer  />,
     <CatalogModelViewer  />,
     <VideoStudioViewer  />,
@@ -50,19 +49,11 @@ export const EnergyModel: FunctionComponent<EnergyModelType> = ({ onClose, setMa
       [name]: value,
     });
   };
-  function handleDoubleClick() {
-    setMainViewer(<EnergyModel isFullscreen={true} setMainViewer={function (mainViewer: JSX.Element): void {
-      throw new Error("Function not implemented.");
-    } } />);
-    onClose?.(true);
-  }
-  function handleDoubleClickExit() {
-    setMainViewer(<EnergyModel isFullscreen={false} setMainViewer={function (mainViewer: JSX.Element): void {
-    }} />);
-  }
+
 
 
   return (
+    <div className={styles.energyButton3}>
     <div className={styles.energyModelColDiv}>
         <div className={styles.frameDiv}>
           {energyModelTabs[energyModelState]}
@@ -75,6 +66,7 @@ export const EnergyModel: FunctionComponent<EnergyModelType> = ({ onClose, setMa
             <div className={energyModelState == 3 ? styles.currentViewIcon1_isSelected : styles.currentViewIcon1} onClick = {() => setEnergyModelState(3)}></div>
             <div className={energyModelState == 4 ? styles.currentViewIcon_isSelected : styles.currentViewIcon} onClick = {() => setEnergyModelState(4)}></div>
             </div>
+    </div>
     </div>
   );
 };

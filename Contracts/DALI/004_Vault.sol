@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol";
@@ -10,24 +10,20 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol";
 
-// this contract is a proxy the itemDisplacer contract
-// it is used to organize items as an array of items
-// it calls the itemDisplacer contract to do the actual transfer of ownership by buring the item and minting a new one with the same ID
-// this allows items to be combined into a single item to save on storage costs and gas fees while allowing the items to be split up again or to share ownership over multiple addresses
-// this contract is not intended to be used by the public, but by other contracts
-// this calls on the ItemDisplacer by address, so it can be used with any ItemDisplacer contract
+// Vault (V) v0.1.0 
+// V creates descriptions of items
 
 contract Vault is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, PausableUpgradeable, ERC1155BurnableUpgradeable, ERC1155SupplyUpgradeable, UUPSUpgradeable {
     struct Item {
         bytes32[] encryptedItem;
     }
+    address public ETAddress;
+    uint256 public itemID;
     event EncryptionToolsSet(address _encryptionTools);
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
-    address public ETAddress;
-    uint256 public itemID;
     mapping (uint256 => Item) internal items;
     address public ITAddress;
     address public newOwner;
@@ -72,7 +68,6 @@ contract Vault is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, P
         items[itemID].encryptedItem = _encryptedItem;
         itemID++;
     }
-
 
     // split an item
     function splitItem(uint256 _itemID, uint256 _amount) public {

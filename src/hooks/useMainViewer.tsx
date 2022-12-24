@@ -10,5 +10,5 @@ import { EnergyModel } from "../Components/EnergyModel/EnergyModel";
 
 // create a react hook useDisplayOnMainViewer that will be used to display a component on the main viewer
 export const useMainViewer = () => {
-    
+        
 };

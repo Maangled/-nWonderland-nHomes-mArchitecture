@@ -1,0 +1,717 @@
+{
+  "contractName": "nBrains",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "nAvatars",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nFamiliars",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nHomes",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nWonderland",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tradeID",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"nAvatars\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nFamiliars\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nHomes\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nWonderland\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tradeID\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/DALI/008_nBrains.sol\":\"nBrains\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/DALI/008_nBrains.sol\":{\"keccak256\":\"0x984845f4c3b510a1e6cddfd2acb77a70cf28dc7f247b76e1282e6a490f313e3c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9d5ca70b560a6aa128f7ac00aee58723ececbd24ae898732242218a136f8d71\",\"dweb:/ipfs/QmSP2iNdJzXu3632D2uNCxjiCXkyAbBLogwuvPkSMDdgPp\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610105806100206000396000f3fe6080604052348015600f57600080fd5b506004361060505760003560e01c80633f04d6691460555780639b7f52f0146084578063b74f298e146096578063dca0baad1460a8578063ebaf8b571460bd575b600080fd5b6003546067906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6002546067906001600160a01b031681565b6000546067906001600160a01b031681565b60b060045481565b604051908152602001607b565b6001546067906001600160a01b03168156fea2646970667358221220f421c991d26194ffeb56562040ab55150457fe9c35536bd172272d47b027491964736f6c63430008090033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060505760003560e01c80633f04d6691460555780639b7f52f0146084578063b74f298e146096578063dca0baad1460a8578063ebaf8b571460bd575b600080fd5b6003546067906001600160a01b031681565b6040516001600160a01b0390911681526020015b60405180910390f35b6002546067906001600160a01b031681565b6000546067906001600160a01b031681565b60b060045481565b604051908152602001607b565b6001546067906001600160a01b03168156fea2646970667358221220f421c991d26194ffeb56562040ab55150457fe9c35536bd172272d47b027491964736f6c63430008090033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [
+    {
+      "ast": {
+        "nodeType": "YulBlock",
+        "src": "0:401:39",
+        "statements": [
+          {
+            "nodeType": "YulBlock",
+            "src": "6:3:39",
+            "statements": []
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "115:102:39",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "125:26:39",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "headStart",
+                        "nodeType": "YulIdentifier",
+                        "src": "137:9:39"
+                      },
+                      {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "148:2:39",
+                        "type": "",
+                        "value": "32"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "add",
+                      "nodeType": "YulIdentifier",
+                      "src": "133:3:39"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "133:18:39"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "tail",
+                      "nodeType": "YulIdentifier",
+                      "src": "125:4:39"
+                    }
+                  ]
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "name": "headStart",
+                        "nodeType": "YulIdentifier",
+                        "src": "167:9:39"
+                      },
+                      {
+                        "arguments": [
+                          {
+                            "name": "value0",
+                            "nodeType": "YulIdentifier",
+                            "src": "182:6:39"
+                          },
+                          {
+                            "arguments": [
+                              {
+                                "arguments": [
+                                  {
+                                    "kind": "number",
+                                    "nodeType": "YulLiteral",
+                                    "src": "198:3:39",
+                                    "type": "",
+                                    "value": "160"
+                                  },
+                                  {
+                                    "kind": "number",
+                                    "nodeType": "YulLiteral",
+                                    "src": "203:1:39",
+                                    "type": "",
+                                    "value": "1"
+                                  }
+                                ],
+                                "functionName": {
+                                  "name": "shl",
+                                  "nodeType": "YulIdentifier",
+                                  "src": "194:3:39"
+                                },
+                                "nodeType": "YulFunctionCall",
+                                "src": "194:11:39"
+                              },
+                              {
+                                "kind": "number",
+                                "nodeType": "YulLiteral",
+                                "src": "207:1:39",
+                                "type": "",
+                                "value": "1"
+                              }
+                            ],
+                            "functionName": {
+                              "name": "sub",
+                              "nodeType": "YulIdentifier",
+                              "src": "190:3:39"
+                            },
+                            "nodeType": "YulFunctionCall",
+                            "src": "190:19:39"
+                          }
+                        ],
+                        "functionName": {
+                          "name": "and",
+                          "nodeType": "YulIdentifier",
+                          "src": "178:3:39"
+                        },
+                        "nodeType": "YulFunctionCall",
+                        "src": "178:32:39"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "mstore",
+                      "nodeType": "YulIdentifier",
+                      "src": "160:6:39"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "160:51:39"
+                  },
+                  "nodeType": "YulExpressionStatement",
+                  "src": "160:51:39"
+                }
+              ]
+            },
+            "name": "abi_encode_tuple_t_address__to_t_address__fromStack_reversed",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "headStart",
+                "nodeType": "YulTypedName",
+                "src": "84:9:39",
+                "type": ""
+              },
+              {
+                "name": "value0",
+                "nodeType": "YulTypedName",
+                "src": "95:6:39",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "tail",
+                "nodeType": "YulTypedName",
+                "src": "106:4:39",
+                "type": ""
+              }
+            ],
+            "src": "14:203:39"
+          },
+          {
+            "body": {
+              "nodeType": "YulBlock",
+              "src": "323:76:39",
+              "statements": [
+                {
+                  "nodeType": "YulAssignment",
+                  "src": "333:26:39",
+                  "value": {
+                    "arguments": [
+                      {
+                        "name": "headStart",
+                        "nodeType": "YulIdentifier",
+                        "src": "345:9:39"
+                      },
+                      {
+                        "kind": "number",
+                        "nodeType": "YulLiteral",
+                        "src": "356:2:39",
+                        "type": "",
+                        "value": "32"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "add",
+                      "nodeType": "YulIdentifier",
+                      "src": "341:3:39"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "341:18:39"
+                  },
+                  "variableNames": [
+                    {
+                      "name": "tail",
+                      "nodeType": "YulIdentifier",
+                      "src": "333:4:39"
+                    }
+                  ]
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "name": "headStart",
+                        "nodeType": "YulIdentifier",
+                        "src": "375:9:39"
+                      },
+                      {
+                        "name": "value0",
+                        "nodeType": "YulIdentifier",
+                        "src": "386:6:39"
+                      }
+                    ],
+                    "functionName": {
+                      "name": "mstore",
+                      "nodeType": "YulIdentifier",
+                      "src": "368:6:39"
+                    },
+                    "nodeType": "YulFunctionCall",
+                    "src": "368:25:39"
+                  },
+                  "nodeType": "YulExpressionStatement",
+                  "src": "368:25:39"
+                }
+              ]
+            },
+            "name": "abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed",
+            "nodeType": "YulFunctionDefinition",
+            "parameters": [
+              {
+                "name": "headStart",
+                "nodeType": "YulTypedName",
+                "src": "292:9:39",
+                "type": ""
+              },
+              {
+                "name": "value0",
+                "nodeType": "YulTypedName",
+                "src": "303:6:39",
+                "type": ""
+              }
+            ],
+            "returnVariables": [
+              {
+                "name": "tail",
+                "nodeType": "YulTypedName",
+                "src": "314:4:39",
+                "type": ""
+              }
+            ],
+            "src": "222:177:39"
+          }
+        ]
+      },
+      "contents": "{\n    { }\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, sub(shl(160, 1), 1)))\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n}",
+      "id": 39,
+      "language": "Yul",
+      "name": "#utility.yul"
+    }
+  ],
+  "sourceMap": "62:8404:34:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "62:8404:34:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;179:23;;;;;-1:-1:-1;;;;;179:23:34;;;;;;-1:-1:-1;;;;;178:32:39;;;160:51;;148:2;133:18;179:23:34;;;;;;;;147:25;;;;;-1:-1:-1;;;;;147:25:34;;;86:21;;;;;-1:-1:-1;;;;;86:21:34;;;386:22;;;;;;;;;368:25:39;;;356:2;341:18;386:22:34;222:177:39;114:26:34;;;;;-1:-1:-1;;;;;114:26:34;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.9;\r\n\r\n\r\ncontract nBrains {\r\n    address public nHomes;\r\n    address public nWonderland;\r\n    address public nFamiliars;\r\n    address public nAvatars;\r\n\r\n    // trade struct for version 1.0.0 of Trade\r\n    struct Trade {\r\n        uint256 itemID;\r\n        uint256 price;\r\n        address seller;\r\n        address buyer;\r\n    }\r\n\r\n    uint256 public tradeID;\r\n    mapping (uint256 => Trade) internal trades;\r\n\r\n    // creates a Matter Card the nHomes to pause the most accurate (highest security rating) vault that runs the server. (Generally this will only be one vault, \r\n    // unless the server is running on a personal computer or phone, in which case there will be multiple vaults tracking outgoing data)\r\n    // The Matter Card will contain metadata with the following information:\r\n        // 1. The nHomes contract address and an encryption method for the data\r\n        // 2. A security rating for the vaults that are being paused\r\n        // 3. The nWonderland contract address and an encryption method for the data\r\n        // 4. A description of the system and it's security measures\r\n        // 5. A Phoenix Seal of the Vaults themselves (phoenix is a open source Neural Network that uses Microsoft's SEAL library to encrypt data in a way that is secure and delivers reliability guarentees without latencies)\r\n        // 6. The list of AI tools that that server supports\r\n        // 7. The log of the server's activity since the last freeze (this will be used to recreate the server's state as a vault that log items)\r\n        // 8. The list of vaults that are being called for by the trade\r\n    // The Matter Card profile that is created will be randomly assigned a signiture key using a non-deterministic algorithm and send it to a slot in the Brain Trust.\r\n    // The nWonderland's profile must then delegate a specific vault to the nHomes contract to create the Matter Card.\r\n    // This Vault, nFamiliar (generally a NFT chosen by the player) will the execute the phoenix seal on the Matter Card and confirm the rest of the metadata using a trusted node.\r\n    // This contract will freeze the vault of the nFamiliar that is chosen by the player so that the permissions granted to nFamiliar cannot be used to run attacks on the Matter Card's metadata.\r\n    // The nFamiliar will then trade a Energy Card to the nWonderland where the vault content (5) has been replaced with a security and reliability ratings for the rest of the information in the Matter Card.\r\n    // The nWonderland contract can then call this contract to create a trade if they are satisfied with the Energy Card's metadata.\r\n    // Then this contract calls an nWonderland contract to create a trade.\r\n    // The Energy Card will call for specific data from specific vaults within the nWonderland profile and the profile will generate a\r\n    // data Card that contains those vaults.\r\n    // The Data Card will then be given a random signature key and sent to a slot in the Brain Trust where the familiar will be able to find it.\r\n    // The familiar will then execute the Phoenix Seal on the Data Card using the vaults contained in the Matter Card's metadata.\r\n    // When the transaction is confirmed, the nFamiliar will then burn the Content of all the vaults and create a nAvatar that that the player and the nHome can use to access the data.\r\n    // The nHome will generally require the nAvatar to send anonymous statistics about the data that is being accessed to the AI Tool Trust that is being run on the data.\r\n    // The nWonderland will have full access to the results of the Machine Learning algorithm that the AI Tool Trust is ran on the data.\r\n    // The AI Tool Trust will run MVP simulations of the statistics that are being sent to it and report the impact the player's data had back to the nAvatar.\r\n    // The player can choose to claim the statistics as conditional vaults called MED Cards that allow the player to prove their knowledge of the data to other players anonymously.\r\n    // After a certain amount of time, the nAvatar will archive the data and the players who hold the MED Cards will be awarded a Satori Card that contains differnet degrees\r\n    // of knowledge the profile has been verified to know. \r\n    // After collecting a certain amount of Satori Cards, the player will be able to claim a Hero Card that contains the profile's alignment.\r\n    // Hero Cards use the same system as MED Cards, but instead of using the nWonderland profile, they use bio-metric data from the player's body and compartmentalize it into the profile.\r\n    // Hero Cards attempt to track the player through time and space and keep a record of their actions and throughts by anonymizing the data and spreading it across the network as a learning algorithm.\r\n    // Hero Cards can be collected to open up new paths in the game and unlock new abilities. Gathering enough Hero Cards in a certain field will allow the player to claim a Hero Academy \r\n    // and making voting proposals based on their knowledge of the field. \r\n    // When a Hero leaves the game, their Hero Card will be paused until the the Hero Protagonist can confidently align the Hero's actions with their own.\r\n    // Hero Cards never need to be claimed, and players can always keep their data private by storing satori cards in their nWonderland profile. Thus eliminating the risk of losing their identity.\r\n    // Hero Cards also can be claimed by anyone who demonstrates the knowledge that the Hero Card contains. In this way, anyone can become a Hero and anyone can trade their proof of knowledge for \r\n    // perminate infuence over what is considered knowledge in the game based on their own personal experiences.\r\n    // and anyone can earn Hero Coins by trading their data statistics to the Hero Card Trust in order the build the accuracy of the Hero Card and do good for the game/world.\r\n    // in this way, the Hero Card Trust is a decentralized AI that is run by the players and the players can earn Hero Coins by trading their data to the trust.\r\n    // and players that have the greatest ideas or have proven to know the most about the network get priviledged permissions in voting and opportunities, rewarding them for their contributions.\r\n    // without the need for a central authority to decide who is worthy of the priviledges, and without avenues for hording of wealth or power.\r\n    // The Hero Card Trust will be run by the Hero Card Trust Council, which is a group of Hero Cards that have been voted into the council by the Hero Card Trust. \r\n    // Hero Cards will then have MVP simulations run on them using cost-benefit analysis to determine if they are worthy of being voted into the council. If they are not,\r\n    // nAvatars will attempt to penetrate the Hero Card's metadata by randomly comparing snippits of it's own metadata to that of the card using the MED Card system in order to\r\n    // find the reason why the Hero Card is not worthy. when the nAvatar finds a jinx, a snippit of metadata that matches the Hero Card's metadata, it will run a closed loop simulation\r\n    // of that moment in time tweaking the metadata to see what would have happened if the Hero Card's metadata was different or updated. If the simulation will keep going on until it\r\n    // finds a moment in time where the Hero Card's metadata is different and the simulation is successful. If the simulation is successful, the Hero Card will be tangled with a jinx that \r\n    // can be removed by the Card's owner by updating their knowledge on a certain topic. If the simulation is not successful, the Hero Card will turn into a demon card and it can be \r\n    // used to remove innacuracies and biases from Machine Learning algorithms.\r\n\r\n    // Furthermore, nHomes will be able to compete for Hero Cards by creating a Hero Card Trust within local networks and communities that root out evil within the machine learning algorithms\r\n    // that are being used to provide predictive safety analytics that reward good predictions and identify unsafe predictions through simulations and statistical analysis.\r\n    \r\n\r\n    // \r\n    // The metadata will call for specific data from specific vaults\r\n    // \r\n    // the trade is stored in the trades mapping. \r\n    // creates an NFT by randomly placing the trade into a slot in an array of 10,000,000 trades\r\n    // the trade is stored in the trades mapping\r\n    // the tradeID is returned\r\n\r\n\r\n\r\n}",
+  "sourcePath": "C:\\Users\\mosle\\Documents\\GitHub\\nWonderland\\contracts\\DALI\\008_nBrains.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/DALI/008_nBrains.sol",
+    "exportedSymbols": {
+      "nBrains": [
+        8658
+      ]
+    },
+    "id": 8659,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8633,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:34"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "nBrains",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 8658,
+        "linearizedBaseContracts": [
+          8658
+        ],
+        "name": "nBrains",
+        "nameLocation": "71:7:34",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "b74f298e",
+            "id": 8635,
+            "mutability": "mutable",
+            "name": "nHomes",
+            "nameLocation": "101:6:34",
+            "nodeType": "VariableDeclaration",
+            "scope": 8658,
+            "src": "86:21:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 8634,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "86:7:34",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "ebaf8b57",
+            "id": 8637,
+            "mutability": "mutable",
+            "name": "nWonderland",
+            "nameLocation": "129:11:34",
+            "nodeType": "VariableDeclaration",
+            "scope": 8658,
+            "src": "114:26:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 8636,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "114:7:34",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "9b7f52f0",
+            "id": 8639,
+            "mutability": "mutable",
+            "name": "nFamiliars",
+            "nameLocation": "162:10:34",
+            "nodeType": "VariableDeclaration",
+            "scope": 8658,
+            "src": "147:25:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 8638,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "147:7:34",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "3f04d669",
+            "id": 8641,
+            "mutability": "mutable",
+            "name": "nAvatars",
+            "nameLocation": "194:8:34",
+            "nodeType": "VariableDeclaration",
+            "scope": 8658,
+            "src": "179:23:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 8640,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "179:7:34",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "nBrains.Trade",
+            "id": 8650,
+            "members": [
+              {
+                "constant": false,
+                "id": 8643,
+                "mutability": "mutable",
+                "name": "itemID",
+                "nameLocation": "291:6:34",
+                "nodeType": "VariableDeclaration",
+                "scope": 8650,
+                "src": "283:14:34",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 8642,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "283:7:34",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8645,
+                "mutability": "mutable",
+                "name": "price",
+                "nameLocation": "316:5:34",
+                "nodeType": "VariableDeclaration",
+                "scope": 8650,
+                "src": "308:13:34",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 8644,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "308:7:34",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8647,
+                "mutability": "mutable",
+                "name": "seller",
+                "nameLocation": "340:6:34",
+                "nodeType": "VariableDeclaration",
+                "scope": 8650,
+                "src": "332:14:34",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 8646,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "332:7:34",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 8649,
+                "mutability": "mutable",
+                "name": "buyer",
+                "nameLocation": "365:5:34",
+                "nodeType": "VariableDeclaration",
+                "scope": 8650,
+                "src": "357:13:34",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 8648,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "357:7:34",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Trade",
+            "nameLocation": "266:5:34",
+            "nodeType": "StructDefinition",
+            "scope": 8658,
+            "src": "259:119:34",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "dca0baad",
+            "id": 8652,
+            "mutability": "mutable",
+            "name": "tradeID",
+            "nameLocation": "401:7:34",
+            "nodeType": "VariableDeclaration",
+            "scope": 8658,
+            "src": "386:22:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 8651,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "386:7:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 8657,
+            "mutability": "mutable",
+            "name": "trades",
+            "nameLocation": "451:6:34",
+            "nodeType": "VariableDeclaration",
+            "scope": 8658,
+            "src": "415:42:34",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trade_$8650_storage_$",
+              "typeString": "mapping(uint256 => struct nBrains.Trade)"
+            },
+            "typeName": {
+              "id": 8656,
+              "keyType": {
+                "id": 8653,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "424:7:34",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "415:26:34",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Trade_$8650_storage_$",
+                "typeString": "mapping(uint256 => struct nBrains.Trade)"
+              },
+              "valueType": {
+                "id": 8655,
+                "nodeType": "UserDefinedTypeName",
+                "pathNode": {
+                  "id": 8654,
+                  "name": "Trade",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 8650,
+                  "src": "435:5:34"
+                },
+                "referencedDeclaration": 8650,
+                "src": "435:5:34",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Trade_$8650_storage_ptr",
+                  "typeString": "struct nBrains.Trade"
+                }
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "scope": 8659,
+        "src": "62:8404:34",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:8433:34"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2022-12-15T17:05:24.002Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

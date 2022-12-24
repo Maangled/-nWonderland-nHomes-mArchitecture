@@ -115,7 +115,7 @@ return (
           onOutsideClick={closeHostBankModelPopup}
           setMainViewer={closeHostBankModelPopup}
         >
-          <HostBankModel onClose={closeHostBankModelPopup} />
+          {/* <HostBankModel onClose={closeHostBankModelPopup} /> */}
         </PortalPopup>
       )}
     </>

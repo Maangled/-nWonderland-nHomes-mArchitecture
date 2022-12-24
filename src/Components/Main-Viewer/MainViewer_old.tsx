@@ -16,7 +16,6 @@ import { HostBankModel } from "../BankModels/HostBankModel";
 import { WalletModel } from "../BankModels/WalletModel";
 import { useMoralis } from "react-moralis";
 import { ContractBuilder } from "../EnergyModel/ContractBuilder/ContractBuilder";
-import { stateAttributes, newHomeAttributes, setStateAttributes, setStateTitle, setStateContent } from "../EnergyModel/ContractBuilder/BuilderStateVariables";
 
 
 //TODO: add a background that that is acts as a canvas for applications within the app to draw on
@@ -25,7 +24,26 @@ import { stateAttributes, newHomeAttributes, setStateAttributes, setStateTitle, 
 //TODO: keep cat from rerendering when main buttons is shown/hidden
 //TODO: keep main buttons from rerendering whe mouse is still
 
+//TODO: we're going to remake every component using the contract builder. This will allow us to make the components themselves a token that can be retrieved from the blockchain.
+// Here's how it will work:
+// 1. The user will be able to create a new component using the contract builder
+// 2. The user will be able to save the component to the blockchain
+// 3. The user will be able to retrieve the component from the blockchain
+// 4. The user will be able to manipulate data using the component, and request data from other components saved locally or on the blockchain.
+
+
+
+//TODO: cleanUp: resize widgets on the screen to keep them in view, and make them fit the frame of the screen
+//TODO: cleanUp: make the cat a token that can be retrieved from the blockchain
+//TODO: use react draggable to make all the components draggable
+
+//TODO: Functionality host bank model will be the only model that is on the man viewer, all other models will be called from the host bank model 
+// (this will allow us to make the host bank model a contract that manages all the other contracts on this screen, determing configuration, and the order in which they are displayed)
+
 // TODO: add a background that that is acts as a canvas for applications within the app to draw on
+    // make a hook called newLayer that creates these canvases based on contracts that are delived to the main viewer from the host bank model
+
+
 
 
 
@@ -47,8 +65,8 @@ export const MainViewer: FunctionComponent = () => {
     const { Moralis, user } = useMoralis();
     const { isAuthenticated } = useMoralis();
     const [isContractBuilderVisible, setisContractBuilderVisible] = useState(false);
-    const [ contractBuilderState, setContractBuilderState ] = useState(stateAttributes.attributes);
-    const [ contractBuilderNewHomeState, setContractBuilderNewHomeState ] = useState(newHomeAttributes.attributes);
+    // const [ contractBuilderState, setContractBuilderState ] = useState(stateAttributes.attributes);
+    // const [ contractBuilderNewHomeState, setContractBuilderNewHomeState ] = useState(newHomeAttributes.attributes);
 
 
     useEffect(() => {
@@ -149,52 +167,14 @@ export const MainViewer: FunctionComponent = () => {
         ></CatButton>
     ) : null;
 
-    // useeffect to render the cat button at all times
-
-    // create the state for the cat model
-    // const [catState, setCatState] = useState(DefaultCatState);
-    // const [catModel, setCatModel] = useState<CatModel>(new CatModel(catState));
-    // const [catModelVisible, setCatModelVisible] = useState(false);
-    // const [catModelPosition, setCatModelPosition] = useState({x: 0, y: 0});
-    // const [catModelSize, setCatModelSize] = useState({width: 0, height: 0});
-    // const [catModelDirection, setCatModelDirection] = useState({x: 0, y: 0});
-    // const [catModelSpeed, setCatModelSpeed] = useState(0);
-    // const [catModelColor, setCatModelColor] = useState("black");
-    // const [catModelImage, setCatModelImage] = useState("https://i.imgur.com/4ZQ3Z4Q.png");
-    // const [catModelBreed, setCatModelBreed] = useState("Tabby");
-    // const [catModelType, setCatModelType] = useState("Cat");
-    // const [catModelName, setCatModelName] = useState("Cat");
-    // const [catModelId, setCatModelId] = useState(0);
-    // const [catModelIsVisible, setCatModelIsVisible] = useState(false);
-
-    // create the state for the cat button
-    //TODO: get rid of portal popup from all models and use the same technique as the popup for the stream deck view so they dont have to be rendered all the time
-
     function changeHost(_string: string) {
         setHostProfileAddress(_string);
         return hostProfileAddress;
     }
-
-    // check if a host has been selected and if so, show the main viewer
-    useEffect(() => {
-        if (hostProfileAddress != "0x000000" && hostProfileAddress != "launchNewHome") {
-            setIsHostAuthenticating(false);
-        } else {
-            if (hostProfileAddress == "launchNewHome") {
-                setNewSaveGame(true);
-            }
-            setIsHostAuthenticating(true);
-        }
-    }, [hostProfileAddress]);
-    function confirmDisconnect() {
-        setHostProfileAddress("0x000000");
-        return false;
-    }
-
     // TODO: create a framework different components can use to make their own models so they can be rendered in the main viewer and dragged around/interacted with
 
     const guestAuthenticatedModel = isAuthenticated ? ((
-        // if the user is authenticated, show the user bank model
+        // if the user is authenticated, show the user bank modelzz
         <div className={styles.bankModelsDiv2} onClick={openBankModelPopup}>
             <BankModel />
         </div>
@@ -214,17 +194,7 @@ export const MainViewer: FunctionComponent = () => {
     
 
 
-    useEffect(() => {
-        // make sure the profile list is not empty
-        if (profileList == undefined) {
-            setNewSaveGame(false);
-        }else if (profileList.length == 0) {
-            setNewSaveGame(true);
-        } else {
-            setNewSaveGame(false);
-        }
-        console.log("profile list changed", profileList)
-    }, [profileList]);
+
 
 // create a HostBankModel for each profile in the profile list
 // if the profile list is empty, show a blank HostBankModel that is linked to the Contract Builder's data
@@ -232,78 +202,78 @@ export const MainViewer: FunctionComponent = () => {
 // with one profile in the profile list, it will show that profile as a host bank model
 // a second profile will show a add profile button that will open the contract builder again.
 
+// TODO: create a framework different components can use to make their own models so they can be rendered in the main viewer and dragged around/interacted with
+
+// Main Viewer Hud Layer
+// contracts will appear in the main viewer in a specific order
+// first the host bank model contract will appear. it will scale to fit the screen
+// the host bank model contract will have a button that will open the contract builder
+// these contracts will be side by side as the user registers the device
+// once the user has registered the device, the host bank model contract will open open another contract directly on top of it
+// The new contract will be the admin profile the user just made, and that admin profile will open a trade with a unregisted nWonderland bank model, with a wallet contract on top of it
+// the unregistered nWonderland bank model represents a person who is using the device for the first time, and so it opens a sandbox contract and an obs contract with default access settings
+// These contracts will be pinned to the corners of the screen (the contract builder will turn into a search bar center top)
+
+// Open Contract Layer
+// contracts will appear in the open contract layer in a specific order
+// they will be given the size of the screen and will show up in the order they were opened
+// the contract builder will be the first contract to open
+// it will have presets for the most common contracts including layouts for the main viewer
+// it can be closed by clicking the x button in the top right corner or esc and it will assend to the Hud Layer as a search bar
+// in games built with nWonderland, the contract builder and the banks will be callable from the game engine and using the local server to secure your personal data
+// The open contract layer is where contracts go when you open them from the Hud Layer
+
+// The Real World Layer
+// this is where the user can see the real world
+// this is the sandbox contract, it will be a 3d model of the real world
+// the user can interact with the real world by clicking on the sandbox contract, which will move the open contract layer to the back and the sandbox contract to the front
+
+// The Obs Layer (AI Layer)
+// this is where the user can see the individual streams of IOT devices. 
+// it's called the OBS layer because it's like the OBS software for streaming (but it's not OBS). 
+// it will contain data from both the contract layer and the real world layer
+// the content will be delivered to the hud layer through the local server.
+    // this ensures the data goes through the hud layer in the correct order, and that the data is secure and private
+    // this is why it is called the AI layer, because the user's presets will automatically be applied to the data 
+    // before it is delivered to the hud layer, and they can mess with the presets to change the data
+    // more importantly, it can send alerts to the hud layer when something happens in the real world
+    // and finally, it can automatically send data (or pheonix) to other servers based on smart contracts 
+    // like auto uploading to youtube when a certain event happens in the real world, or verifying activity
+    // and finally, it can be used to create a virtual world that is a mirror of the real world, and then
+    // the user can interact with the virtual world and the real world at the same time, and the data will be synced
+    // this is the most important part of nWonderland, because it allows the user to interact with the real world
+    
+// all of these layers will be implemented by the host bank model contract, and the user will be able to customize them through the hud.
+
+// we can use useLayer to allow for the automatic creation of layers
+// we can use useBankModel for the automatic creation of security checks
+
+// useBankModel will run through the process of creating the hud layer by building up a layer of contracts
+// these contracts will be stored in the local server and the BankModel will assign them to the correct layers.
+// the BankModel will also assign the correct security checks to the contracts, and it will assign the correct data to the contracts
+// raw data will be delivered to the highest contract in the layer, the Studio where it immediately applies the user's presets.
+// The studio will then deliver the data to the next contract in the layer, the home enviornment layer, where the data is filtered and turned into a 3d model.
+// The home enviornment layer will then deliver the data to the next contract in the layer, the sandbox layer where the data is integrated into other smart contracts.
+// The sandbox layer can be sent contracts from a person's DID, so every contract that the person uses will show a trade that shows the data trail and possible memory leaks.
+// The sandbox layer will be hosted on the user's device through the local server and will be duplicated in full creating an AI layer that attempts to predict the next few moves of the user.
+// and potential hazards in the real world. The AI layer will be able to send alerts to the user's hud layer, and it will be able to send data to other servers.
+// The AI layer will essentailly be a ghost layer that predicts computing to reduce the load on the user's device without sacrificing security or privacy.
+// the further out the AI must predict, the more abstract the data will be, unless the user has a very powerful device or uses a cloud server.
+// 
 
 
     return (
         <div className={styles.mainDiv}>
-            {isHostAuthenticating ? (
                 <div className={styles.backgroundDiv}>
                     <div className={styles.BankRows}>
                         <div className={styles.profileDiv}>
-                            <HostBankModel setHostAddress={changeHost} hostAddress={hostProfileAddress} profileList={(e:any) => setProfileList(e)} />
+                            {/* <HostBankModel /> */}
                         </div>
-                        {newSaveGame ? (
-                            <div className={styles.profileDiv}>
-                                <ContractBuilder attributes={contractBuilderNewHomeState} />
-                            </div>
-                        ) : ( null ) }
                     </div>
                 </div>
-            ) : (
-                <>
-                    <button onClick={openCatModel}>{catButton}</button>
-                    <div className={styles.MainDiv}>
-                        <div className={styles.backgroundDiv}>
-                            <div className={styles.bankModelsDiv1}>
-                                <HostBankModel isSkip={true} setHostAddress={changeHost} hostAddress={hostProfileAddress} />
-                            </div>
-                            <div className={styles.energyButton3}>
-                                <EnergyModel setMainViewer={setMainViewer} />
-                            </div>
-                            {guestAuthenticatedModel}
-                            {isMainViewerViewVisible ? (
-                                <div className={styles.mainViewer}>
-                                    {MainViewer}
-                                </div>
-                            ) : null}
-                            {isBottomTabsModelVisible ? (
-                                <BottomTabsModel setMainViewer={setMainViewer} />
-                            ) : null}
-                        </div>
-                    </div>
-                    {isCatModelVisible && (
-                        <PortalPopup
-                            overlayColor="rgba(113, 113, 113, 0.3)"
-                            placement="Centered"
-                            onOutsideClick={closeCatModel}
-                            setMainViewer={setMainViewer}
-                        >
-                            <CatModel onClose={closeCatModel} setMainViewer={setMainViewer} />
-                        </PortalPopup>
-                    )}
-                    {isBankModelPopupOpen && (
-                        <PortalPopup
-                            overlayColor="rgba(113, 113, 113, 0.3)"
-                            placement="Top left"
-                            onOutsideClick={closeBankModelPopup}
-                            setMainViewer={setMainViewer}
-                        >
-                            <BankModel onClose={closeBankModelPopup} />
-                        </PortalPopup>
-                    )}
-                    {isBankModelPopupOpen && (
-                        <PortalPopup
-                            overlayColor="rgba(113, 113, 113, 0.3)"
-                            placement="Centered"
-                            onOutsideClick={closeBankModelPopup}
-                            setMainViewer={setMainViewer}
-                        >
-                            <BankModel onClose={closeBankModelPopup} />
-                        </PortalPopup>
-                    )}
-                </>
-            )}
         </div>
+
     );
 }
+
 

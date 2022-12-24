@@ -1,72 +1,65 @@
-import { useEffect, useState } from 'react';
+// we need to make a library that will allow us to get the information from the profile and send it to the contract builder
+// it will contain the following functions:
+// getProfile()
+// setProfile()
+// getProfileID()
+// getProfileTitle()
+// getProfileDescription()
+// getProfileContent()
+// getProfileTags()
+// getProfileAITools()
+// getProfileLog()
+// getProfileMetadata()
 
-//pulls data from the host
-//checks if the host has a profile
-//if they don't, it creates one
-//if they do, it pulls the data from the vault, and sets the host profile
+import React, { useState, useEffect, FunctionComponent } from 'react';
+import { useMoralis } from "react-moralis";
 
+export const HostProfile = async () => {
+    const { Moralis } = useMoralis();
+    const [profile, setProfile] = useState<any>(null);
+    const [profileID, setProfileID] = useState<any>(null);
+    const [profileTitle, setProfileTitle] = useState<any>(null);
+    const [profileDescription, setProfileDescription] = useState<any>(null);
+    const [profileContent, setProfileContent] = useState<any>(null);
+    const [profileTags, setProfileTags] = useState<any>(null);
+    const [profileAITools, setProfileAITools] = useState<any>(null);
+    const [profileLog, setProfileLog] = useState<any>(null);
+    const [profileMetadata, setProfileMetadata] = useState<any>(null);
 
-export default function hostProfile(account: any) {
-    const accountInstance = account.useAccount();
-    const hasProfile = accountInstance.hasProfile();
-    const isHost = accountInstance.isHost();
-    const [isHostCheckedIn, setIsHostCheckedIn] = useState(false);
-    const [hostVault, setHostVault] = useState(null);
-    const [hostSkills, setHostSkills] = useState(null);
-    const [hostEquipment, setHostEquipment] = useState(null);
-    const [hostLoadout, setHostLoadout] = useState(null);
-    const [hostName, setHostName] = useState(null);
-    if(isHost) {   // if the account is a guest
-        if (hasProfile) {   // if the guest has a profile
-            checkInHost(accountInstance.profile());   // set the guest profile
-        }
-        else{   // if the guest doesn't have a profile
-            accountInstance.createProfile();    // create a profile for the guest
-            checkInHost(accountInstance.profile());   // set the guest profile   
-        }
+    const getProfile = async () => {
+        const hostProfile = await Moralis.Cloud.run("getHostProfile");
+        return hostProfile as any;
     }
-    function checkInHost(profile: any) { // set the guest profile
-        setHostVault(profile.getVault());
-        setHostSkills(profile.getSkills());
-        setHostEquipment(profile.getEquipment());
-        setHostLoadout(profile.getLoadout());
-        setHostName(profile.getName());
-        setIsHostCheckedIn(true);
+    // temp function to test the memorize button
+    const reformatProfile = async () => {
+        const profile = getProfile();
+        const newContractProfile = {
+            id: [(await profile).id],
+            title: [(await profile).name],
+            tags: [(await profile).type],
+            description: [(await profile).description],
+            content: [(await profile)],
+            aiTools: [],
+            metadata: [],
+            log: [],
+            nodes: [],
+            edges: [],
+            trades: [],
+        };
+        return newContractProfile;
     }
-    function getHostVault() {
-        if(isHostCheckedIn) {
-            return hostVault;
-        }
-    }
-    function getHostSkills() {
-        if(isHostCheckedIn) {
-            return hostSkills;
-        }
-    }
-    function getHostEquipment() {
-        if(isHostCheckedIn) {
-            return hostEquipment;
-        }
-    }
-    function getHostLoadout() {
-        if(isHostCheckedIn) {
-            return hostLoadout;
-        }
-    }
-    function getHostName() {
-        if(isHostCheckedIn) {
-            return hostName;
-        }
-    }
-    function getHostProfile() {
-        if(isHostCheckedIn) {
-            return {
-                hostVault,
-                hostSkills,
-                hostEquipment,
-                hostLoadout,
-                hostName
-            }
-        }
-    }
+    setProfile(getProfile());
+    setProfileID((await profile).id);
+    setProfileTitle((await profile).title);
+    setProfileDescription((await profile).description);
+    setProfileContent((await profile).content);
+    setProfileTags((await profile).tags);
+    setProfileAITools((await profile).aiTools);
+    setProfileLog((await profile).log);
+    setProfileMetadata((await profile).metadata);
+
+    return {profile, reformatProfile, profileID, profileTitle, profileDescription, profileContent, profileTags, profileAITools, profileLog, profileMetadata};
 }
+
+
+

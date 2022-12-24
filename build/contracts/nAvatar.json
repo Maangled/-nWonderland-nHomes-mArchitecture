@@ -1,0 +1,75 @@
+{
+  "contractName": "nAvatar",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/DALI/010_nAvatars.sol\":\"nAvatar\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/DALI/010_nAvatars.sol\":{\"keccak256\":\"0x527fcc5f0da85d1ba161120679eff3d545491e05f8ef1e2460cccf082a11d3c9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://56579dfa9a9028ddc1fd0c8ce937c4710aca30b091c05c097bf2ebee102931c5\",\"dweb:/ipfs/QmdcKE5VFi67AEvYW1LCGJDEFBhG2ebXvW3wnwGTQ8cQAD\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122093a0a4cd4ba0b4fd6c67a9dbbed86fff24af3bc7b9e52e8941aa96a82cec656d64736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122093a0a4cd4ba0b4fd6c67a9dbbed86fff24af3bc7b9e52e8941aa96a82cec656d64736f6c63430008090033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "363:23:36:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "363:23:36:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.9;\r\n\r\n// aAvatar (Aa) v1.0.0\r\n// Aa\r\n// A is the currated avatar of the user.\r\n// It can be shared publicly using white-listed Brain Trust (BT) tokens.\r\n// This allows the user to share content to white-listed nWonderland addresses with specific restrictions on the nHome they can access the content from.\r\n\r\ncontract nAvatar {\r\n\r\n}",
+  "sourcePath": "C:\\Users\\mosle\\Documents\\GitHub\\nWonderland\\contracts\\DALI\\010_nAvatars.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/DALI/010_nAvatars.sol",
+    "exportedSymbols": {
+      "nAvatar": [
+        8664
+      ]
+    },
+    "id": 8665,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8663,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:36"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "nAvatar",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 8664,
+        "linearizedBaseContracts": [
+          8664
+        ],
+        "name": "nAvatar",
+        "nameLocation": "372:7:36",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 8665,
+        "src": "363:23:36",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:353:36"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2022-12-15T17:05:24.004Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

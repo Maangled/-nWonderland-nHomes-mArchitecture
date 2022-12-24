@@ -1,0 +1,75 @@
+{
+  "contractName": "nFamiliars",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/DALI/009_nFamiliars.sol\":\"nFamiliars\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/DALI/009_nFamiliars.sol\":{\"keccak256\":\"0x767793fc2f0301c824e8b86c28c689c4e6f3e7dead67613983dfd3fe8fb8d24b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7f460f466b83fabe707babe89d7db5a6eda7b7efed78d259a4200fb4112a484f\",\"dweb:/ipfs/QmaDrPvCwKj7aRcm2hvwnyJ55HWdN5bcF7nmQxoPrb4ySy\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212208aeddea9ebc5c6f9951852e06ece2bf0cd84780654723a21ae0198e119fd9e1864736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212208aeddea9ebc5c6f9951852e06ece2bf0cd84780654723a21ae0198e119fd9e1864736f6c63430008090033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "259:30:35:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "259:30:35:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.9;\r\n\r\n// Familiar (F) v1.0.0\r\n// F is a digital pet that lives in an nhome.\r\n// It contains key tokens that lock the user's raw data in the nhome.\r\n// it represents the owner's presence in the nhome\r\n// \r\ncontract nFamiliars {\r\n    \r\n}",
+  "sourcePath": "C:\\Users\\mosle\\Documents\\GitHub\\nWonderland\\contracts\\DALI\\009_nFamiliars.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/DALI/009_nFamiliars.sol",
+    "exportedSymbols": {
+      "nFamiliars": [
+        8661
+      ]
+    },
+    "id": 8662,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 8660,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:35"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "nFamiliars",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 8661,
+        "linearizedBaseContracts": [
+          8661
+        ],
+        "name": "nFamiliars",
+        "nameLocation": "268:10:35",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 8662,
+        "src": "259:30:35",
+        "usedErrors": []
+      }
+    ],
+    "src": "33:256:35"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.8",
+  "updatedAt": "2022-12-15T17:05:24.003Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol";
@@ -10,11 +10,9 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol";
 
-// this contract is a proxy to the Vault Contract
-// This contract is used to manage vaults and can be accessed by users as an interface to the vault contract
-// it is used to create a new vaults and to access and manage vaults, and create items
-// it is used to create a new vault fragment and to access vault fragments
-// 
+// Profile (P) v0.1.0
+// Profile recieves data and creates items as Vaults
+
 
 
 
@@ -22,14 +20,14 @@ contract Profile is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeabl
     struct Item {
         bytes32[] encryptedItem;
     }
+    uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     event EncryptionToolsSet(address _encryptionTools);
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
-    uint256 public itemID;
-    mapping (uint256 => Item) internal items;
     address public ITAddress;
     address public newOwner;
     address public IDAddress;
@@ -88,13 +86,15 @@ contract Profile is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeabl
         itemOwners[itemID] = msg.sender;
         _mint(msg.sender, itemID, 1, "");
         itemID++;
-        (bool success, bytes memory result) = vaultAddress.call(abi.encodeWithSignature("addItem(uint256)", itemID));
+        (bool success, bytes memory result) = vaultAddress.call(abi.encodeWithSignature("createItem(uint256)", itemID));
+        require(success, "Profile: failed to add item to vault");
     }
 
     // create a new vault and add it to the profile
-    function createVault() public {
+    function createVault(string memory _description) public {
         require(hasRole(MINTER_ROLE, msg.sender), "Profile: must have minter role to create vault");
         (bool success, bytes memory result) = vaultAddress.call(abi.encodeWithSignature("createVault()"));
+        require(success, "Profile: failed to create vault");
         uint256 vaultID = abi.decode(result, (uint256));
         vaults[vaultID] = msg.sender;
         vaultIDs[vaultID] = vaultID;
@@ -160,4 +160,3 @@ contract Profile is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeabl
     }
 
 }
-    

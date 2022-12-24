@@ -20,7 +20,7 @@ type BankModelType = {
 const { Meta } = Card;
 
 export const BankModel: FunctionComponent<BankModelType> = ({ onClose }) => {
-  const { data: BankModeler } = useNFTBalances();
+  // const { data: BankModeler } = useNFTBalances();
   const { account, Moralis, chainId } = useMoralis();
   //const  guestProfile  = GuestProfile(account);
   const [visible, setVisibility] = useState(false);
@@ -69,7 +69,7 @@ export const BankModel: FunctionComponent<BankModelType> = ({ onClose }) => {
     setAmount(e.target.value);
   };
 
-  console.log("BankModeler", BankModeler);
+  //console.log("BankModeler", BankModeler);
   return (
     <div className={styles.bankModelDiv}>
       <button className={styles.logoutButton} onClick={logOut}>
@@ -87,7 +87,7 @@ export const BankModel: FunctionComponent<BankModelType> = ({ onClose }) => {
           <div className={styles.vaultWidgetDiv}>
             <div className={styles.vaultDiv}>Vault</div>
             <div className={styles.vaultBodyDiv}>
-              <Skeleton loading={!BankModeler?.result}>
+              {/* <Skeleton loading={!BankModeler?.result}>
                 {BankModeler?.result &&
                   BankModeler.result.map((nft, index) => {
                     //Verify Metadata
@@ -99,7 +99,7 @@ export const BankModel: FunctionComponent<BankModelType> = ({ onClose }) => {
                           <img
                             className={styles.nFTImageButton}
                             alt=""
-                            src={nft?.image || "error"}
+                            //src={nft?.image || "error"}
                           />
                         </button>
                         <div className={styles.nFTInfoDiv}>
@@ -128,7 +128,7 @@ export const BankModel: FunctionComponent<BankModelType> = ({ onClose }) => {
                     );
                   }
                   )}
-              </Skeleton>
+              </Skeleton> */}
             </div>
           </div>
           <div className={styles.skillsWidgetDiv}>

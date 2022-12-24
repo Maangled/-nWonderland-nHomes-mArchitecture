@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol";
@@ -10,24 +10,27 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol";
 
-// nWonderland (nW) v1.0.0
-// this contract is a proxy to the profile contracta
-// this contract is called by a profile node to pin a node fragment to an ipfs hash
-// it has a function to create a profile node
-// it has a function to create a profile node fragment
+// nWonderland (nW) v0.1.0
+// nW creates profiles for people and programs
+// This contract is used to register people and programs
+// it is called by the nHome to register itself
+// nHome uses 008_trade to create a non-fungible of itself and then calls this contract to register itself
+// the trade token creates a new profile and registers it with the nHome
+// the nHome then trades the token to the user and the user then calls this contract to register themselves
+
 
 contract nWonderlands is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgradeable, ERC1155PausableUpgradeable, OwnableUpgradeable, UUPSUpgradeable, AccessControlUpgradeable, ERC1155SupplyUpgradeable {
     struct Item {
         bytes32[] encryptedItem;
     }
+    uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     event EncryptionToolsSet(address _encryptionTools);
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
-    uint256 public itemID;
-    mapping (uint256 => Item) internal items;
     address public ITAddress;
     address public newOwner;
     address public IDAddress;
@@ -38,11 +41,44 @@ contract nWonderlands is Initializable, ERC1155Upgradeable, ERC1155BurnableUpgra
     mapping(uint256 => uint256) public vaultIDs;
     mapping(uint256 => uint256) public vaultBalances;
     event VaultSet(address _vault);
+    // this is the address of the nWonderland contract
     address public profileAddress;
     mapping(uint256 => uint256) public Profiles;
     mapping(uint256 => uint256) public ProfileIDs;
     mapping(uint256 => uint256) public ProfileBalances;
     event ProfileSet(address _profile);
+    // this is the nHome contract address that local clients can use to connect to the server locally
+    address public homeAddress;
+    mapping(uint256 => uint256) public Homes;
+    mapping(uint256 => uint256) public HomeIDs;
+    mapping(uint256 => uint256) public HomeBalances;
+    event HomeSet(address _home);
+    // this is the nWonderland contract addresses that clients can use to connect to the server remotely
+    address public officeAddress;
+    mapping(uint256 => uint256) public Offices;
+    mapping(uint256 => uint256) public OfficeIDs;
+    mapping(uint256 => uint256) public OfficeBalances;
+    event OfficeSet(address _office);
+    // this is the brain instance of the server
+    address public nodeAddress;
+    mapping(uint256 => uint256) public Nodes;
+    mapping(uint256 => uint256) public NodeIDs;
+    mapping(uint256 => uint256) public NodeBalances;
+    event NodeSet(address _node);
+    // this is the program list the player has access to
+    address public programAddress;
+    mapping(uint256 => uint256) public Programs;
+    mapping(uint256 => uint256) public ProgramIDs;
+    mapping(uint256 => uint256) public ProgramBalances;
+    event ProgramSet(address _program);
+    // this is the player's profile (public and semi-private)
+    address public tradeAddress;
+    mapping(uint256 => uint256) public Trades;
+    mapping(uint256 => uint256) public TradeIDs;
+    mapping(uint256 => uint256) public TradeBalances;
+    event TradeSet(address _trade);
+
+
 
 function initialize(address _profileAddress) public {
         __ERC1155_init("https://ipfs.io/ipfs/");
@@ -61,6 +97,15 @@ function initialize(address _profileAddress) public {
     }
     // this function creates a delegate call to the profile contract to set the encryption tools, the item tracker, the Item Distributor, and then creates a vault and then 
     // creates an item and sets the owner of the item to this contract and then transfers the vault to the owner of the item
+
+    // 1. create profile (delegate call that creates a new profile and adds a new vault to the profile)
+    // 2. add 5 vaults to profile
+    // 3. add homes to vault 2 (homes are the local servers that this profile is connected to)
+    // 4. add offices to vault 3 (offices are wonderland servers that this profile is connected to)
+    // 5. add nodes to vault 4 (nodes are trades with nhomes that this profile is connected to)
+    // 6. add Familiars to vault 5 (Familiars are the program list the player has access to)
+    // 7. add Avatars to vault 6 (Avatars are the player's profile (public and semi-private))
+
     function activateProfile()public{
         (bool success, bytes memory result) = profileAddress.delegatecall(abi.encodeWithSignature("setEncryptionTools", ETAddress));
         require(success, "Delegate call failed");

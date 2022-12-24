@@ -1,7 +1,7 @@
 import { FunctionComponent, useState, useCallback, useRef, useEffect, useInsertionEffect } from 'react';
 import { PortalPopup } from "../PortalPopup";
 import styles from "./BCSStreamdeck.module.css";
-import { useWebcam } from "../../hooks/useWebcam";
+//import { useWebcam } from "../../hooks/useWebcam";
 import  useOutsideClick  from "../../hooks/useOutsideClick";
 
 type StreamDeckViewType = {

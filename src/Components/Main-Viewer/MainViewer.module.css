@@ -8,6 +8,18 @@
   background-color: #000;
   overflow: hidden;
 }
+.heroButton{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  outline: none;
+  z-index: 100;
+}
 
 .mainDiv {
   overflow: hidden;
@@ -192,6 +204,18 @@
 .bankModelDiv1:hover {
   width: auto;
   height: auto;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 11fr));
+  gap: 20px;
+  flex-shrink: auto;
+}
+.card {
+  height: 200;
+  background-color: aliceblue;
+  border-radius: 10px;
 }
 
 .bankModelDiv1:hover~.div {

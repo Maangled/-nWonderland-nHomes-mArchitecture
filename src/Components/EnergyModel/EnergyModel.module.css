@@ -28,6 +28,38 @@
   border-radius: 5px;
 
 }
+.energyButton3 {
+
+  transform-origin: center top;
+  top: 0;
+  align-self: center;
+}
+
+.bankModelsDiv1:hover,
+.bankModelsDiv2:hover,
+.energyButton3:hover {
+  width: auto;
+  height: auto;
+  pointer-events: auto;
+  transform: scale(1);
+}
+.bankModelsDiv1,
+.energyButton3,
+.bankModelsDiv2 {
+  position: absolute;
+  gap: 18px;
+  opacity: 0.9;
+  overflow: hidden;
+  transform: scale(0.25);
+  text-align: left;
+  font-size: 24px;
+  align-items: center;
+  color: #fff;
+  font-family: Inter;
+  border-radius: 50px;
+  border: 5px ridge #fff;
+  pointer-events: fill;
+}
 .lineDiv {
   border-top: 3px solid rgba(255, 255, 255, 0.25);
   box-sizing: border-box;

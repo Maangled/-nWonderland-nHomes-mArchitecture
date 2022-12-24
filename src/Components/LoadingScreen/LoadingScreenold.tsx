@@ -105,7 +105,8 @@ export const LoadingScreen: FunctionComponent = () => {
             <p>Loading Build Tools</p>
         </div>
         </div>
-        <EnergyModel setMainViewer={closeBCSStreamdeckPopup} /></>
+        {/* <EnergyModel setMainViewer={closeBCSStreamdeckPopup} /> */}
+        </>
     );
     pages.push( // TODO: load in Matter parts one by one to emphasize the loading process, and to make it more interesting
         // TODO: add a loading bar

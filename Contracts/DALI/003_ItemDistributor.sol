@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/ERC1155Upgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155BurnableUpgradeable.sol";
@@ -11,25 +11,22 @@ import "@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol"
 import "@openzeppelin/contracts-upgradeable/token/ERC1155/extensions/ERC1155SupplyUpgradeable.sol";
 
 
-// this contract is a proxy the itemTracker contract
-// it is used to move items from one address to another
-// it calls the itemTracker contract to do the actual transfer of ownership by buring the item and minting a new one
-// this allows items to be moved while including only the parts of the item that are agreed upon by both parties
-// this contract is not intended to be used by the public, but by other contracts
-// this calls on the ItemTracker by address, so it can be used with any ItemTracker contract
+// Item Distrubutor (ID) v0.1.0
+// ID creates Tags for items
+
 
 contract ItemDistributor is Initializable, ERC1155Upgradeable, AccessControlUpgradeable, PausableUpgradeable, ERC1155BurnableUpgradeable, ERC1155SupplyUpgradeable, UUPSUpgradeable {
     struct Item {
         bytes32[] encryptedItem;
     }
+    uint256 public itemID;
+    mapping (uint256 => Item) internal items;
     event EncryptionToolsSet(address _encryptionTools);
     bytes32 public constant URI_SETTER_ROLE = keccak256("URI_SETTER_ROLE");
     bytes32 public constant PAUSER_ROLE = keccak256("PAUSER_ROLE");
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
     bytes32 public constant UPGRADER_ROLE = keccak256("UPGRADER_ROLE");
     address public ETAddress;
-    uint256 public itemID;
-    mapping (uint256 => Item) internal items;
     address public ITAddress;
     address public owner;
     address public newOwner;
@@ -54,7 +51,9 @@ contract ItemDistributor is Initializable, ERC1155Upgradeable, AccessControlUpgr
     // make a delecate call to the itemTracker contract to burn the item and mint a new one
     function transferItem() public {
         (bool success, bytes memory result) = ITAddress.delegatecall(abi.encodeWithSignature("burnItem(address,uint256,bytes32[])", owner, itemID, items[0]));
+        require(success, "burnItem failed");
         (bool success1, bytes memory result1) = ITAddress.delegatecall(abi.encodeWithSignature("createItem(address,uint256,bytes32[])", newOwner, itemID, items[0]));
+        require(success1, "createItem failed");
     }
 
         function setURI(string memory newuri) public onlyRole(URI_SETTER_ROLE) {

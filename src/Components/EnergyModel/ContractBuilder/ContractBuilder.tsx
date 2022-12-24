@@ -1,5 +1,5 @@
-import { FunctionComponent, useState, useCallback, ChangeEvent } from "react";
-import { CatModelType } from "../../CatModel/CatButton/CatModelTypes";
+import { FunctionComponent, useState, useCallback, ChangeEvent, useEffect } from "react";
+import { CatModelFunctions, CatModelType, CatAttributeType } from "../../CatModel/CatButton/CatModelTypes";
 import styles from "./ContractBuilder.module.css";
 import { AIToolMenu } from "./aiToolMenu/AIToolMenu";
 import { MetaDataMenu } from "./MetaDataMenu/MetaDataMenu";
@@ -7,7 +7,6 @@ import { QuestContentDisplay } from "./QuestContentDisplay/QuestContentDisplay";
 import { QuestLog } from "./QuestLog/QuestLog";
 import { MemorizeButton } from "./MemorizeButton";
 import { PublishButton } from "./PublishButton";
-import { stateAttributes, setStateAttributes, setStateTitle, setStateContent, newHomeAttributes } from "./BuilderStateVariables";
 import { defaultCatModel } from "../../CatModel/CatButton/CatModelTypes";
 import { LargeContractDisplay, NoteContractDisplay, SmallContractDisplay } from "../ContractDisplays";
 
@@ -18,10 +17,16 @@ import { LargeContractDisplay, NoteContractDisplay, SmallContractDisplay } from 
 //TODO add AI Tool marketplace to the AI Tool Explorer
 //TODO add first Quest to log, which is the quest to save the profile.
 //TODO add a way to imput default values for contract attributes.
+//TODO change type to profileContractType to match the addProfileContract function on the backend
+    //TODO fix the description styling
+    //TODO fix the image upload button
+    //TODO fix the add tag button
   // when the main viewer opens contract builder it will pass the attributes of the contract that is being edited
   // if that case, the attributes will be to create a new node in the contract tree. specifically the first one.
 
-export const ContractBuilder: FunctionComponent<CatModelType> = ({ attributes }) => {
+
+
+export const ContractBuilder: FunctionComponent<CatModelType> = ({ attributes, functions, ...rest }) => {
     // create the initial content popup that is displayed when the Energy Model is opened
     // create the quest content popup that is displayed when the user clicks on the quest content button
     // create the quest log popup that is displayed when the user clicks on the quest log button
@@ -29,19 +34,24 @@ export const ContractBuilder: FunctionComponent<CatModelType> = ({ attributes })
     // a lot of this is just setting up the state variables and functions to open and close the popups
     // the actual content of the popups is in the openTab arrays
     const [isQuestContentPopupOpen, setIsQuestContentPopupOpen] = useState(false);
+    const [useDataFunction, setUseDataFunction] = useState(functions as CatModelFunctions[]);
     const [isQuestLogPopupOpen, setIsQuestLogPopupOpen] = useState(false);
     const [isAIToolPopupOpen, setIsAIToolPopupOpen] = useState(false);
     const [isQuestMetadataPopupOpen, setIsQuestMetadataPopupOpen] = useState(true);
-    if (attributes.length > 0){
-      setStateAttributes(attributes);
-    } else {
-        setStateAttributes(defaultCatModel.attributes);
-    }
+
+    useEffect(() => {
+      if(attributes !== undefined){
+        useDataFunction[0].dataFunctions.setAttributes(attributes);
+      } else {
+        useDataFunction[0].dataFunctions.setAttributes(defaultCatModel.attributes);
+      }
+    }, [attributes]);
+
   const handleTitleChange = (event: ChangeEvent<HTMLInputElement>) => {
-  setStateTitle(event.target.value);
+    useDataFunction[0].dataFunctions.setTitle(event.target.value);
   };
 const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
-  setStateContent(event.target.value);
+  useDataFunction[0].dataFunctions.setContent(event.target.value);
 };
     // create a function that will open the quest content popup
     const openQuestContentPopup = useCallback(() => {
@@ -90,7 +100,7 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
         onMemorize = {handleMemorize}  />,
       <QuestLog onClose={closeQuestLogPopup} questLog = {"QuestLog Initiated."} />,
       <AIToolMenu onClose={closeAIToolPopup} />,
-      <MetaDataMenu onClose={closeQuestMetadataPopup}/>,
+      <MetaDataMenu onClose={closeQuestMetadataPopup} />,
     ];
 
     function isTabOpen(index: number) {
@@ -124,16 +134,16 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
     };
 
     const imageUploadButton = (
-      <button className={styles.imageUploadButton} onClick={imageSelector}>
+      <button className={styles.imageUploadButton}>
       <div className={styles.imageUploadButton}>
         <img src="../quest-icon3.svg" />
         <p>Upload Image</p>
       </div>
       </button>
     );
-    const stateTitle = newHomeAttributes.attributes[0].title;
-    const stateContent = stateAttributes.attributes[0].content;
-    const stateHeader = newHomeAttributes.attributes[0].description;
+    const stateTitle = attributes[0].data.title[0];
+    const stateContent = attributes[0].data.content[0];
+    const stateHeader = attributes[0].data.description[0];
 
     return (
       <div className={styles.contractBuilderBox}>
@@ -144,7 +154,7 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
                 className={styles.addTitleInput}
                 id = "title"
                 type="text"  
-                placeholder={stateTitle}
+                placeholder={stateTitle[0]}
                 onChange = {(e) => handleTitleChange(e)}
               />
               {imageUploadButton}
@@ -154,7 +164,7 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
               <input
                 className={styles.questHeadlineInput}
                 type="text"
-                placeholder={stateHeader}
+                placeholder={stateHeader[0]}
               />
             </div>
             <div className={styles.closedButtonModel}>
@@ -170,9 +180,7 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
         <div className={styles.frameDiv3}>
           <div className={styles.frameDiv4}>
             <div className={styles.closedButtonModel}>
-                <MemorizeButton questId={""} title={''} description={''} content={''} tags={''} AITools={''} Metadata={''} Log={''} onMemorize={function (_questId: any, _title: any, _description: any, _content: any, _tags: any, _AITools: any, _Log: any, _Metadata: any): { questId: string; title: string; description: string; content: string; tags: string; AITools: string; Log: string; Metadata: string; } {
-                throw new Error("Function not implemented.");
-              } } />
+                <MemorizeButton attributes={attributes} />
             </div>
               <div className={styles.closedButtonModel}>
                 <PublishButton questId={""} title={''} description={''} content={''} tags={''} AITools={''} Metadata={''} Log={''} onPublish={function (_questId: any, _title: any, _description: any, _content: any, _tags: any, _AITools: any, _Log: any, _Metadata: any): { questId: string; title: string; description: string; content: string; tags: string; AITools: string; Log: string; Metadata: string; } {
@@ -181,7 +189,7 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
               </div>
           </div>
             <div className={styles.subContractsDiv}>
-              <div className={styles.questTitleDiv}>Add SubPage...</div>
+              <div className={styles.questTitleDiv}>Admin Profile</div>
               <b className={styles.orangeCreamSodaPowerUp}>
                 Orange Cream Soda Power-up
               </b>
@@ -199,9 +207,9 @@ const handleBodyChange = (event: ChangeEvent<HTMLInputElement>) => {
       );
     };
 
-export const ContractBuilderViewer = () => {
+export const ContractBuilderViewer:FunctionComponent<CatModelType> = ({attributes, ...rest}) => {
   const [ size , setSize ] = useState(0);
-  const [ contractBuilderState, setContractBuilderState ] = useState(stateAttributes.attributes);
+  const [ contractBuilderState, setContractBuilderState ] = useState(attributes);
   const [ energyModelState, setEnergyModelState ] = useState(0);
   const lines = [
     styles.lineDiv,
@@ -217,14 +225,14 @@ export const ContractBuilderViewer = () => {
   const [ line2 , setLine2 ] = useState(lines2[0]);
   const contractType = [
     <div className={styles.questDetailSliders}>
-      <NoteContractDisplay attributes={contractBuilderState} />
+      <NoteContractDisplay attributes={attributes} />
     </div>
   ];
   contractType.push(<div className={styles.questDetailSliders}>
-    <SmallContractDisplay attributes={contractBuilderState} />
+    <SmallContractDisplay attributes={attributes} />
   </div>);
   contractType.push(<div className={styles.questDetailSliders}>
-    <LargeContractDisplay attributes={contractBuilderState} />
+    <LargeContractDisplay attributes={attributes} />
   </div>);
   const [ visableContract, setVisableContract ] = useState(contractType[size]);
   const handleBigClick = () => {

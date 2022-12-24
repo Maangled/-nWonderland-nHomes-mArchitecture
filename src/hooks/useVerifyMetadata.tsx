@@ -32,7 +32,7 @@ export const useVerifyMetadata = () => {
    */
   async function getMetadata(NFT: { token_uri: RequestInfo | URL | string[]; }) {
     //Validate URI
-    if (!NFT.token_uri || !NFT.token_uri.includes("://")) {
+    if (!NFT.token_uri || NFT.token_uri === "undefined") {
       console.log("getMetadata() Invalid URI", { URI: NFT.token_uri, NFT });
       return;
     }

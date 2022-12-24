@@ -53,20 +53,22 @@ export const QuestContentDisplay: React.FunctionComponent<QuestContentDisplayTyp
     };
 
 
+    
+
     // create a variable that will hold the response from the server
     let response = 'Hello World';
     
 
-    // create an async function that will send the data to the server and get the response from the server
-    async function sendToServer() {
+    // use moralis to send the data to the server
+    const sendToServer = async (_data: React.ChangeEvent<HTMLTextAreaElement>) => {
         // create a variable that will hold the data that is being sent to the server
-        let data = content;
+        const data = _data.target.value;
         // create a variable that will hold the response from the server
         let response = 'Hello World';
         // send the data to the server
         try {
             // send the data to the server
-            response = await Moralis.Cloud.run('capitalizeString', { data });
+            response = await Moralis.Cloud.run('useBrain', { data });
         } catch (error) {
             console.error(error);
         }
@@ -75,9 +77,9 @@ export const QuestContentDisplay: React.FunctionComponent<QuestContentDisplayTyp
     }
 
     // create a function that will update the response from the server
-    function updateResponse() {
+    function updateResponse(data: React.ChangeEvent<HTMLTextAreaElement>) {
         // update the response from the server
-        sendToServer().then((response) => {
+        sendToServer(data).then((response) => {
             // update the response from the server
             if (responseTextAreaRef.current) {
                 responseTextAreaRef.current.value = response;
@@ -88,10 +90,7 @@ export const QuestContentDisplay: React.FunctionComponent<QuestContentDisplayTyp
     }
 
     // create a function that runs updateResponse when the content is updated
-    React.useEffect(() => {
-        // update the response from the server
-        updateResponse();
-    }, [content]);
+
         
     const contentForm = (
       <>
@@ -110,6 +109,7 @@ export const QuestContentDisplay: React.FunctionComponent<QuestContentDisplayTyp
             <textarea
                 ref={contentTextAreaRef}
                 defaultValue={content}
+                onChange={(e) => updateResponse(e)}
                 className={styles.contentFormDiv}
             />
         </form>

@@ -203,8 +203,8 @@ export const BottomTabsModel: FunctionComponent<BottomTabsModelType> = ({
           setMainViewer={closeHostBankModelPopup}
         >
           <div className={styles.bothBankModelPopup}>
-          <HostBankModel onClose={closeHostBankModelPopup} isSkip={true} />
-          <HostBankModel onClose={closeHostBankModelPopup} isSkip={true}/>
+          {/* <HostBankModel />
+          <HostBankModel /> */}
           </div>
         </PortalPopup>
       )}

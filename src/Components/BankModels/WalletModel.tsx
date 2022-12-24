@@ -1,16 +1,26 @@
-import { FunctionComponent, useCallback, useState } from "react";
+import { FunctionComponent, useCallback, useEffect, useState } from "react";
 import styles from "./WalletModel.module.css";
 import { useMoralis } from "react-moralis";
 
 
 type WalletModelType = {
   onClose?: () => void;
+  setIsAuthenticated: (isAuthenticated: boolean) => void;
 };
 export const WalletModel: FunctionComponent<WalletModelType> = ({
   onClose,
+  setIsAuthenticated,
 }) => {
   
   const { authenticate, isAuthenticated} = useMoralis();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+  }, [authenticate, setIsAuthenticated]);
   
   const login = async () => {
     if (!isAuthenticated) {
