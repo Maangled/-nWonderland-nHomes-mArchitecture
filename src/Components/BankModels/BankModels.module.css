@@ -400,6 +400,7 @@
   .headerDiv1 {
     position: relative;
     flex-shrink: 0;
+    overflow: hidden;
   }
   .headerDiv1 {
     align-self: stretch;
@@ -422,12 +423,13 @@
     justify-content: center;
     max-width: 90%;
     max-height: 90%;
-    overflow: auto;
+    overflow: hidden;
     z-index: 0;
   }
   .bankModelDiv1:hover  {
     width: auto;
     height: auto;
+    overflow: hidden;
   }
 
   .div:hover {
@@ -437,18 +439,7 @@
   .bankModelDiv1:hover ~ .div {
     width: auto;
     height: auto;
-  }
-
-
-
-  .bankModelDiv1:hover ~.walletModelDiv {
-      position: absolute;
-      top: calc(50% - 276.5px);
-      left: calc(50% - 213px);
-      border-radius: 30px;
-      display: flex;
-      width: 100%;
-
+    overflow: hidden;
   }
 
   .walletModelDiv {
@@ -456,8 +447,10 @@
       top: calc(50% - 276.5px);
       left: calc(50% - 213px);
     display: flex;
-    width: 100%;
     z-index: 1;
+    width: fit-content;
+    height: auto;
+    overflow: hidden;
   }
   .authenticateDiv {
     position: relative;
@@ -844,21 +837,13 @@
     top: 0;
     align-self: center;
   }
-  .bankModelsDiv1,
-.energyButton3,
-.bankModelsDiv2 {
-  position: absolute;
-  gap: 18px;
-  opacity: 0.9;
-  overflow: hidden;
-  transform: scale(0.25);
-  text-align: left;
-  font-size: 24px;
-  align-items: center;
-  color: #fff;
-  font-family: Inter;
-  border-radius: 50px;
-  border: 5px ridge #fff;
-  pointer-events: fill;
-}
+  .bankModelsDiv1:hover,
+  .bankModelsDiv2:hover,
+  .energyButton3:hover {
+    width: auto;
+    height: auto;
+    pointer-events: auto;
+    transform: scale(1);
+  }
+  
   

@@ -6,6 +6,153 @@
     box-shadow: 0 12px 20px -12px rgb(0 0 0/35%);
   }
 }
+.noteCard,
+.questBodyDiv {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 1;
+  display: flex;
+  align-items: center;
+}
+
+.cardBox{
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+.cardBuilderBox {
+  position: relative;
+  display: flex;
+  align-self: stretch;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  padding: 17px 0;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  border:rgb(0 0 0/35%) 5px ridge;
+  overflow: none;
+}
+.cardBuilderBox:hover {
+  min-width: 75px;
+}
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 11fr));
+  gap: 20px;
+}
+.cardScroll {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.card {
+  align-items: center;
+  height: 200;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(45px);
+}
+.cardScroll ::-webkit-scrollbar, .vaultBodyDiv::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+}
+.cardScroll::-webkit-scrollbar-thumb, .vaultBodyDiv::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+.cardScroll::-webkit-scrollbar-thumb:hover, .vaultBodyDiv::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+.cardScroll::-webkit-scrollbar-thumb:active, .vaultBodyDiv::-webkit-scrollbar-thumb:active {
+  background: #fff;
+}
+.cardScroll::-webkit-scrollbar-track, .vaultBodyDiv::-webkit-scrollbar-track {
+  background: transparent;
+}
+.rowCard{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.colCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.cardBigTitle{
+  font-size: 4rem;
+  font-weight: 2400;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.imageCard{
+  background-image: url("https://i.imgur.com/1ZQ3Z1C.png");
+  height: 50%;
+  width: 50%;
+  background-size: 200px 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cardTitle{
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cardText{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.cardTinyText {
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.cardMedText {
+  font-size: .75rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+  background-clip: text;
+}
+
 .EnergyModel{
   animation: shadow-drop-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   align-items: center;
@@ -28,12 +175,7 @@
   border-radius: 5px;
 
 }
-.energyButton3 {
 
-  transform-origin: center top;
-  top: 0;
-  align-self: center;
-}
 
 .bankModelsDiv1:hover,
 .bankModelsDiv2:hover,
@@ -46,7 +188,6 @@
 .bankModelsDiv1,
 .energyButton3,
 .bankModelsDiv2 {
-  position: absolute;
   gap: 18px;
   opacity: 0.9;
   overflow: hidden;
@@ -59,6 +200,13 @@
   border-radius: 50px;
   border: 5px ridge #fff;
   pointer-events: fill;
+}
+.energyButton3 {
+  position: absolute;
+  transform-origin: center top;
+  top: 0;
+  align-self: center;
+  justify-self: center;
 }
 .lineDiv {
   border-top: 3px solid rgba(255, 255, 255, 0.25);
@@ -120,7 +268,7 @@
   align-self: stretch;
   font-weight: 500;
 }
-.noteContractDisplay,
+.noteCardDisplay,
 .questBodyDiv {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
@@ -142,9 +290,30 @@
   text-align: center;
   font-size: 14px;
 }
-.noteContractDisplay {
+.noteCardParchmentBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: fit-content;
+  height: fit-content;
+  background: 
+    url(https://i.pinimg.com/564x/a2/d2/d4/a2d2d404c591e0cc4c5da4d6e4585e0d.jpg) repeat,
+    linear-gradient(to bottom, #F9EFAF, #F7E98D);
+  box-shadow: inset 0 0 20px #9B8E76;
+  filter: contrast(50%) brightness(80%) saturate(50%) sepia(100%);
+  background-size: 300% 300%;
+  background-position:  center;
+  transform: rotate(-2deg);
+  background-blend-mode: multiply;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+.noteCardDisplay {
   border-radius: 30px;
-  background-color: rgba(61, 109, 119, 0.5);
   border: 3px solid #fff;
   width: 225px;
   height: 261px;
@@ -152,12 +321,23 @@
   padding: 19px 15px;
   justify-content: flex-start;
   gap: 22px;
+  
 }
-
+.expandedNoteCardDisplay{
+  border-radius: 30px;
+  background-color: rgba(61, 109, 119, 0.5);
+  border: 3px solid #fff;
+  width: max-content;
+  height: max-content;
+  flex-direction: column;
+  padding: 19px 15px;
+  justify-content: flex-start;
+  gap: 22px;
+}
 .largeContractDisplay:active,
 .mediumContractDisplay:active,
-.noteContractDisplay2:active,
-.noteContractDisplay:active,
+.noteCardDisplay2:active,
+.noteCardDisplay:active,
 .questInformationDiv:active,
 .smallContractDisplay:active,
 .subContractsDiv:active {
@@ -837,12 +1017,12 @@
   padding: 20px;
 }
 .frameDiv3,
-.noteContractDisplay2,
+.noteCardDisplay2,
 .subContractsDiv {
   display: flex;
   justify-content: flex-start;
 }
-.noteContractDisplay2 {
+.noteCardDisplay2 {
   border-radius: 30px;
   background-color: rgba(61, 109, 119, 0.5);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);

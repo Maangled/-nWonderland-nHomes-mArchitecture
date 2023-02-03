@@ -1,12 +1,13 @@
 // lets create a bank that is locked by a wallet signature
 
-import React, { useState, useEffect, FunctionComponent } from 'react';
+import React, { useState, useEffect, FunctionComponent, useSyncExternalStore } from 'react';
 import { useMoralis } from "react-moralis";
 import { BankModel } from './BankModel';
 import { WalletModel } from './WalletModel';
 import styles from './BankModels.module.css';
 
-//TODO: figure out why isAuthenticated is not updating when the user logs in
+//TODO: TOP PRIORITY figure out why isAuthenticated is not updating when the user logs in
+// let isAuthenticated = false;
 
 // create a type for the props
 type BankModelsType = {
@@ -15,13 +16,15 @@ type BankModelsType = {
 
 };
 
+
 // create a function component that displays the user bank model and host bank model in a popup
 // the banks should be tabs with hover effects that show the user a preview of the bank (quick view)
 // the user should be able to click on the bank to open it
 
-export const WalletBank: FunctionComponent<BankModelsType> = ({ onClose}) => {
+export const WalletBank: FunctionComponent<BankModelsType> = ({ onClose }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     console.log("isAuthenticated: ", isAuthenticated)
+
     const guestAuthenticatedModel = isAuthenticated ? ((
         // if the user is authenticated, show the user bank model
         <div className={styles.bankModelsDiv1}>

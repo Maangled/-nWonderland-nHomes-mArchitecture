@@ -8,6 +8,10 @@ interface DataLayer {
     data: any;
 }
 
+//TODO: create a loader for the vault to pick up and display contract profiles from the Local Server
+// This is a placeholder for the Open World page.  This page will be used to display the open world of the user.
+//
+
 export const OpenWorld: FunctionComponent<DataLayer> = (data) => {
     return (
         <div>

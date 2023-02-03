@@ -36,53 +36,57 @@ export var BuilderStateVariables: CatModelType = {
                     BuilderStateVariables.attributes = attributes;
                 },
                 // lets create a function that will set the id of the contract
-                setId: (id: string) => {
-                    BuilderStateVariables.attributes[0].data.id = [id];
+                setId: (id: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.id?.splice(0, 1, id);
                 },
                 // lets create a function that will set the title of the contract
-                setTitle: (title: string) => {
-                    BuilderStateVariables.attributes[0].data.title = [title];
+                setTitle: (title: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.title?.splice(0, 1, title);
                 },
                 // lets create a function that will set the tags of the contract
-                setTags: (tags: string[]) => {
-                    BuilderStateVariables.attributes[0].data.tags = tags;
+                setTags: (tags: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.tags?.splice(0, 1, tags);
                 },
                 // lets create a function that will set the description of the contract
-                setDescription: (description: string) => {
-                    BuilderStateVariables.attributes[0].data.description = [description];
+                setDescription: (description: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.description?.splice(0, 1, description);
                 },
                 // lets create a function that will set the content of the contract
-                setContent: (content: string) => {
-                    BuilderStateVariables.attributes[0].data.content = [content];
+                setContent: (content: any) => {
+                    // splice the content into the first element of the array
+                    BuilderStateVariables?.attributes?.[0]?.data?.content?.splice(0, 1, content);
                 },
                 // lets create a function that will set the aiTools of the contract
-                setAiTools: (aiTools: string[]) => {
-                    BuilderStateVariables.attributes[0].data.aiTools = aiTools;
+                setAiTools: (aiTools: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.aiTools?.splice(0, 1, aiTools);
                 },
                 // lets create a function that will set the metadata of the contract
-                setMetadata: (metadata: string[]) => {
-                    BuilderStateVariables.attributes[0].data.metadata = [metadata];
+                setMetadata: (metadata: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.metadata?.splice(0, 1, metadata);
                 },
                 // lets create a function that will set the log of the contract
-                setLog: (log: string[]) => {
-                    BuilderStateVariables.attributes[0].data.log = [log];
+                setLog: (log: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.log?.splice(0, 1, log);
                 },
                 // lets create a function that will set the nodes of the contract
-                setNodes: (nodes: string[]) => {
-                    BuilderStateVariables.attributes[0].data.nodes = [nodes];
+                setNodes: (nodes: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.nodes?.splice(0, 1, nodes);
                 },
                 // lets create a function that will set the edges of the contract
-                setEdges: (edges: string[]) => {
-                    BuilderStateVariables.attributes[0].data.edges = [edges];
+                setEdges: (edges: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.edges?.splice(0, 1, edges);
                 },
                 // lets create a function that will set the trades of the contract
-                setTrades: (trades: string[]) => {
-                    BuilderStateVariables.attributes[0].data.trades = [trades];
+                setTrades: (trades: any) => {
+                    BuilderStateVariables?.attributes?.[0]?.data?.trades?.splice(0, 1, trades);
                 },
             },
         },
     ],
-
+    setEnergyModelState: (energyModelState: number) => {
+        energyModelState === energyModelState;
+    },
+    energyModelState: 0,
 };
 
 // lets create functions to add and remove data from the builderStateAttributes by status

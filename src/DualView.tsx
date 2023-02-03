@@ -5,6 +5,9 @@ import { WalletModel } from "./Components/BankModels/WalletModel";
 import { HostWalletModel } from "./Components/BankModels/HostWalletModel";
 import styles from "./css/DualView.module.css";
 
+// TODO: remake this component to be called upon by data layers to display two contracts side by side
+// these contracts should be able to share data between them via the data layer and the data layer should be able to be updated by the contracts
+// these interactions can be controlled by the user via the data layer
 export const DualView: FunctionComponent = () => {
   const [isBottomTabsModelOpen, setBottomTabsModelOpen] = useState(false);
   const [isWalletModelPopupOpen, setWalletModelPopupOpen] = useState(false);
@@ -78,16 +81,6 @@ export const DualView: FunctionComponent = () => {
           setMainViewer={closeBottomTabsModel}
         >
           <BottomTabsModel onClose={closeBottomTabsModel} />
-        </PortalPopup>
-      )}
-      {isWalletModelPopupOpen && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closeWalletModelPopup}
-          setMainViewer={closeBottomTabsModel}
-        >
-          <WalletModel onClose={closeWalletModelPopup} />
         </PortalPopup>
       )}
       {isHostWalletModelOpen && (

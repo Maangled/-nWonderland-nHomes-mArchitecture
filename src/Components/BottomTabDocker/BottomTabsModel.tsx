@@ -5,7 +5,7 @@ import { BankModel } from "../BankModels/BankModel";
 import { TradeModel } from "../Trade Components/TradeModel";
 import { BCSStreamdeck } from "../StreamDeck/BCSStreamdeck";
 import styles from "./BottomTabsModel.module.css";
-import { HostBankModel } from "../BankModels/HostBankModel";
+import { HostBankModel } from "../BankModels/HostBank/HostBankModel";
 import { Cesium } from "../Cesium/Cesium";
 
 type BottomTabsModelType = {

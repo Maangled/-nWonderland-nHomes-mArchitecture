@@ -188,8 +188,7 @@
   padding: 16px 23px 46px;
   align-items: center;
   justify-content: flex-start;
-  max-width: 90%;
-  max-height: 90%;
+
   overflow: auto;
   pointer-events: all;
 }

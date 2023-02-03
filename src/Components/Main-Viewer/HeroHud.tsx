@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, FunctionComponent, useRef, useSyncExternalStore } from 'react';
 import styles from './HeroHud.module.css';
-import { HostBankModel } from '../BankModels/HostBankModel';
+import { HostBankModel } from '../BankModels/HostBank/HostBankModel';
 import { DataManager } from '../EnergyModel/ContractBuilder/DataLayerTypes';
 import { ContractBuilder } from "../EnergyModel/ContractBuilder/ContractBuilder";
 import { BuilderStateVariables } from "../EnergyModel/ContractBuilder/BuilderStateVariables";
@@ -43,13 +43,29 @@ interface DataLayer {
 // we need to create a function that closes the contract builder when setMissionStatus is called
 // but then host bank model will be called again and
 
-export const HeroHud: FunctionComponent<DataLayer> = (data) => {
-    const [attributes, setAttributes] = useState(BuilderStateVariables.attributes);
+// dataLayer is the data layer that is passed from the contract builder
+// when contracts are built and memorized, the data is sent to the hero hud through prompts
+// the data is sent to the main viwer as data and returned to the hero hud as dataLayer
+// data contains options the user has chosen and the datalayer will compile the data into a program to 
+// run on the other layers and return it as a contract that builds the user's profile. the user will be able to
+// see the results of the contract in the bank models and the energy model and publish the contract to the blockchain
+// or use the contract to ask for verification from the blockchain
+// Things the host bank model will send to the hero hud layer:
+    // 1. the user's profile
+    // 2. the user's wallet
+    // 3. the user's energy
+    // 4. the user's AI selection
+    // 5. the user's brain model
+// these things will be written to the local blockchain and the user will be able to see the results of the contract
+// 
+
+export const HeroHud: FunctionComponent<DataLayer> = (data, DataLayer) => {
+    const attributes = BuilderStateVariables.attributes
     const [functions, setFunctions] = useState(BuilderStateVariables.functions);
     const [hostBankModelChildren, setHostBankModelChildren] = useState([] as any);
     const [pause, setPause] = useState(false);
-    console.log("hostbankmodellength:", hostBankModelChildren.length);
-    
+    console.log("Hero Hud has been refreshed, hostbankmodellength:", hostBankModelChildren.length);
+
 
     const suspendEnergyTransactions = () => {
         setPause(!pause);
@@ -61,20 +77,32 @@ export const HeroHud: FunctionComponent<DataLayer> = (data) => {
     const pauseButton = (
         <button className={styles.heroButton} onClick={suspendEnergyTransactions} style={{ backgroundColor: pauseButtonColor }}>{pauseButtonText}</button>
     )
-    // why is the energy model not centered?
-    // why is the energy model not centered?
+    // map the children of the host hostBankModelChildren using the card style
+    const hudCards = () => {
+        return (
+            <div className={styles.cards}>
+                <div className={styles.card}>
+                    <HostBankModel onPause={pause} addModel={setHostBankModelChildren} attributes={attributes} functions={functions} />
+                </div>
+                <div className={styles.card}>
+                {hostBankModelChildren}
+                </div>
+            </div>
+        )
+    }
+
+    // NOTE: empty div was 'cards' but it was causing the cards to render on top of each other
+    // we need cards to handle the children of the host bank model in a different way
     return (
         <div className={styles.mainDiv}>
-            {pauseButton} 
-                    {pause ? null: (
-                    <div className={(hostBankModelChildren.length>1)?(styles.blank):(styles.cards)}>
-                        <HostBankModel onPause={pause} addModel={setHostBankModelChildren} attributes={attributes} functions={functions} />
-                        {hostBankModelChildren}
-                    </div>
-                    )
-                    }
-            </div>
-
+            {pauseButton}
+            {pause ? null : (
+                <>
+                    <HostBankModel onPause={pause} addModel={setHostBankModelChildren} attributes={attributes} functions={functions} />
+                    {hostBankModelChildren}
+                </>
+            )}
+        </div>
     )
 }
 function subscribe(onStoreChange: () => void): () => void {

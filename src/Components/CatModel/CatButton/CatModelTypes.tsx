@@ -9,6 +9,9 @@ export interface CatModelType {
     // lets create an array of data called attributes
     attributes: CatAttributeType[];
     functions?: CatModelFunctions[];
+    // allow the bank to set the energy model state
+    energyModelState?: 0 | number;
+    setEnergyModelState: (energyModel: number) => void | undefined;    
 }
 
 export interface CatAttributeType {
@@ -23,7 +26,7 @@ export interface CatAttributeType {
         // description is the description of the contract or quest
         description: string[];
         // content is the data of the contract or quest
-        content: string[];
+        content: any[];
         // aiTools is the list functions that are used to create modify or update the contract or quest
         aiTools: string[];
         // metadata is other data that is used to create modify or update the contract or quest
@@ -41,6 +44,7 @@ export interface CatAttributeType {
 
 export interface CatModelFunctions {
     dataFunctions: {
+        // set attributes sets the energy model state
         setAttributes: (attributes: CatAttributeType[]) => void;
         // lets create a function that will set the id of the contract
         setId: (id: string) => void;
@@ -91,30 +95,34 @@ export const defaultCatModel: CatModelType = {
     functions: [
         {
             dataFunctions: {
-                setAttributes: (attributes: CatAttributeType[]) => {},
+                setAttributes: (attributes: CatAttributeType[]) => {
+
+                },
                 // lets create a function that will set the id of the contract
-                setId: (id: string) => {},
+                setId: (id: any) => {},
                 // lets create a function that will set the title of the contract
-                setTitle: (title: string) => {},
+                setTitle: (title: any) => {},
                 // lets create a function that will set the tags of the contract
-                setTags: (tags: string[]) => {},
+                setTags: (tags: any) => {},
                 // lets create a function that will set the description of the contract
-                setDescription: (description: string) => {},
+                setDescription: (description: any) => {},
                 // lets create a function that will set the content of the contract
-                setContent: (content: string) => {},
+                setContent: (content: any) => {},
                 // lets create a function that will set the aiTools of the contract
-                setAiTools: (aiTools: string[]) => {},
+                setAiTools: (aiTools: any) => {},
                 // lets create a function that will set the metadata of the contract
-                setMetadata: (metadata: any[]) => {},
+                setMetadata: (metadata: any) => {},
                 // lets create a function that will set the log of the contract
-                setLog: (log: any[]) => {},
+                setLog: (log: any) => {},
                 // lets create a function that will set the nodes of the contract
-                setNodes: (nodes: any[]) => {},
+                setNodes: (nodes: any) => {},
                 // lets create a function that will set the edges of the contract
-                setEdges: (edges: any[]) => {},
+                setEdges: (edges: any) => {},
                 // lets create a function that will set the trades of the contract
-                setTrades: (trades: any[]) => {},
+                setTrades: (trades: any) => {},
             },
         },
     ],
+    energyModelState: 0,
+    setEnergyModelState: (energyModel: number) => {},
 };

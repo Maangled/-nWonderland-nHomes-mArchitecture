@@ -3,7 +3,7 @@ import { BottomTabsModel }  from "./Components/BottomTabDocker/BottomTabsModel";
 import { PortalPopup } from "./Components/PortalPopup";
 import { WalletModel } from "./Components/BankModels/WalletModel";
 import { BankModel } from "./Components/BankModels/BankModel";
-import { HostBankModel } from "./Components/BankModels/HostBankModel";
+import { HostBankModel } from "./Components/BankModels/HostBank/HostBankModel";
 import styles from "./css/SingleView.module.css";
 import { useMoralis } from "react-moralis";
 

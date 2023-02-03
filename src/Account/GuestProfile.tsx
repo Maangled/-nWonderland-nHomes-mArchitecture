@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from "../css/BankModel.module.css";
 
 // pulls data from the guest
+// if there are no guests, it creates a guest
 // checks if the guest has a profile
 // if they don't, it creates one
 // if they do, it pulls the data from the vault, and sets the guest profile

@@ -87,13 +87,7 @@ export const CatModel: FunctionComponent<MatterModelType> = ({ onClose, setMainV
         throw new Error("Function not implemented.");
       }
     }} />,
-    <CatFeedView onClose={function (): void {
-      throw new Error("Function not implemented.");
-    } } daliLamaDao={{
-      onClose: function (): void {
-        throw new Error("Function not implemented.");
-      }
-    }} />,
+    //<CatFeedView attributes={attributes} />,
     <CatScratchView onClose={function (): void {
       throw new Error("Function not implemented.");
     } } daliLamaDao={{

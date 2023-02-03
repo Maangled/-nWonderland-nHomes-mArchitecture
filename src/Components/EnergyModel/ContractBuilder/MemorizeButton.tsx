@@ -1,7 +1,7 @@
 //TODO: turn this into useMemorize hook
-// this button is used to store the current quest in the quest browser in the user's local storage
-// for now, we are going to use the first profile in the user's profile list and turn it into a contract profile
-// use moralis to get the user's profile list and then use the first profile in the list to create a contract profile
+// this button is used to store the current quest in the quest browser in the user's local storage as a contract profile
+// attributes are passed in from the host bank model to the Energy Model to the contract builder to the memorize button
+// the memorize button then calls the createContractProfile cloud function to store the contract profile in the user's local storage
 import React, { FunctionComponent, useState, useEffect } from "react";
 import styles from "../EnergyModel.module.css";
 import Account from "../../../Account/Account";
@@ -18,7 +18,9 @@ export const MemorizeButton: FunctionComponent<CatModelType> = ({attributes}) =>
     const { Moralis } = useMoralis();
     const memorizeQuest = async () => {
         setIsMemorizing(true);
-        const result = await Moralis.Cloud.run('createContractProfile', { data: attributes }).then((result) => {
+        console.log("memorizeQuest has been called" + attributes[0].data.id);
+        await Moralis.Cloud.run('memorizeContract', attributes[0].data ).then((result) => {
+        console.log("memorizeContract result: " + result);
         setIsMemorizing(false);
         setIsMemorized(true);
         });

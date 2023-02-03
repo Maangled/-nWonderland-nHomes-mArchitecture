@@ -10,57 +10,32 @@
     // The video studio will take the note that the user wrote in the contract builder 
     // and help them create a video that is a reply to the video that they clicked on in the CatModel in the fasion they specified in the contract builder.
     // The video studio will then take the video that the user created render it into a dream sequence.
+
+    // This model will pull the contracts from the guestbook (the second profile managed by the familiar) and display them in the energy model.
+
+
+
     
 import React, { FunctionComponent, useCallback, useState } from 'react';
+import { CatModelType } from '../../CatModel/CatButton/CatModelTypes';
+import { NoteContractDisplay, SmallContractDisplay, LargeContractDisplay } from '../ContractDisplays';
 import styles from './CatalogModel.module.css';
+import { ContractBuilder, ContractBuilderViewer } from '../ContractBuilder/ContractBuilder';
 
 
-export const CatalogModel = () => {
+export const CatalogModel:FunctionComponent<CatModelType> = ({attributes, functions, ...rest}) => {
     return (
-        <div className={styles.matterContentBrowser}>
-        <div className={styles.questBrowserDiv}>
-          <div className={styles.matterHolderModel}>
-            <img
-              className={styles.guestWalletIcon}
-              alt=""
-              src="../guest-wallet2.svg"
-            />
-            <div className={styles.categoryTitleDiv}>CatFeed</div>
-            <img className={styles.questIcon} alt="" src="../quest-icon6.svg" />
-            <div className={styles.questHeadlineDiv}>Subcategory</div>
-            <button className={styles.settingButton}>
-              <img
-                className={styles.rectangleIcon}
-                alt=""
-                src="../rectangle-9.svg"
-              />
-            </button>
-          </div>
-        </div>
-         </div>
+      <>
+        <ContractBuilder attributes={attributes} functions={functions}/>
+      </>
     )
 }
 
-export const CatalogModelViewer = () => {
-    return (
-        <div className={styles.catFeedViewBox}>
-        <div className={styles.catFeedView}>
-            <img
-                className={styles.guestWalletIcon}
-                alt=""
-                src="../guest-wallet2.svg"
-            />
-            <div className={styles.categoryTitleDiv}>CatFeed</div>
-            <img className={styles.questIcon} alt="" src="../quest-icon6.svg" />
-                <div className={styles.questHeadlineDiv}>Subcategory</div>
-                <button className={styles.settingButton}>
-                <img
-                    className={styles.rectangleIcon}
-                    alt=""
-                    src="../rectangle-9.svg"
-            />
-                </button>
-        </div>
-</div>
-    )
+
+export const CatalogModelViewer:FunctionComponent<CatModelType> = ({attributes, ...rest}) => {
+  return (
+    <>
+      <ContractBuilderViewer attributes={attributes}/>
+      </>
+  )
 }
